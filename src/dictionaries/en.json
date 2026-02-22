@@ -1,0 +1,89 @@
+{
+    "navigation": {
+        "home": "Home",
+        "services": "Services",
+        "contact": "Contact",
+        "getQuote": "Get a Quote"
+    },
+    "hero": {
+        "badge": "Free Consultation",
+        "title1": "Professional",
+        "title2": "Websites",
+        "title3": "that make a difference.",
+        "subtitle": "From design to launch, with total transparency on costs and services. Fast, secure, and compliant websites.",
+        "ctaPrimary": "Request a Free Quote",
+        "ctaSecondary": "Discover Services"
+    },
+    "trust": {
+        "fast": {
+            "title": "Fast",
+            "desc": "Websites optimized for lightning-fast loading times"
+        },
+        "secure": {
+            "title": "Secure",
+            "desc": "HTTPS, anti-spam protection, and GDPR compliance"
+        },
+        "responsive": {
+            "title": "Responsive",
+            "desc": "Perfect on every device, desktop and mobile"
+        },
+        "transparent": {
+            "title": "Transparent",
+            "desc": "Clear pricing, no hidden costs"
+        }
+    },
+    "pricingPreview": {
+        "title1": "Services &",
+        "title2": "Pricing",
+        "subtitle": "Pricing designed to offer flexibility, whether you are looking for a one-time investment or a managed monthly fee.",
+        "note": "For complex projects, quotes are calculated ad hoc based on the client's specific requests to ensure maximum fairness.",
+        "discoverAll": "Discover all details →"
+    },
+    "pricingTable": {
+        "priceFrom": "from",
+        "month": "/month",
+        "year": "/year",
+        "item1": {
+            "title": "Initial Consultation",
+            "price": "Free",
+            "desc": "Analysis of needs and project feasibility."
+        },
+        "item2": {
+            "title": "Showcase Website",
+            "price": "€400",
+            "desc": "Complete \"turnkey\" realization."
+        },
+        "item3": {
+            "title": "Maintenance",
+            "price": "€40",
+            "desc": "For minor tweaks and updates, plus hosting is included in the fee."
+        },
+        "item4": {
+            "title": "Complete E-commerce",
+            "price": "Quote",
+            "desc": "Consultation + ad hoc quote calculated based on specific requests."
+        },
+        "item5": {
+            "title": "Custom Web Application",
+            "price": "Quote",
+            "desc": "Tailored solutions for complex workflows. Ad hoc quote to guarantee fairness."
+        },
+        "item6": {
+            "title": "Domain & Email",
+            "price": "€10–€20",
+            "desc": "Name of the commercial business or brand, registration cost."
+        }
+    },
+    "cta": {
+        "title": "Ready to start?",
+        "desc": "The initial consultation is completely free. We analyze your needs together.",
+        "button": "Book Free Consultation"
+    },
+    "footer": {
+        "servicesTitle": "Services",
+        "legalTitle": "Legal",
+        "privacy": "Privacy Policy",
+        "cookie": "Cookie Policy",
+        "rights": "All rights reserved."
+    }
+}

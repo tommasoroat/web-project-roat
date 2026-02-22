@@ -1,0 +1,89 @@
+{
+    "navigation": {
+        "home": "Startseite",
+        "services": "Dienstleistungen",
+        "contact": "Kontakt",
+        "getQuote": "Angebot anfordern"
+    },
+    "hero": {
+        "badge": "Kostenlose Beratung",
+        "title1": "Professionelle",
+        "title2": "Websites",
+        "title3": "die den Unterschied machen.",
+        "subtitle": "Vom Entwurf bis zum Start, mit voller Transparenz bei Kosten und Leistungen. Schnelle, sichere und rechtskonforme Websites.",
+        "ctaPrimary": "Kostenloses Angebot anfordern",
+        "ctaSecondary": "Dienstleistungen entdecken"
+    },
+    "trust": {
+        "fast": {
+            "title": "Schnell",
+            "desc": "Auf blitzschnelle Ladezeiten optimierte Websites"
+        },
+        "secure": {
+            "title": "Sicher",
+            "desc": "HTTPS, Anti-Spam-Schutz und DSGVO-Konformität"
+        },
+        "responsive": {
+            "title": "Responsiv",
+            "desc": "Perfekt auf jedem Gerät, Desktop und Mobile"
+        },
+        "transparent": {
+            "title": "Transparent",
+            "desc": "Klare Preise, keine versteckten Kosten"
+        }
+    },
+    "pricingPreview": {
+        "title1": "Leistungen &",
+        "title2": "Preise",
+        "subtitle": "Preise, die Flexibilität bieten, egal ob Sie eine Einmalinvestition oder eine verwaltete monatliche Gebühr bevorzugen.",
+        "note": "Für komplexe Projekte werden Angebote individuell nach den spezifischen Kundenanforderungen berechnet, um maximale Fairness zu gewährleisten.",
+        "discoverAll": "Alle Details entdecken →"
+    },
+    "pricingTable": {
+        "priceFrom": "ab",
+        "month": "/Monat",
+        "year": "/Jahr",
+        "item1": {
+            "title": "Erstberatung",
+            "price": "Kostenlos",
+            "desc": "Analyse der Bedürfnisse und Projektmachbarkeit."
+        },
+        "item2": {
+            "title": "Showcase-Website",
+            "price": "€400",
+            "desc": "Komplette \"schlüsselfertige\" Realisierung."
+        },
+        "item3": {
+            "title": "Wartung",
+            "price": "€40",
+            "desc": "Für kleinere Anpassungen und Updates, zudem ist das Hosting in der Gebühr enthalten."
+        },
+        "item4": {
+            "title": "Kompletter E-Commerce",
+            "price": "Angebot",
+            "desc": "Beratung + individuelles Angebot basierend auf spezifischen Anfragen."
+        },
+        "item5": {
+            "title": "Individuelle Webanwendung",
+            "price": "Angebot",
+            "desc": "Maßgeschneiderte Lösungen für komplexe Arbeitsabläufe. Individuelles Angebot für Fairness."
+        },
+        "item6": {
+            "title": "Domain & E-Mail",
+            "price": "€10–€20",
+            "desc": "Name des Unternehmens oder der Marke, reine Registrierungskosten."
+        }
+    },
+    "cta": {
+        "title": "Bereit zum Start?",
+        "desc": "Die Erstberatung ist völlig kostenlos. Wir analysieren gemeinsam Ihre Bedürfnisse.",
+        "button": "Kostenlose Beratung buchen"
+    },
+    "footer": {
+        "servicesTitle": "Dienstleistungen",
+        "legalTitle": "Rechtliches",
+        "privacy": "Datenschutzrichtlinie",
+        "cookie": "Cookie-Richtlinie",
+        "rights": "Alle Rechte vorbehalten."
+    }
+}
