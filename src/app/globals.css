@@ -67,7 +67,6 @@
     font-family: var(--font-sans);
     line-height: 1.7;
     position: relative;
-    /* For background pseudo-elements if needed */
   }
 
   /* Focus visible for keyboard navigation - WCAG 2.1 AA */
@@ -152,7 +151,6 @@
     gap: 0.5rem;
     padding: 0.875rem 2rem;
     background: #3b82f6;
-    /* Blue-500 */
     color: white;
     font-weight: 600;
     border-radius: var(--radius-xl);
@@ -173,7 +171,6 @@
       0 14px 24px -5px rgba(59, 130, 246, 0.6),
       inset 0 2px 6px rgba(255, 255, 255, 0.4);
     background: #4f46e5;
-    /* Indigo-500 slight shift */
   }
 
   .btn-primary:active {
@@ -191,7 +188,6 @@
     padding: 0.875rem 2rem;
     background: rgba(255, 255, 255, 0.6);
     color: #475569;
-    /* Slate 600 */
     font-weight: 600;
     border-radius: var(--radius-xl);
     backdrop-filter: blur(12px);
@@ -270,6 +266,22 @@
   .form-input[aria-invalid="true"] {
     border-color: var(--color-error);
   }
+
+  /* Shooting star trail — CSS animation for GPU perf */
+  .shooting-star-trail {
+    background: linear-gradient(to right,
+        transparent 0%,
+        rgba(186, 230, 253, 0.12) 15%,
+        rgba(147, 197, 253, 0.3) 35%,
+        rgba(96, 165, 250, 0.6) 60%,
+        rgba(59, 130, 246, 0.8) 80%,
+        rgba(37, 99, 235, 0.95) 97%,
+        rgba(253, 224, 71, 1) 100%);
+    border-radius: 999px;
+    filter: blur(0.2px);
+    will-change: transform, opacity;
+    animation: shoot-star var(--duration, 1.2s) linear forwards;
+  }
 }
 
 @layer utilities {
@@ -321,6 +333,39 @@
     }
   }
 
+  /* Background blob animations — pure CSS, GPU-accelerated */
+  @keyframes blob-drift-1 {
+    0% { transform: translate3d(0, 0, 0) scale(1); }
+    25% { transform: translate3d(150px, 100px, 0) scale(1.2); }
+    50% { transform: translate3d(0, 200px, 0) scale(1); }
+    75% { transform: translate3d(-150px, 100px, 0) scale(0.8); }
+    100% { transform: translate3d(0, 0, 0) scale(1); }
+  }
+
+  @keyframes blob-drift-2 {
+    0% { transform: translate3d(0, 0, 0) scale(1); }
+    25% { transform: translate3d(-200px, 150px, 0) scale(0.8); }
+    50% { transform: translate3d(0, -50px, 0) scale(1.2); }
+    75% { transform: translate3d(200px, 150px, 0) scale(0.9); }
+    100% { transform: translate3d(0, 0, 0) scale(1); }
+  }
+
+  @keyframes blob-drift-3 {
+    0% { transform: translate3d(0, 0, 0) scale(1); }
+    25% { transform: translate3d(200px, -200px, 0) scale(1.1); }
+    50% { transform: translate3d(-100px, 0, 0) scale(0.9); }
+    75% { transform: translate3d(100px, 100px, 0) scale(1.1); }
+    100% { transform: translate3d(0, 0, 0) scale(1); }
+  }
+
+  @keyframes shoot-star {
+    0% { opacity: 0; transform: translateX(0); }
+    3% { opacity: 1; }
+    50% { opacity: 1; }
+    85% { opacity: 0.6; }
+    100% { opacity: 0; transform: translateX(200vw); }
+  }
+
   .animate-fade-in-up {
     animation: fade-in-up 0.6s ease-out forwards;
   }
@@ -331,6 +376,18 @@
 
   .animate-pulse-glow {
     animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-blob-1 {
+    animation: blob-drift-1 25s linear infinite;
+  }
+
+  .animate-blob-2 {
+    animation: blob-drift-2 30s linear infinite;
+  }
+
+  .animate-blob-3 {
+    animation: blob-drift-3 28s linear infinite;
   }
 
   .animation-delay-200 {

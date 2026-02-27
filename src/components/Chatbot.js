@@ -149,7 +149,7 @@ export default function Chatbot() {
         <>
             {/* Proactive yellow popup */}
             {showProactive && !isOpen && (
-                <div className="fixed bottom-24 right-6 z-[9991] animate-fade-in-up">
+                <div className="fixed bottom-24 right-6 z-[9991] animate-fade-in-up" style={{ willChange: 'transform' }}>
                     <div className="relative bg-amber-400 text-surface-900 text-sm font-medium px-4 py-3 rounded-2xl shadow-lg max-w-[250px]" style={{ boxShadow: '0 4px 20px rgba(251, 191, 36, 0.4)' }}>
                         {proactiveMessages[locale] || proactiveMessages.it}
                         <button
@@ -172,6 +172,7 @@ export default function Chatbot() {
                     ? 'bg-surface-700 rotate-0'
                     : 'bg-gradient-to-br from-primary to-primary-dark animate-pulse-glow hover:scale-110'
                     }`}
+                style={{ willChange: 'transform' }}
                 aria-label={isOpen ? strings.closeLabel : strings.openLabel}
                 aria-expanded={isOpen}
                 aria-controls="chatbot-window"
@@ -285,7 +286,7 @@ export default function Chatbot() {
                         </button>
                     </div>
                 </div>
-            </div>
+            </div >
         </>
     );
 }

@@ -3,13 +3,14 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import LanguageSwitcher from './LanguageSwitcher';
 
 export default function Navbar({ dict, locale }) {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const pathname = usePathname();
+    const router = useRouter();
 
     const navLinks = [
         { href: `/${locale}`, label: dict.navigation.home },
@@ -39,6 +40,12 @@ export default function Navbar({ dict, locale }) {
         }
     }, [isOpen]);
 
+    // Logo click → admin area (hidden access)
+    const handleLogoClick = (e) => {
+        e.preventDefault();
+        router.push(`/${locale}/admin`);
+    };
+
     return (
         <header
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
@@ -51,16 +58,16 @@ export default function Navbar({ dict, locale }) {
                 className="section-container flex items-center justify-between h-18 py-4"
                 aria-label="Navigazione principale"
             >
-                {/* Logo */}
-                <Link
-                    href={`/${locale}`}
-                    className="group"
-                    aria-label="RTD - Torna alla homepage"
+                {/* Logo — clicking navigates to admin */}
+                <button
+                    onClick={handleLogoClick}
+                    className="group bg-transparent border-none p-0 cursor-pointer"
+                    aria-label="RTD"
                 >
                     <div className="relative w-36 h-12 transition-opacity group-hover:opacity-80">
                         <Image src="/logo.png" alt="RTD Logo" fill className="object-contain object-left" priority />
                     </div>
-                </Link>
+                </button>
 
                 {/* Desktop links */}
                 <ul className="hidden md:flex items-center gap-1" role="menubar">

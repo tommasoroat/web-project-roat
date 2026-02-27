@@ -2,11 +2,12 @@
 
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 export default function LanguageSwitcher({ currentLocale }) {
     const pathname = usePathname();
     const [isOpen, setIsOpen] = useState(false);
+    const dropdownRef = useRef(null);
 
     const locales = [
         { code: 'it', label: 'IT' },
@@ -18,12 +19,25 @@ export default function LanguageSwitcher({ currentLocale }) {
     const redirectedPathName = (locale) => {
         if (!pathname) return '/';
         const segments = pathname.split('/');
-        segments[1] = locale; // Replace the locale (which is always at index 1 due to our middleware)
+        segments[1] = locale;
         return segments.join('/');
     };
 
+    // Close on click outside
+    useEffect(() => {
+        const handleClickOutside = (e) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+                setIsOpen(false);
+            }
+        };
+        if (isOpen) {
+            document.addEventListener('mousedown', handleClickOutside);
+            return () => document.removeEventListener('mousedown', handleClickOutside);
+        }
+    }, [isOpen]);
+
     return (
-        <div className="relative inline-block text-left">
+        <div className="relative inline-block text-left" ref={dropdownRef}>
             <div>
                 <button
                     onClick={() => setIsOpen(!isOpen)}
@@ -51,21 +65,21 @@ export default function LanguageSwitcher({ currentLocale }) {
 
             {isOpen && (
                 <div
-                    className="origin-top-right absolute right-0 mt-2 w-24 rounded-md shadow-lg bg-surface-800 border border-primary/20 ring-1 ring-black ring-opacity-5 focus:outline-none z-50"
+                    className="origin-top-right absolute right-0 top-full mt-0.5 w-24 rounded-md shadow-lg bg-surface-800 border border-primary/20 ring-1 ring-black ring-opacity-5 focus:outline-none z-50 overflow-hidden"
                     role="menu"
                     aria-orientation="vertical"
                     aria-labelledby="language-menu-button"
                     tabIndex="-1"
                 >
-                    <div className="py-1" role="none">
+                    <div className="p-1" role="none">
                         {locales.map((locale) => (
                             <Link
                                 href={redirectedPathName(locale.code)}
                                 key={locale.code}
-                                className={`block px-4 py-2 text-sm hover:bg-surface-700 hover:text-primary-light transition-colors ${currentLocale === locale.code ? 'text-primary-light font-bold' : 'text-text-primary'
+                                className={`block px-3 py-2 text-sm rounded-sm hover:bg-surface-700 hover:text-primary-light transition-colors ${currentLocale === locale.code ? 'text-primary-light font-bold bg-primary/10' : 'text-text-primary'
                                     }`}
                                 role="menuitem"
-                                tabIndex="-1"
+                                tabIndex={0}
                                 onClick={() => setIsOpen(false)}
                             >
                                 {locale.label}

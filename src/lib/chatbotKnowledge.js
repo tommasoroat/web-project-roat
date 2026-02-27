@@ -9,7 +9,7 @@ const knowledgeBases = {
     it: [
         {
             keywords: ['prezzo', 'prezzi', 'costo', 'costi', 'tariff', 'quanto', 'listino', 'pagare', 'spendere', 'budget'],
-            response: `Ecco il nostro listino servizi:\n\n• **Consulenza Iniziale** — **Gratuita** (di persona o online)\n• **Sito Vetrina** — da **€400** (chiavi in mano)\n• **Abbonamento** — da **€40/mese** (ritocchi, aggiornamenti + hosting incluso)\n• **Modifiche importanti** — Consulenza + Preventivo ad hoc\n• **Progetti Complessi** — Preventivo personalizzato\n• **Dominio Privato** — €10–€20/anno\n\nVuoi maggiori dettagli su un servizio specifico?`,
+            response: `Ecco il nostro listino servizi:\n\n• **Consulenza Iniziale** — **Gratuita** (di persona o online)\n• **Sito Vetrina** — da **€400** (chiavi in mano)\n• **Manutenzione** — da **€40/mese** (aggiornamenti + hosting incluso)\n• **Manutenzione Premium** — da **€60/mese** (tutto incluso + report bimestrale)\n• **Progetti Complessi** — Preventivo personalizzato\n• **Dominio Privato** — €10–€20/anno\n\nVuoi maggiori dettagli su un servizio specifico?`,
         },
         {
             keywords: ['consulenza', 'gratuita', 'gratis', 'analisi', 'incontro', 'parlare', 'appuntamento'],
@@ -17,11 +17,15 @@ const knowledgeBases = {
         },
         {
             keywords: ['vetrina', 'sito web', 'sito', 'realizzazione', 'creare sito', 'nuovo sito', 'fare un sito'],
-            response: `Il **Sito Vetrina** parte da **€400** ed è una realizzazione completa "chiavi in mano".\n\nInclude design professionale, responsive per mobile, ottimizzazione SEO e conformità legale.\n\nPer progetti più complessi o personalizzati, il preventivo viene calcolato ad hoc in base alle tue richieste specifiche.`,
+            response: `Il **Sito Vetrina** parte da **€400** ed è una soluzione standard con struttura predefinita.\n\nIl prezzo è indicativo e si riferisce a un sito vetrina essenziale. Per personalizzazioni avanzate, il preventivo viene calcolato ad hoc.\n\nInclude design professionale, responsive per mobile, ottimizzazione SEO e conformità legale.`,
         },
         {
             keywords: ['abbonamento', 'mensile', 'manutenzione', 'aggiornament', 'hosting', 'gestione'],
-            response: `L'**Abbonamento** parte da **€40/mese** e include:\n\n• Piccoli ritocchi e aggiornamenti continui\n• **Hosting incluso** nel canone mensile\n• Assistenza tecnica\n\nÈ la soluzione ideale per chi vuole un sito sempre aggiornato senza pensieri!`,
+            response: `La **Manutenzione** parte da **€40/mese** e include:\n\n• Piccoli interventi tecnici e aggiornamenti\n• **Hosting incluso** nel canone mensile\n• Assistenza tecnica\n\nC'è anche la **Manutenzione Premium** da **€60/mese** che include tutto il piano standard, più un **report dettagliato bimestrale** sull'andamento del sito, le visite e l'indice di frequenza di rimbalzo.\n\nQuale piano ti interessa?`,
+        },
+        {
+            keywords: ['premium', 'report', 'bimestrale', 'visite', 'statistiche', 'analytics', 'frequenza'],
+            response: `La **Manutenzione Premium** costa da **€60/mese** e include:\n\n• Tutto il piano Manutenzione standard\n• **Report dettagliato bimestrale** sull'andamento del sito\n• Analisi delle **visite** e del traffico\n• Monitoraggio dell'**indice di frequenza di rimbalzo**\n\nÈ la soluzione ideale per chi vuole monitorare attivamente le performance del proprio sito!`,
         },
         {
             keywords: ['dominio', '.it', '.com', 'nome sito', 'url', 'indirizzo web'],
@@ -37,11 +41,11 @@ const knowledgeBases = {
         },
         {
             keywords: ['sicurezza', 'sicuro', 'https', 'ssl', 'protezione', 'dati', 'privacy', 'gdpr'],
-            response: `La sicurezza è una priorità! I siti RTD includono:\n\n• **HTTPS** con certificato SSL attivo\n• **Protezione anti-spam** sui form di contatto\n• **Validazione rigorosa** dei dati inseriti\n• Conformità **GDPR** per la protezione dei dati personali\n\nLa tua sicurezza e quella dei tuoi clienti è garantita.`,
+            response: `La sicurezza è una priorità! I siti RTD includono:\n\n• **HTTPS** con certificato SSL attivo\n• **Protezione anti-spam** sui form di contatto\n• **Validazione rigorosa** dei dati inseriti\n• Conformità **GDPR** per la protezione dei dati personali\n• **Google Analytics 4** con Consent Mode v2\n\nLa tua sicurezza e quella dei tuoi clienti è garantita.`,
         },
         {
             keywords: ['contatt', 'email', 'telefon', 'scrivere', 'raggiungere', 'dove siete'],
-            response: `Puoi contattarmi in diversi modi:\n\n• **Email:** info@rtd.it\n• **Form di contatto:** nella sezione Contatti del sito\n• **Consulenza gratuita:** prenotala per un incontro di persona o online\n\nSarò felice di aiutarti!`,
+            response: `Puoi contattarmi in diversi modi:\n\n• **Email:** rtd.devlab@gmail.com\n• **Form di contatto:** nella sezione Contatti del sito\n• **Consulenza gratuita:** prenotala per un incontro di persona o online\n\nSarò felice di aiutarti!`,
         },
         {
             keywords: ['chi sei', 'chi siete', 'about', 'informazione', 'racconta', 'presentati'],
@@ -55,11 +59,15 @@ const knowledgeBases = {
             keywords: ['grazie', 'thanks', 'perfetto', 'ottimo', 'gentile'],
             response: `Grazie a te! Se hai altre domande, sono qui per aiutarti.\n\nRicorda che puoi sempre prenotare una **consulenza gratuita** per discutere del tuo progetto!`,
         },
+        {
+            keywords: ['vacanza', 'chiuso', 'ferie', 'disponibil'],
+            response: `Se al momento non sono disponibile, troverai un avviso nella sezione Contatti.\n\nPuoi comunque scrivermi via email a **rtd.devlab@gmail.com** e ti risponderò appena possibile!\n\nGrazie per la pazienza 🏖️`,
+        },
     ],
     en: [
         {
             keywords: ['price', 'prices', 'cost', 'costs', 'rate', 'rates', 'how much', 'budget', 'pay', 'spend', 'fee'],
-            response: `Here are our service rates:\n\n• **Initial Consultation** — **Free** (in person or online)\n• **Showcase Website** — from **€400** (turnkey)\n• **Subscription** — from **€40/month** (updates + hosting included)\n• **Major Changes** — Consultation + Custom Quote\n• **Complex Projects** — Personalized Quote\n• **Private Domain** — €10–€20/year\n\nWould you like more details about a specific service?`,
+            response: `Here are our service rates:\n\n• **Initial Consultation** — **Free** (in person or online)\n• **Showcase Website** — from **€400** (turnkey)\n• **Maintenance** — from **€40/month** (updates + hosting included)\n• **Premium Maintenance** — from **€60/month** (everything + bimonthly report)\n• **Complex Projects** — Personalized Quote\n• **Private Domain** — €10–€20/year\n\nWould you like more details about a specific service?`,
         },
         {
             keywords: ['consultation', 'free', 'meeting', 'appointment', 'talk', 'discuss', 'analysis'],
@@ -67,11 +75,15 @@ const knowledgeBases = {
         },
         {
             keywords: ['website', 'site', 'build', 'create', 'new site', 'web design', 'showcase'],
-            response: `The **Showcase Website** starts from **€400** and is a complete "turnkey" solution.\n\nIt includes professional design, mobile responsive layout, SEO optimization, and legal compliance.\n\nFor more complex or customized projects, the quote is calculated based on your specific requirements.`,
+            response: `The **Showcase Website** starts from **€400** and is a standard solution with predefined structure.\n\nThe price refers to an essential showcase website. For advanced customizations, the quote is calculated based on your specific requirements.\n\nIncludes professional design, mobile responsive layout, SEO optimization, and legal compliance.`,
         },
         {
             keywords: ['subscription', 'monthly', 'maintenance', 'updates', 'hosting', 'management'],
-            response: `The **Subscription** starts from **€40/month** and includes:\n\n• Minor tweaks and continuous updates\n• **Hosting included** in the monthly fee\n• Technical support\n\nIt's the ideal solution for those who want an always up-to-date website without worries!`,
+            response: `**Maintenance** starts from **€40/month** and includes:\n\n• Minor technical interventions and updates\n• **Hosting included** in the monthly fee\n• Technical support\n\nThere's also **Premium Maintenance** from **€60/month** which includes everything in the standard plan, plus a **detailed bimonthly report** on site performance, visits and bounce rate.\n\nWhich plan interests you?`,
+        },
+        {
+            keywords: ['premium', 'report', 'bimonthly', 'visits', 'statistics', 'analytics', 'bounce'],
+            response: `**Premium Maintenance** costs from **€60/month** and includes:\n\n• Everything in the standard Maintenance plan\n• **Detailed bimonthly report** on site performance\n• **Visits** and traffic analysis\n• **Bounce rate** monitoring\n\nIt's the ideal solution for those who want to actively monitor their website's performance!`,
         },
         {
             keywords: ['domain', '.it', '.com', 'site name', 'url', 'web address'],
@@ -87,11 +99,11 @@ const knowledgeBases = {
         },
         {
             keywords: ['security', 'secure', 'https', 'ssl', 'protection', 'data', 'privacy', 'gdpr'],
-            response: `Security is a priority! RTD websites include:\n\n• **HTTPS** with active SSL certificate\n• **Anti-spam protection** on contact forms\n• **Rigorous data validation**\n• **GDPR** compliance for personal data protection\n\nYour security and that of your customers is guaranteed.`,
+            response: `Security is a priority! RTD websites include:\n\n• **HTTPS** with active SSL certificate\n• **Anti-spam protection** on contact forms\n• **Rigorous data validation**\n• **GDPR** compliance for personal data protection\n• **Google Analytics 4** with Consent Mode v2\n\nYour security and that of your customers is guaranteed.`,
         },
         {
             keywords: ['contact', 'email', 'phone', 'write', 'reach', 'where'],
-            response: `You can contact me in several ways:\n\n• **Email:** info@rtd.it\n• **Contact form:** in the Contact section of the website\n• **Free consultation:** book an in-person or online meeting\n\nI'll be happy to help!`,
+            response: `You can contact me in several ways:\n\n• **Email:** rtd.devlab@gmail.com\n• **Contact form:** in the Contact section of the website\n• **Free consultation:** book an in-person or online meeting\n\nI'll be happy to help!`,
         },
         {
             keywords: ['who are you', 'about', 'info', 'tell me', 'introduce'],
@@ -105,11 +117,15 @@ const knowledgeBases = {
             keywords: ['thank', 'thanks', 'perfect', 'great', 'excellent', 'awesome'],
             response: `Thank you! If you have more questions, I'm here to help.\n\nRemember that you can always book a **free consultation** to discuss your project!`,
         },
+        {
+            keywords: ['vacation', 'holiday', 'closed', 'available'],
+            response: `If I'm currently unavailable, you'll find a notice in the Contact section.\n\nYou can still email me at **rtd.devlab@gmail.com** and I'll get back to you as soon as possible!\n\nThank you for your patience 🏖️`,
+        },
     ],
     de: [
         {
             keywords: ['preis', 'preise', 'kosten', 'tarif', 'tarife', 'wieviel', 'budget', 'zahlen', 'ausgeben', 'gebühr'],
-            response: `Hier sind unsere Servicetarife:\n\n• **Erstberatung** — **Kostenlos** (persönlich oder online)\n• **Schaufenster-Website** — ab **€400** (schlüsselfertig)\n• **Abonnement** — ab **€40/Monat** (Updates + Hosting inklusive)\n• **Größere Änderungen** — Beratung + individuelles Angebot\n• **Komplexe Projekte** — Personalisiertes Angebot\n• **Private Domain** — €10–€20/Jahr\n\nMöchten Sie mehr Details zu einem bestimmten Service?`,
+            response: `Hier sind unsere Servicetarife:\n\n• **Erstberatung** — **Kostenlos** (persönlich oder online)\n• **Showcase-Website** — ab **€400** (schlüsselfertig)\n• **Wartung** — ab **€40/Monat** (Updates + Hosting inklusive)\n• **Premium-Wartung** — ab **€60/Monat** (alles inklusive + Zweimonatsbericht)\n• **Komplexe Projekte** — Personalisiertes Angebot\n• **Private Domain** — €10–€20/Jahr\n\nMöchten Sie mehr Details zu einem bestimmten Service?`,
         },
         {
             keywords: ['beratung', 'kostenlos', 'gratis', 'analyse', 'treffen', 'gespräch', 'termin'],
@@ -117,11 +133,15 @@ const knowledgeBases = {
         },
         {
             keywords: ['webseite', 'website', 'seite', 'erstellen', 'neue seite', 'webdesign', 'schaufenster'],
-            response: `Die **Schaufenster-Website** beginnt ab **€400** und ist eine komplette "schlüsselfertige" Lösung.\n\nSie umfasst professionelles Design, mobile-responsive Layout, SEO-Optimierung und rechtliche Konformität.\n\nFür komplexere oder individuellere Projekte wird das Angebot basierend auf Ihren spezifischen Anforderungen berechnet.`,
+            response: `Die **Showcase-Website** beginnt ab **€400** und ist eine Standardlösung mit vordefinierter Struktur.\n\nDer Preis bezieht sich auf eine grundlegende Showcase-Website. Für erweiterte Anpassungen wird das Angebot individuell berechnet.\n\nBeinhaltet professionelles Design, mobile-responsive Layout, SEO-Optimierung und rechtliche Konformität.`,
         },
         {
             keywords: ['abonnement', 'monatlich', 'wartung', 'aktualisierung', 'hosting', 'verwaltung'],
-            response: `Das **Abonnement** beginnt ab **€40/Monat** und beinhaltet:\n\n• Kleinere Anpassungen und laufende Updates\n• **Hosting inklusive** in der Monatsgebühr\n• Technischer Support\n\nEs ist die ideale Lösung für alle, die eine stets aktuelle Website ohne Sorgen wollen!`,
+            response: `Die **Wartung** beginnt ab **€40/Monat** und beinhaltet:\n\n• Kleinere technische Eingriffe und Updates\n• **Hosting inklusive** in der Monatsgebühr\n• Technischer Support\n\nEs gibt auch die **Premium-Wartung** ab **€60/Monat** mit allem im Standardplan, plus einem **detaillierten Zweimonatsbericht** über Website-Leistung, Besuche und Absprungrate.\n\nWelcher Plan interessiert Sie?`,
+        },
+        {
+            keywords: ['premium', 'bericht', 'zweimonat', 'besuche', 'statistik', 'analytics', 'absprung'],
+            response: `Die **Premium-Wartung** kostet ab **€60/Monat** und beinhaltet:\n\n• Alles im Standard-Wartungsplan\n• **Detaillierter Zweimonatsbericht** über Website-Leistung\n• Analyse der **Besuche** und des Traffics\n• Überwachung der **Absprungrate**\n\nEs ist die ideale Lösung für alle, die die Performance ihrer Website aktiv überwachen möchten!`,
         },
         {
             keywords: ['domain', '.it', '.com', 'name', 'url', 'webadresse'],
@@ -137,11 +157,11 @@ const knowledgeBases = {
         },
         {
             keywords: ['sicherheit', 'sicher', 'https', 'ssl', 'schutz', 'daten', 'datenschutz', 'dsgvo'],
-            response: `Sicherheit hat Priorität! RTD-Websites beinhalten:\n\n• **HTTPS** mit aktivem SSL-Zertifikat\n• **Anti-Spam-Schutz** bei Kontaktformularen\n• **Strenge Datenvalidierung**\n• **DSGVO**-Konformität zum Schutz personenbezogener Daten\n\nIhre Sicherheit und die Ihrer Kunden ist gewährleistet.`,
+            response: `Sicherheit hat Priorität! RTD-Websites beinhalten:\n\n• **HTTPS** mit aktivem SSL-Zertifikat\n• **Anti-Spam-Schutz** bei Kontaktformularen\n• **Strenge Datenvalidierung**\n• **DSGVO**-Konformität zum Schutz personenbezogener Daten\n• **Google Analytics 4** mit Consent Mode v2\n\nIhre Sicherheit und die Ihrer Kunden ist gewährleistet.`,
         },
         {
             keywords: ['kontakt', 'email', 'telefon', 'schreiben', 'erreichen', 'wo'],
-            response: `Sie können mich auf verschiedene Weisen kontaktieren:\n\n• **E-Mail:** info@rtd.it\n• **Kontaktformular:** im Kontaktbereich der Website\n• **Kostenlose Beratung:** buchen Sie ein persönliches oder Online-Treffen\n\nIch helfe Ihnen gerne!`,
+            response: `Sie können mich auf verschiedene Weisen kontaktieren:\n\n• **E-Mail:** rtd.devlab@gmail.com\n• **Kontaktformular:** im Kontaktbereich der Website\n• **Kostenlose Beratung:** buchen Sie ein persönliches oder Online-Treffen\n\nIch helfe Ihnen gerne!`,
         },
         {
             keywords: ['wer bist du', 'über', 'info', 'erzähl', 'vorstellen'],
@@ -154,6 +174,10 @@ const knowledgeBases = {
         {
             keywords: ['danke', 'dankeschön', 'perfekt', 'toll', 'super', 'ausgezeichnet'],
             response: `Vielen Dank! Wenn Sie weitere Fragen haben, bin ich hier, um zu helfen.\n\nDenken Sie daran, dass Sie jederzeit eine **kostenlose Beratung** buchen können, um Ihr Projekt zu besprechen!`,
+        },
+        {
+            keywords: ['urlaub', 'ferien', 'geschlossen', 'verfügbar'],
+            response: `Wenn ich gerade nicht verfügbar bin, finden Sie einen Hinweis im Kontaktbereich.\n\nSie können mir trotzdem an **rtd.devlab@gmail.com** schreiben und ich werde mich so bald wie möglich bei Ihnen melden!\n\nVielen Dank für Ihre Geduld 🏖️`,
         },
     ],
 };
@@ -171,7 +195,7 @@ export const chatbotStrings = {
         closeLabel: "Chiudi chat assistente",
         typingLabel: "L'assistente sta scrivendo",
         moreInfo: "Maggiori informazioni",
-        fallback: "Mi dispiace, non ho informazioni specifiche su questo al momento. Per darti un'assistenza precisa, ti invito a contattarmi direttamente: sarò felice di aiutarti!",
+        fallback: "Mi dispiace, non ho informazioni specifiche su questo al momento. Per darti un'assistenza precisa, ti invito a contattarmi direttamente a rtd.devlab@gmail.com: sarò felice di aiutarti!",
     },
     en: {
         welcome: "Hi! I'm RTD's virtual assistant. How can I help you?",
@@ -184,7 +208,7 @@ export const chatbotStrings = {
         closeLabel: "Close chat assistant",
         typingLabel: "The assistant is typing",
         moreInfo: "More information",
-        fallback: "I'm sorry, I don't have specific information about this right now. For precise assistance, please contact me directly — I'll be happy to help!",
+        fallback: "I'm sorry, I don't have specific information about this right now. For precise assistance, please email me at rtd.devlab@gmail.com — I'll be happy to help!",
     },
     de: {
         welcome: "Hallo! Ich bin der virtuelle Assistent von RTD. Wie kann ich Ihnen helfen?",
@@ -197,7 +221,7 @@ export const chatbotStrings = {
         closeLabel: "Chat-Assistent schließen",
         typingLabel: "Der Assistent schreibt",
         moreInfo: "Mehr Informationen",
-        fallback: "Leider habe ich momentan keine spezifischen Informationen dazu. Für eine genaue Unterstützung lade ich Sie ein, mich direkt zu kontaktieren — ich helfe Ihnen gerne!",
+        fallback: "Leider habe ich momentan keine spezifischen Informationen dazu. Für eine genaue Unterstützung schreiben Sie mir an rtd.devlab@gmail.com — ich helfe Ihnen gerne!",
     },
 };
 

@@ -1,59 +1,70 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 
 const CONSENT_KEY = 'rtd_cookie_consent';
+const CONSENT_MAX_AGE_MS = 6 * 30 * 24 * 60 * 60 * 1000; // ~6 months
 
 const defaultConsent = {
     necessary: true,
     analytics: false,
     marketing: false,
-    functional: false,
 };
 
 const cookieStrings = {
     it: {
         title: 'Questo sito utilizza i cookie',
-        description: 'Utilizziamo cookie tecnici necessari per il funzionamento del sito e, previo consenso, cookie di profilazione per migliorare la tua esperienza. Puoi scegliere quali categorie autorizzare. Per maggiori informazioni consulta la nostra',
+        description: 'Utilizziamo cookie tecnici necessari per il funzionamento del sito e, previo consenso, cookie di profilazione per migliorare la tua esperienza. Per maggiori informazioni consulta la nostra',
         policyLink: 'Cookie Policy',
-        acceptAll: 'Accetta tutti',
-        rejectAll: 'Rifiuta tutti',
+        acceptAll: 'Accetta Tutti',
+        rejectAll: 'Solo Tecnici',
         savePrefs: 'Salva preferenze',
-        customize: 'Personalizza →',
+        customize: 'Personalizza',
         necessary: { label: 'Necessari', desc: 'Essenziali per il funzionamento del sito. Non possono essere disattivati.' },
-        functional: { label: 'Funzionali', desc: 'Migliorano la funzionalità del sito ricordando le tue preferenze.' },
-        analytics: { label: 'Analitici', desc: 'Ci aiutano a comprendere come utilizzi il sito per migliorarlo.' },
+        analytics: { label: 'Statistici (GA4)', desc: 'Ci aiutano a comprendere come utilizzi il sito per migliorarlo.' },
         marketing: { label: 'Marketing', desc: 'Utilizzati per mostrarti pubblicità pertinente.' },
     },
     en: {
         title: 'This site uses cookies',
-        description: 'We use essential cookies for the site to function and, with your consent, profiling cookies to improve your experience. You can choose which categories to authorize. For more information, see our',
+        description: 'We use essential cookies for the site to function and, with your consent, profiling cookies to improve your experience. For more information, see our',
         policyLink: 'Cookie Policy',
-        acceptAll: 'Accept all',
-        rejectAll: 'Reject all',
+        acceptAll: 'Accept All',
+        rejectAll: 'Reject All',
         savePrefs: 'Save preferences',
-        customize: 'Customize →',
+        customize: 'Customize',
         necessary: { label: 'Necessary', desc: 'Essential for the website to function. Cannot be disabled.' },
-        functional: { label: 'Functional', desc: 'Improve the website functionality by remembering your preferences.' },
-        analytics: { label: 'Analytics', desc: 'Help us understand how you use the site to improve it.' },
+        analytics: { label: 'Analytics (GA4)', desc: 'Help us understand how you use the site to improve it.' },
         marketing: { label: 'Marketing', desc: 'Used to show you relevant advertising.' },
     },
     de: {
         title: 'Diese Website verwendet Cookies',
-        description: 'Wir verwenden technische Cookies, die für den Betrieb der Website erforderlich sind, und mit Ihrer Zustimmung Profiling-Cookies zur Verbesserung Ihrer Erfahrung. Sie können wählen, welche Kategorien Sie autorisieren möchten. Weitere Informationen finden Sie in unserer',
+        description: 'Wir verwenden technische Cookies, die für den Betrieb der Website erforderlich sind, und mit Ihrer Zustimmung Profiling-Cookies zur Verbesserung Ihrer Erfahrung. Weitere Informationen finden Sie in unserer',
         policyLink: 'Cookie-Richtlinie',
         acceptAll: 'Alle akzeptieren',
         rejectAll: 'Alle ablehnen',
         savePrefs: 'Einstellungen speichern',
-        customize: 'Anpassen →',
+        customize: 'Anpassen',
         necessary: { label: 'Notwendig', desc: 'Wesentlich für den Betrieb der Website. Können nicht deaktiviert werden.' },
-        functional: { label: 'Funktional', desc: 'Verbessern die Website-Funktionalität durch Speichern Ihrer Einstellungen.' },
-        analytics: { label: 'Analytisch', desc: 'Helfen uns zu verstehen, wie Sie die Website nutzen, um sie zu verbessern.' },
+        analytics: { label: 'Analytisch (GA4)', desc: 'Helfen uns zu verstehen, wie Sie die Website nutzen, um sie zu verbessern.' },
         marketing: { label: 'Marketing', desc: 'Werden verwendet, um Ihnen relevante Werbung zu zeigen.' },
     },
 };
+
+/**
+ * Update Google Consent Mode v2 based on user choices.
+ */
+function updateGtagConsent(consentState) {
+    if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+        window.gtag('consent', 'update', {
+            analytics_storage: consentState.analytics ? 'granted' : 'denied',
+            ad_storage: consentState.marketing ? 'granted' : 'denied',
+            ad_user_data: consentState.marketing ? 'granted' : 'denied',
+            ad_personalization: consentState.marketing ? 'granted' : 'denied',
+        });
+    }
+}
 
 export default function CookieBanner() {
     const pathname = usePathname();
@@ -63,24 +74,78 @@ export default function CookieBanner() {
     const [visible, setVisible] = useState(false);
     const [showDetails, setShowDetails] = useState(false);
     const [consent, setConsent] = useState(defaultConsent);
+    const bannerRef = useRef(null);
+    const firstFocusRef = useRef(null);
 
+    // Check localStorage for existing consent
     useEffect(() => {
-        const stored = localStorage.getItem(CONSENT_KEY);
-        if (stored) {
-            const parsed = JSON.parse(stored);
-            setConsent(parsed);
-            applyCookiePolicy(parsed);
+        try {
+            const stored = localStorage.getItem(CONSENT_KEY);
+            if (stored) {
+                const parsed = JSON.parse(stored);
+                const timestamp = parsed.timestamp ? new Date(parsed.timestamp).getTime() : 0;
+                const now = Date.now();
+
+                // If consent is less than 6 months old, apply it and don't show banner
+                if (now - timestamp < CONSENT_MAX_AGE_MS) {
+                    const restoredConsent = {
+                        necessary: true,
+                        analytics: !!parsed.analytics,
+                        marketing: !!parsed.marketing,
+                    };
+                    setConsent(restoredConsent);
+                    updateGtagConsent(restoredConsent);
+                    setVisible(false);
+                    return;
+                }
+            }
+        } catch {
+            // If parsing fails, show banner
         }
-        // Always show the banner on every page load
+        // No valid consent found — show the banner
         setVisible(true);
     }, []);
 
-    const applyCookiePolicy = (consentState) => {
-        if (typeof window !== 'undefined') {
-            window.__cookieConsent = consentState;
-            window.dispatchEvent(new CustomEvent('cookieConsentUpdated', { detail: consentState }));
+    // Listen for "reopen cookie settings" event from footer
+    useEffect(() => {
+        const handler = () => {
+            setVisible(true);
+            setShowDetails(true);
+        };
+        window.addEventListener('openCookieSettings', handler);
+        return () => window.removeEventListener('openCookieSettings', handler);
+    }, []);
+
+    // Trap focus inside the banner when visible
+    const handleKeyDown = useCallback((e) => {
+        if (e.key === 'Tab' && bannerRef.current) {
+            const focusableEls = bannerRef.current.querySelectorAll(
+                'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+            );
+            if (focusableEls.length === 0) return;
+            const first = focusableEls[0];
+            const last = focusableEls[focusableEls.length - 1];
+
+            if (e.shiftKey) {
+                if (document.activeElement === first) {
+                    e.preventDefault();
+                    last.focus();
+                }
+            } else {
+                if (document.activeElement === last) {
+                    e.preventDefault();
+                    first.focus();
+                }
+            }
         }
-    };
+    }, []);
+
+    // Focus first button when banner opens
+    useEffect(() => {
+        if (visible && firstFocusRef.current) {
+            setTimeout(() => firstFocusRef.current?.focus(), 100);
+        }
+    }, [visible]);
 
     const saveConsent = (consentState) => {
         localStorage.setItem(CONSENT_KEY, JSON.stringify({
@@ -88,16 +153,17 @@ export default function CookieBanner() {
             timestamp: new Date().toISOString(),
         }));
         setConsent(consentState);
-        applyCookiePolicy(consentState);
+        updateGtagConsent(consentState);
         setVisible(false);
+        setShowDetails(false);
     };
 
     const acceptAll = () => {
-        saveConsent({ necessary: true, analytics: true, marketing: true, functional: true });
+        saveConsent({ necessary: true, analytics: true, marketing: true });
     };
 
     const rejectAll = () => {
-        saveConsent(defaultConsent);
+        saveConsent({ ...defaultConsent });
     };
 
     const saveCustom = () => {
@@ -109,20 +175,10 @@ export default function CookieBanner() {
         setConsent(prev => ({ ...prev, [category]: !prev[category] }));
     };
 
-    useEffect(() => {
-        const handler = () => {
-            setVisible(true);
-            setShowDetails(true);
-        };
-        window.addEventListener('openCookieSettings', handler);
-        return () => window.removeEventListener('openCookieSettings', handler);
-    }, []);
-
     if (!visible) return null;
 
     const categories = [
         { key: 'necessary', ...strings.necessary, locked: true },
-        { key: 'functional', ...strings.functional },
         { key: 'analytics', ...strings.analytics },
         { key: 'marketing', ...strings.marketing },
     ];
@@ -132,12 +188,16 @@ export default function CookieBanner() {
             className="fixed inset-0 z-[9998] flex items-end justify-center p-4"
             role="dialog"
             aria-modal="true"
-            aria-label={strings.title}
+            aria-labelledby="cookie-banner-title"
+            onKeyDown={handleKeyDown}
         >
-            <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
+            <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" aria-hidden="true" />
 
-            <div className="relative w-full max-w-2xl bg-surface-800 border border-primary/15 rounded-2xl shadow-2xl p-6 animate-fade-in-up">
-                <h2 className="text-lg font-bold text-text-primary mb-2">
+            <div
+                ref={bannerRef}
+                className="relative w-full max-w-2xl bg-surface-800 border border-primary/15 rounded-2xl shadow-2xl p-6 animate-fade-in-up"
+            >
+                <h2 id="cookie-banner-title" className="text-lg font-bold text-text-primary mb-2">
                     {strings.title}
                 </h2>
                 <p className="text-text-secondary text-sm mb-4 leading-relaxed">
@@ -178,7 +238,11 @@ export default function CookieBanner() {
                 )}
 
                 <div className="flex flex-wrap gap-3 items-center">
-                    <button onClick={acceptAll} className="btn-primary text-sm !py-2.5 !px-6">
+                    <button
+                        ref={firstFocusRef}
+                        onClick={acceptAll}
+                        className="btn-primary text-sm !py-2.5 !px-6"
+                    >
                         {strings.acceptAll}
                     </button>
                     <button onClick={rejectAll} className="btn-secondary text-sm !py-2.5 !px-6">
@@ -193,7 +257,7 @@ export default function CookieBanner() {
                             onClick={() => setShowDetails(true)}
                             className="text-sm text-primary-light hover:underline ml-auto"
                         >
-                            {strings.customize}
+                            {strings.customize} →
                         </button>
                     )}
                 </div>

@@ -11,11 +11,12 @@ export const metadata = {
 export default async function ServiziPage({ params }) {
     const { locale } = await params;
     const dict = await getDictionary(locale);
+    const sv = dict.servizi || {};
 
     return (
         <>
             {/* Header */}
-            <section className="py-24 relative overflow-hidden" aria-label="Intestazione servizi">
+            <section className="py-24 relative overflow-hidden" aria-label="Services header">
                 <div className="absolute inset-0 bg-gradient-to-b from-primary/8 to-transparent pointer-events-none" aria-hidden="true" />
                 <div className="section-container relative z-10 text-center">
                     <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">
@@ -28,36 +29,20 @@ export default async function ServiziPage({ params }) {
             </section>
 
             {/* Pricing */}
-            <section className="pb-20" aria-label="Tabella tariffe">
+            <section className="pb-20" aria-label="Pricing table">
                 <div className="section-container">
                     <PricingTable dict={dict} locale={locale} />
                 </div>
             </section>
 
-            {/* Details */}
-            <section className="py-20 border-t border-surface-600" aria-label="Dettaglio servizi">
+            {/* Details — How it works */}
+            <section className="py-20 border-t border-surface-600" aria-label="How it works">
                 <div className="section-container">
                     <div className="flex justify-center mb-12">
-                        <h2 className="text-2xl font-bold text-white bg-gradient-to-r from-primary to-primary-dark px-8 py-3 rounded-2xl shadow-lg shadow-primary/20">Come funziona</h2>
+                        <h2 className="text-2xl font-bold text-white bg-gradient-to-r from-primary to-primary-dark px-8 py-3 rounded-2xl shadow-lg shadow-primary/20">{sv.howItWorks || 'How it works'}</h2>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {[
-                            {
-                                step: '01',
-                                title: 'Consulenza Gratuita',
-                                desc: 'Analizziamo insieme le tue necessità e la fattibilità del progetto. Di persona o online, senza impegno.',
-                            },
-                            {
-                                step: '02',
-                                title: 'Preventivo Trasparente',
-                                desc: 'Ricevi un preventivo chiaro e dettagliato, calcolato ad hoc in base alle tue richieste specifiche.',
-                            },
-                            {
-                                step: '03',
-                                title: 'Realizzazione & Lancio',
-                                desc: 'Sviluppo il tuo sito "chiavi in mano": design, codice, ottimizzazione e messa online.',
-                            },
-                        ].map((item) => (
+                        {(sv.steps || []).map((item) => (
                             <div key={item.step} className="glass-card p-6 text-center">
                                 <span className="text-4xl font-extrabold gradient-text block mb-3" aria-hidden="true">
                                     {item.step}
@@ -71,46 +56,28 @@ export default async function ServiziPage({ params }) {
             </section>
 
             {/* Table format for accessibility */}
-            <section className="py-20 border-t border-surface-600" aria-label="Riepilogo tariffe accessibile">
+            <section className="py-20 border-t border-surface-600" aria-label="Pricing summary">
                 <div className="section-container">
                     <div className="flex justify-center mb-8">
-                        <h2 className="text-2xl font-bold text-white bg-gradient-to-r from-primary to-primary-dark px-8 py-3 rounded-2xl shadow-lg shadow-primary/20">Riepilogo Tariffe</h2>
+                        <h2 className="text-2xl font-bold text-white bg-gradient-to-r from-primary to-primary-dark px-8 py-3 rounded-2xl shadow-lg shadow-primary/20">{sv.pricingSummary || 'Pricing Summary'}</h2>
                     </div>
                     <div className="overflow-x-auto">
-                        <table className="w-full text-left text-sm" role="table" aria-label="Tabella riassuntiva servizi e tariffe">
+                        <table className="w-full text-left text-sm" role="table" aria-label="Services and pricing summary">
                             <thead>
                                 <tr className="border-b border-surface-600">
-                                    <th className="py-4 px-4 text-text-primary font-semibold" scope="col">Servizio</th>
-                                    <th className="py-4 px-4 text-text-primary font-semibold" scope="col">Tariffa Base</th>
-                                    <th className="py-4 px-4 text-text-primary font-semibold" scope="col">Note</th>
+                                    {(sv.tableHeaders || ['Service', 'Base Price', 'Notes']).map((h, i) => (
+                                        <th key={i} className="py-4 px-4 text-text-primary font-semibold" scope="col">{h}</th>
+                                    ))}
                                 </tr>
                             </thead>
                             <tbody className="text-text-secondary">
-                                <tr className="border-b border-surface-700 hover:bg-surface-700/50 transition-colors">
-                                    <td className="py-4 px-4 font-medium text-text-primary">Consulenza Iniziale (di persona o online)</td>
-                                    <td className="py-4 px-4 font-bold text-success">Gratis</td>
-                                    <td className="py-4 px-4">Analisi delle necessità e fattibilità progetto.</td>
-                                </tr>
-                                <tr className="border-b border-surface-700 hover:bg-surface-700/50 transition-colors">
-                                    <td className="py-4 px-4 font-medium text-text-primary">Sito Vetrina (Standardizzato)</td>
-                                    <td className="py-4 px-4 font-bold gradient-text">da €400</td>
-                                    <td className="py-4 px-4">Soluzione standard con struttura predefinita.</td>
-                                </tr>
-                                <tr className="border-b border-surface-700 hover:bg-surface-700/50 transition-colors">
-                                    <td className="py-4 px-4 font-medium text-text-primary">Manutenzione</td>
-                                    <td className="py-4 px-4 font-bold gradient-text">da €40/mese</td>
-                                    <td className="py-4 px-4">Per mantenere il sito sempre aggiornato, sicuro e funzionante nel tempo. Hosting incluso.</td>
-                                </tr>
-                                <tr className="border-b border-surface-700 hover:bg-surface-700/50 transition-colors">
-                                    <td className="py-4 px-4 font-medium text-text-primary">Sito web personalizzato</td>
-                                    <td className="py-4 px-4 font-bold text-text-primary">Preventivo</td>
-                                    <td className="py-4 px-4">Progetto su misura, realizzato dalla A alla Z in base alle tue esigenze.</td>
-                                </tr>
-                                <tr className="hover:bg-surface-700/50 transition-colors">
-                                    <td className="py-4 px-4 font-medium text-text-primary">Dominio & Email</td>
-                                    <td className="py-4 px-4 font-bold gradient-text">€10 – €20/anno</td>
-                                    <td className="py-4 px-4">Nome dell&apos;esercizio commerciale o del brand.</td>
-                                </tr>
+                                {(sv.tableRows || []).map((row, i) => (
+                                    <tr key={i} className={`border-b border-surface-700 hover:bg-surface-700/50 transition-colors ${row.highlight ? 'bg-amber-50/30' : ''}`}>
+                                        <td className="py-4 px-4 font-medium text-text-primary">{row.service}</td>
+                                        <td className={`py-4 px-4 font-bold ${row.priceClass || 'gradient-text'}`}>{row.price}</td>
+                                        <td className="py-4 px-4">{row.note}</td>
+                                    </tr>
+                                ))}
                             </tbody>
                         </table>
                     </div>
@@ -118,9 +85,9 @@ export default async function ServiziPage({ params }) {
             </section>
 
             {/* CTA */}
-            <section className="py-20 bg-gradient-to-br from-primary/10 via-transparent to-accent/5" aria-label="Contattaci">
+            <section className="py-20 bg-gradient-to-br from-primary/10 via-transparent to-accent/5" aria-label="Call to action">
                 <div className="section-container text-center">
-                    <h2 className="text-3xl font-extrabold mb-4">Hai trovato il servizio giusto?</h2>
+                    <h2 className="text-3xl font-extrabold mb-4">{sv.ctaTitle || 'Found the right service?'}</h2>
                     <p className="text-text-secondary text-lg mb-8 max-w-xl mx-auto">
                         {dict.cta.desc}
                     </p>

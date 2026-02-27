@@ -51,12 +51,12 @@
         "item2": {
             "title": "Showcase Website",
             "price": "€400",
-            "desc": "Complete \"turnkey\" realization."
+            "desc": "Standard solution with predefined structure. The price refers to an essential showcase website without advanced technical customizations."
         },
         "item3": {
             "title": "Maintenance",
             "price": "€40",
-            "desc": "For minor tweaks and updates, plus hosting is included in the fee."
+            "desc": "To keep the website always updated, secure and functional over time. Includes minor technical interventions, updates and hosting."
         },
         "item4": {
             "title": "Complete E-commerce",
@@ -64,14 +64,19 @@
             "desc": "Consultation + ad hoc quote calculated based on specific requests."
         },
         "item5": {
-            "title": "Custom Web Application",
+            "title": "Custom Website",
             "price": "Quote",
-            "desc": "Tailored solutions for complex workflows. Ad hoc quote to guarantee fairness."
+            "desc": "Tailor-made project, built from A to Z based on your needs. The cost is defined through consultation and personalized quote."
         },
         "item6": {
             "title": "Domain & Email",
             "price": "€10–€20",
             "desc": "Name of the commercial business or brand, registration cost."
+        },
+        "item7": {
+            "title": "Premium Maintenance",
+            "price": "€60",
+            "desc": "Everything included in the standard plan, plus a detailed bimonthly report on site performance, visits and bounce rate."
         }
     },
     "cta": {
@@ -85,5 +90,271 @@
         "privacy": "Privacy Policy",
         "cookie": "Cookie Policy",
         "rights": "All rights reserved."
+    },
+    "contactForm": {
+        "title": "Request a free quote",
+        "nameLabel": "Full Name",
+        "emailLabel": "Email",
+        "phoneLabel": "Phone",
+        "phoneOptional": "(optional)",
+        "serviceLabel": "Service of interest",
+        "messageLabel": "Your message",
+        "namePlaceholder": "John Smith",
+        "emailPlaceholder": "john@example.com",
+        "phonePlaceholder": "+1 XXX XXX XXXX",
+        "servicePlaceholder": "Select a service...",
+        "messagePlaceholder": "Describe your project or request...",
+        "serviceOptions": [
+            "Information",
+            "Consultation",
+            "Quote"
+        ],
+        "privacyText": "I accept the processing of personal data according to the",
+        "privacyLinkText": "Privacy Policy",
+        "submitButton": "Send Request",
+        "submittingButton": "Sending...",
+        "gdprDisclaimer": "Your data will be processed in compliance with GDPR (EU Reg. 2016/679).",
+        "successMessage": "Message sent successfully!",
+        "errorMessage": "An error occurred. Please try again later.",
+        "rateLimitMessage": "Too many requests. Please try again in a few minutes.",
+        "connectionError": "Connection error. Check your internet connection and try again.",
+        "validation": {
+            "nameRequired": "Name is required",
+            "nameMinLength": "Name must be at least 2 characters",
+            "nameMaxLength": "Name cannot exceed 100 characters",
+            "emailRequired": "Email is required",
+            "emailInvalid": "Please enter a valid email address",
+            "phoneInvalid": "Please enter a valid phone number",
+            "serviceRequired": "Please select a service",
+            "messageRequired": "Message is required",
+            "messageMinLength": "Message must be at least 10 characters",
+            "messageMaxLength": "Message cannot exceed 2000 characters",
+            "privacyRequired": "You must accept the Privacy Policy to proceed"
+        }
+    },
+    "privacyPolicy": {
+        "lastUpdated": "Last updated: February 2026",
+        "s1Title": "1. Data Controller",
+        "s1Text": "The Data Controller is <strong>Tommaso Roat</strong> — RTD, with registered office in Merano (BZ), Italy.",
+        "s1Email": "Contact email:",
+        "s2Title": "2. Types of Data Collected",
+        "s2Intro": "Personal data collected through the website may include:",
+        "s2Items": [
+            {
+                "label": "Contact data:",
+                "text": "name, surname, email address, phone number"
+            },
+            {
+                "label": "Browsing data:",
+                "text": "IP address, browser type, pages visited, access times"
+            },
+            {
+                "label": "Voluntarily provided data:",
+                "text": "information entered in the contact form"
+            }
+        ],
+        "s3Title": "3. Purposes of Processing",
+        "s3Intro": "Personal data is processed for the following purposes:",
+        "s3Items": [
+            {
+                "label": "Responding to requests:",
+                "text": "managing quote and contact requests"
+            },
+            {
+                "label": "Service delivery:",
+                "text": "performing the requested professional activities"
+            },
+            {
+                "label": "Legal obligations:",
+                "text": "fulfilling obligations required by applicable law"
+            },
+            {
+                "label": "Service improvement:",
+                "text": "anonymous statistical analysis of site usage (with consent)"
+            }
+        ],
+        "s4Title": "4. Legal Basis for Processing",
+        "s4Intro": "Data processing is based on the following legal bases under Art. 6 of the GDPR:",
+        "s4Items": [
+            {
+                "label": "Consent:",
+                "text": "the data subject has given consent for specific purposes (Art. 6, par. 1, let. a)"
+            },
+            {
+                "label": "Contractual performance:",
+                "text": "processing is necessary for the performance of a contract (Art. 6, par. 1, let. b)"
+            },
+            {
+                "label": "Legal obligation:",
+                "text": "processing is necessary to comply with a legal obligation (Art. 6, par. 1, let. c)"
+            },
+            {
+                "label": "Legitimate interest:",
+                "text": "processing is necessary to pursue a legitimate interest of the controller (Art. 6, par. 1, let. f)"
+            }
+        ],
+        "s5Title": "5. Data Retention",
+        "s5Text1": "Personal data will be retained for the time strictly necessary to achieve the purposes for which it was collected and in any case not beyond the limits set by applicable law.",
+        "s5Text2": "In particular: data related to contact requests will be retained for a maximum of <strong>24 months</strong> from collection.",
+        "s6Title": "6. Rights of the Data Subject",
+        "s6Intro": "Under Articles 15-22 of the GDPR, the data subject has the right to:",
+        "s6Items": [
+            "Access their personal data",
+            "Obtain rectification or deletion of data",
+            "Restrict processing",
+            "Object to processing",
+            "Data portability",
+            "Withdraw consent at any time",
+            "Lodge a complaint with the Data Protection Authority"
+        ],
+        "s6Contact": "To exercise your rights, contact the Data Controller at:",
+        "s7Title": "7. Data Security",
+        "s7Text": "The Data Controller adopts appropriate technical and organizational measures to ensure the security of personal data, including <strong>HTTPS/SSL</strong> protocols, data validation, rate limiting, and anti-spam protection.",
+        "s8Title": "8. Data Transfer",
+        "s8Text": "Personal data is not transferred outside the European Economic Area (EEA). If necessary, the transfer will take place in compliance with the guarantees provided by the GDPR.",
+        "s9Title": "9. Changes to the Privacy Policy",
+        "s9Text": "The Data Controller reserves the right to make changes to this policy at any time. Changes will be published on this page with an indication of the date of the last update."
+    },
+    "cookiePolicy": {
+        "lastUpdated": "Last updated: February 2026",
+        "s1Title": "1. What are Cookies",
+        "s1Text": "Cookies are small text files stored on the user's device while browsing a website. They serve to improve the browsing experience by remembering user preferences and collecting statistical information.",
+        "s2Title": "2. Types of Cookies Used",
+        "s2_1Title": "2.1 Technical Cookies (Necessary)",
+        "s2_1Text": "They are essential for the website to function and cannot be disabled. They do not require user consent.",
+        "s2_1TableHeaders": [
+            "Cookie",
+            "Purpose",
+            "Duration"
+        ],
+        "s2_1TableRow": [
+            "rtd_cookie_consent",
+            "Stores cookie preferences",
+            "12 months"
+        ],
+        "s2_2Title": "2.2 Functional Cookies",
+        "s2_2Text": "They improve the website functionality by remembering user preferences (e.g., language, theme). They require consent.",
+        "s2_3Title": "2.3 Analytics Cookies",
+        "s2_3Text": "They collect anonymous statistical information about site usage to help us improve content and navigation. They require consent.",
+        "s2_4Title": "2.4 Marketing Cookies",
+        "s2_4Text": "Used to track visitors across websites in order to show relevant and engaging advertising. They require consent.",
+        "s3Title": "3. Consent Management",
+        "s3Text1": "When you first access the site, an <strong>information banner</strong> is displayed that allows you to:",
+        "s3Items": [
+            {
+                "label": "Accept all",
+                "text": "cookies"
+            },
+            {
+                "label": "Reject all",
+                "text": "non-essential cookies"
+            },
+            {
+                "label": "Customize",
+                "text": "preferences by category"
+            }
+        ],
+        "s3Text2": "Non-technical cookies are <strong>preventively blocked</strong> until the user expresses consent, in compliance with applicable regulations.",
+        "s3Text3": "You can change your preferences at any time by clicking the \"Cookie Settings\" link in the site footer.",
+        "s4Title": "4. How to Disable Cookies from the Browser",
+        "s4Intro": "In addition to our banner settings, you can manage cookies directly from your browser settings:",
+        "s4Browsers": [
+            {
+                "name": "Chrome:",
+                "path": "Settings → Privacy and security → Cookies"
+            },
+            {
+                "name": "Firefox:",
+                "path": "Settings → Privacy and security → Cookies"
+            },
+            {
+                "name": "Safari:",
+                "path": "Preferences → Privacy → Block cookies"
+            },
+            {
+                "name": "Edge:",
+                "path": "Settings → Cookies and site permissions"
+            }
+        ],
+        "s4Note": "Note: disabling technical cookies may impair the functionality of the site.",
+        "s5Title": "5. Third-Party Cookies",
+        "s5Text": "This site may use third-party services that install their own cookies. The Data Controller has no direct control over these cookies. For more information, please consult the respective privacy policies of the providers.",
+        "s6Title": "6. Legal Framework",
+        "s6Intro": "This Cookie Policy is drafted in compliance with:",
+        "s6Items": [
+            "EU Regulation 2016/679 (GDPR)",
+            "Directive 2002/58/EC (ePrivacy Directive)",
+            "Italian Legislative Decree 196/2003 (Italian Privacy Code)",
+            "Italian Data Protection Authority provision of May 8, 2014",
+            "Italian Data Protection Authority guidelines of June 10, 2021"
+        ],
+        "s7Title": "7. Contact",
+        "s7Text": "For any questions regarding this Cookie Policy, contact the Data Controller at:"
+    },
+    "servizi": {
+        "howItWorks": "How it works",
+        "steps": [
+            {
+                "step": "01",
+                "title": "Free Consultation",
+                "desc": "We analyze your needs and project feasibility together. In person or online, with no obligation."
+            },
+            {
+                "step": "02",
+                "title": "Transparent Quote",
+                "desc": "Receive a clear and detailed quote, calculated ad hoc based on your specific requests."
+            },
+            {
+                "step": "03",
+                "title": "Development & Launch",
+                "desc": "I develop your website turnkey: design, code, optimization, and deployment."
+            }
+        ],
+        "pricingSummary": "Pricing Summary",
+        "tableHeaders": [
+            "Service",
+            "Base Price",
+            "Notes"
+        ],
+        "tableRows": [
+            {
+                "service": "Initial Consultation (in person or online)",
+                "price": "Free",
+                "note": "Analysis of needs and project feasibility.",
+                "priceClass": "text-success"
+            },
+            {
+                "service": "Showcase Website (Standard)",
+                "price": "from €400",
+                "note": "Standard solution with predefined structure.",
+                "priceClass": "gradient-text"
+            },
+            {
+                "service": "Maintenance",
+                "price": "from €40/month",
+                "note": "To keep the website always updated, secure and functional. Hosting included.",
+                "priceClass": "gradient-text"
+            },
+            {
+                "service": "Premium Maintenance ⭐",
+                "price": "from €60/month",
+                "note": "Everything in the standard plan, plus bimonthly report on site performance, visits and bounce rate.",
+                "priceClass": "gradient-text",
+                "highlight": true
+            },
+            {
+                "service": "Custom Website",
+                "price": "Quote",
+                "note": "Tailor-made project, built from A to Z based on your needs.",
+                "priceClass": "text-text-primary"
+            },
+            {
+                "service": "Domain & Email",
+                "price": "€10 – €20/year",
+                "note": "Name of the commercial business or brand.",
+                "priceClass": "gradient-text"
+            }
+        ],
+        "ctaTitle": "Found the right service?"
     }
 }

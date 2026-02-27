@@ -56,7 +56,7 @@
     "item3": {
       "title": "Manutenzione",
       "price": "€40",
-      "desc": "Per mantenere il sito sempre aggiornato, sicuro e funzionante nel tempo. Include piccoli interventi tecnici, aggiornamenti e hosting"
+      "desc": "Per mantenere il sito sempre aggiornato, sicuro e funzionante nel tempo. Include piccoli interventi tecnici, aggiornamenti e hosting."
     },
     "item4": {
       "title": "E-commerce Completo",
@@ -72,6 +72,11 @@
       "title": "Dominio & Email",
       "price": "€10–€20",
       "desc": "Nome dell'esercizio commerciale o del brand, costo vivo di registrazione."
+    },
+    "item7": {
+      "title": "Manutenzione Premium",
+      "price": "€60",
+      "desc": "Tutto incluso nel piano standard, più un report dettagliato bimestrale sull'andamento del sito, le visite e l'indice di frequenza di rimbalzo."
     }
   },
   "cta": {
@@ -85,5 +90,271 @@
     "privacy": "Privacy Policy",
     "cookie": "Cookie Policy",
     "rights": "Tutti i diritti riservati."
+  },
+  "contactForm": {
+    "title": "Richiedi un preventivo gratuito",
+    "nameLabel": "Nome e Cognome",
+    "emailLabel": "Email",
+    "phoneLabel": "Telefono",
+    "phoneOptional": "(opzionale)",
+    "serviceLabel": "Servizio di interesse",
+    "messageLabel": "Il tuo messaggio",
+    "namePlaceholder": "Mario Rossi",
+    "emailPlaceholder": "mario@esempio.it",
+    "phonePlaceholder": "+39 XXX XXX XXXX",
+    "servicePlaceholder": "Seleziona un servizio...",
+    "messagePlaceholder": "Descrivi il tuo progetto o la tua richiesta...",
+    "serviceOptions": [
+      "Informazioni",
+      "Consulenza",
+      "Preventivo"
+    ],
+    "privacyText": "Accetto il trattamento dei dati personali secondo la",
+    "privacyLinkText": "Privacy Policy",
+    "submitButton": "Invia Richiesta",
+    "submittingButton": "Invio in corso...",
+    "gdprDisclaimer": "I tuoi dati saranno trattati in conformità al GDPR (Reg. UE 2016/679).",
+    "successMessage": "Messaggio inviato con successo!",
+    "errorMessage": "Si è verificato un errore. Riprova più tardi.",
+    "rateLimitMessage": "Troppe richieste. Riprova tra qualche minuto.",
+    "connectionError": "Errore di connessione. Controlla la tua connessione internet e riprova.",
+    "validation": {
+      "nameRequired": "Il nome è obbligatorio",
+      "nameMinLength": "Il nome deve avere almeno 2 caratteri",
+      "nameMaxLength": "Il nome non può superare i 100 caratteri",
+      "emailRequired": "L'email è obbligatoria",
+      "emailInvalid": "Inserisci un indirizzo email valido",
+      "phoneInvalid": "Inserisci un numero di telefono valido",
+      "serviceRequired": "Seleziona un servizio",
+      "messageRequired": "Il messaggio è obbligatorio",
+      "messageMinLength": "Il messaggio deve avere almeno 10 caratteri",
+      "messageMaxLength": "Il messaggio non può superare i 2000 caratteri",
+      "privacyRequired": "Devi accettare la Privacy Policy per procedere"
+    }
+  },
+  "privacyPolicy": {
+    "lastUpdated": "Ultimo aggiornamento: Febbraio 2026",
+    "s1Title": "1. Titolare del Trattamento",
+    "s1Text": "Il Titolare del trattamento dei dati è <strong>Tommaso Roat</strong> — RTD, con sede legale in Merano (BZ).",
+    "s1Email": "Email di contatto:",
+    "s2Title": "2. Tipologie di Dati Raccolti",
+    "s2Intro": "I dati personali raccolti tramite il sito web possono includere:",
+    "s2Items": [
+      {
+        "label": "Dati di contatto:",
+        "text": "nome, cognome, indirizzo email, numero di telefono"
+      },
+      {
+        "label": "Dati di navigazione:",
+        "text": "indirizzo IP, tipo di browser, pagine visitate, orari di accesso"
+      },
+      {
+        "label": "Dati forniti volontariamente:",
+        "text": "informazioni inserite nel modulo di contatto"
+      }
+    ],
+    "s3Title": "3. Finalità del Trattamento",
+    "s3Intro": "I dati personali sono trattati per le seguenti finalità:",
+    "s3Items": [
+      {
+        "label": "Risposta alle richieste:",
+        "text": "gestione delle richieste di preventivo e contatto"
+      },
+      {
+        "label": "Erogazione del servizio:",
+        "text": "svolgimento delle attività professionali richieste"
+      },
+      {
+        "label": "Obblighi di legge:",
+        "text": "adempimento di obblighi previsti dalla normativa vigente"
+      },
+      {
+        "label": "Miglioramento del servizio:",
+        "text": "analisi statistiche anonime sull'utilizzo del sito (previo consenso)"
+      }
+    ],
+    "s4Title": "4. Base Giuridica del Trattamento",
+    "s4Intro": "Il trattamento dei dati si fonda sulle seguenti basi giuridiche ai sensi dell'Art. 6 del GDPR:",
+    "s4Items": [
+      {
+        "label": "Consenso:",
+        "text": "l'interessato ha espresso il consenso per finalità specifiche (Art. 6, par. 1, lett. a)"
+      },
+      {
+        "label": "Esecuzione contrattuale:",
+        "text": "il trattamento è necessario per l'esecuzione di un contratto (Art. 6, par. 1, lett. b)"
+      },
+      {
+        "label": "Obbligo legale:",
+        "text": "il trattamento è necessario per adempiere a un obbligo di legge (Art. 6, par. 1, lett. c)"
+      },
+      {
+        "label": "Interesse legittimo:",
+        "text": "il trattamento è necessario per perseguire un legittimo interesse del titolare (Art. 6, par. 1, lett. f)"
+      }
+    ],
+    "s5Title": "5. Conservazione dei Dati",
+    "s5Text1": "I dati personali saranno conservati per il tempo strettamente necessario al raggiungimento delle finalità per cui sono stati raccolti e comunque non oltre i termini previsti dalla normativa vigente.",
+    "s5Text2": "In particolare: i dati relativi alle richieste di contatto saranno conservati per un massimo di <strong>24 mesi</strong> dalla raccolta.",
+    "s6Title": "6. Diritti dell'Interessato",
+    "s6Intro": "Ai sensi degli Artt. 15-22 del GDPR, l'interessato ha diritto di:",
+    "s6Items": [
+      "Accedere ai propri dati personali",
+      "Ottenere la rettifica o la cancellazione dei dati",
+      "Limitare il trattamento",
+      "Opporsi al trattamento",
+      "Portabilità dei dati",
+      "Revocare il consenso in qualsiasi momento",
+      "Proporre reclamo all'Autorità Garante per la Protezione dei Dati Personali"
+    ],
+    "s6Contact": "Per esercitare i propri diritti, contattare il Titolare all'indirizzo:",
+    "s7Title": "7. Sicurezza dei Dati",
+    "s7Text": "Il Titolare adotta misure tecniche e organizzative appropriate per garantire la sicurezza dei dati personali, inclusi protocolli <strong>HTTPS/SSL</strong>, validazione dei dati, rate limiting e protezione anti-spam.",
+    "s8Title": "8. Trasferimento dei Dati",
+    "s8Text": "I dati personali non vengono trasferiti al di fuori dello Spazio Economico Europeo (SEE). In caso di necessità, il trasferimento avverrà nel rispetto delle garanzie previste dal GDPR.",
+    "s9Title": "9. Modifiche alla Privacy Policy",
+    "s9Text": "Il Titolare si riserva il diritto di apportare modifiche alla presente informativa in qualsiasi momento. Le modifiche saranno pubblicate su questa pagina con indicazione della data di ultimo aggiornamento."
+  },
+  "cookiePolicy": {
+    "lastUpdated": "Ultimo aggiornamento: Febbraio 2026",
+    "s1Title": "1. Cosa sono i Cookie",
+    "s1Text": "I cookie sono piccoli file di testo che vengono memorizzati sul dispositivo dell'utente durante la navigazione su un sito web. Servono a migliorare l'esperienza di navigazione, ricordando le preferenze dell'utente e raccogliendo informazioni statistiche.",
+    "s2Title": "2. Tipologie di Cookie Utilizzati",
+    "s2_1Title": "2.1 Cookie Tecnici (Necessari)",
+    "s2_1Text": "Sono essenziali per il funzionamento del sito e non possono essere disattivati. Non richiedono il consenso dell'utente.",
+    "s2_1TableHeaders": [
+      "Cookie",
+      "Finalità",
+      "Durata"
+    ],
+    "s2_1TableRow": [
+      "rtd_cookie_consent",
+      "Memorizza le preferenze sui cookie",
+      "12 mesi"
+    ],
+    "s2_2Title": "2.2 Cookie Funzionali",
+    "s2_2Text": "Migliorano la funzionalità del sito ricordando le preferenze dell'utente (es. lingua, tema). Richiedono il consenso.",
+    "s2_3Title": "2.3 Cookie Analitici",
+    "s2_3Text": "Raccolgono informazioni statistiche anonime sull'utilizzo del sito per aiutarci a migliorare i contenuti e la navigazione. Richiedono il consenso.",
+    "s2_4Title": "2.4 Cookie di Marketing",
+    "s2_4Text": "Utilizzati per tracciare i visitatori attraverso i siti web con lo scopo di mostrare pubblicità pertinente e coinvolgente. Richiedono il consenso.",
+    "s3Title": "3. Gestione del Consenso",
+    "s3Text1": "Al primo accesso al sito viene mostrato un <strong>banner informativo</strong> che consente di:",
+    "s3Items": [
+      {
+        "label": "Accettare tutti",
+        "text": "i cookie"
+      },
+      {
+        "label": "Rifiutare tutti",
+        "text": "i cookie non necessari"
+      },
+      {
+        "label": "Personalizzare",
+        "text": "le preferenze per categoria"
+      }
+    ],
+    "s3Text2": "I cookie non tecnici vengono <strong>bloccati preventivamente</strong> fino all'espressione del consenso da parte dell'utente, in conformità con la normativa vigente.",
+    "s3Text3": "È possibile modificare le proprie preferenze in qualsiasi momento cliccando sul link \"Impostazioni Cookie\" presente nel footer del sito.",
+    "s4Title": "4. Come Disabilitare i Cookie dal Browser",
+    "s4Intro": "Oltre alle impostazioni del nostro banner, è possibile gestire i cookie direttamente dalle impostazioni del browser:",
+    "s4Browsers": [
+      {
+        "name": "Chrome:",
+        "path": "Impostazioni → Privacy e sicurezza → Cookie"
+      },
+      {
+        "name": "Firefox:",
+        "path": "Impostazioni → Privacy e sicurezza → Cookie"
+      },
+      {
+        "name": "Safari:",
+        "path": "Preferenze → Privacy → Blocca cookie"
+      },
+      {
+        "name": "Edge:",
+        "path": "Impostazioni → Cookie e permessi sito"
+      }
+    ],
+    "s4Note": "Nota: la disabilitazione dei cookie tecnici potrebbe compromettere il funzionamento del sito.",
+    "s5Title": "5. Cookie di Terze Parti",
+    "s5Text": "Il presente sito potrebbe utilizzare servizi di terze parti che installano cookie propri. Il Titolare non ha controllo diretto su questi cookie. Per informazioni, consultare le rispettive informative privacy dei fornitori.",
+    "s6Title": "6. Base Normativa",
+    "s6Intro": "La presente Cookie Policy è redatta in conformità a:",
+    "s6Items": [
+      "Regolamento UE 2016/679 (GDPR)",
+      "Direttiva 2002/58/CE (Direttiva ePrivacy)",
+      "D.Lgs. 196/2003 (Codice Privacy italiano)",
+      "Provvedimento del Garante Privacy dell'8 maggio 2014",
+      "Linee guida del Garante Privacy del 10 giugno 2021"
+    ],
+    "s7Title": "7. Contatti",
+    "s7Text": "Per qualsiasi domanda relativa alla presente Cookie Policy, contattare il Titolare del trattamento all'indirizzo:"
+  },
+  "servizi": {
+    "howItWorks": "Come funziona",
+    "steps": [
+      {
+        "step": "01",
+        "title": "Consulenza Gratuita",
+        "desc": "Analizziamo insieme le tue necessità e la fattibilità del progetto. Di persona o online, senza impegno."
+      },
+      {
+        "step": "02",
+        "title": "Preventivo Trasparente",
+        "desc": "Ricevi un preventivo chiaro e dettagliato, calcolato ad hoc in base alle tue richieste specifiche."
+      },
+      {
+        "step": "03",
+        "title": "Realizzazione & Lancio",
+        "desc": "Sviluppo il tuo sito \"chiavi in mano\": design, codice, ottimizzazione e messa online."
+      }
+    ],
+    "pricingSummary": "Riepilogo Tariffe",
+    "tableHeaders": [
+      "Servizio",
+      "Tariffa Base",
+      "Note"
+    ],
+    "tableRows": [
+      {
+        "service": "Consulenza Iniziale (di persona o online)",
+        "price": "Gratis",
+        "note": "Analisi delle necessità e fattibilità progetto.",
+        "priceClass": "text-success"
+      },
+      {
+        "service": "Sito Vetrina (Standardizzato)",
+        "price": "da €400",
+        "note": "Soluzione standard con struttura predefinita.",
+        "priceClass": "gradient-text"
+      },
+      {
+        "service": "Manutenzione",
+        "price": "da €40/mese",
+        "note": "Per mantenere il sito sempre aggiornato, sicuro e funzionante nel tempo. Hosting incluso.",
+        "priceClass": "gradient-text"
+      },
+      {
+        "service": "Manutenzione Premium ⭐",
+        "price": "da €60/mese",
+        "note": "Tutto incluso nel piano standard, più report bimestrale sull'andamento del sito, visite e frequenza di rimbalzo.",
+        "priceClass": "gradient-text",
+        "highlight": true
+      },
+      {
+        "service": "Sito web personalizzato",
+        "price": "Preventivo",
+        "note": "Progetto su misura, realizzato dalla A alla Z in base alle tue esigenze.",
+        "priceClass": "text-text-primary"
+      },
+      {
+        "service": "Dominio & Email",
+        "price": "€10 – €20/anno",
+        "note": "Nome dell'esercizio commerciale o del brand.",
+        "priceClass": "gradient-text"
+      }
+    ],
+    "ctaTitle": "Hai trovato il servizio giusto?"
   }
 }

@@ -1,5 +1,29 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
+
+function CookiePreferencesButton({ label }) {
+    return (
+        <button
+            onClick={() => {
+                if (typeof window !== 'undefined') {
+                    window.dispatchEvent(new Event('openCookieSettings'));
+                }
+            }}
+            className="text-text-secondary hover:text-primary-light transition-colors text-sm cursor-pointer bg-transparent border-none p-0 text-left"
+            type="button"
+        >
+            {label}
+        </button>
+    );
+}
+
+const cookiePrefLabels = {
+    it: 'Rivedi preferenze cookie',
+    en: 'Review cookie preferences',
+    de: 'Cookie-Einstellungen überprüfen',
+};
 
 export default function Footer({ dict, locale }) {
     const currentYear = new Date().getFullYear();
@@ -67,11 +91,14 @@ export default function Footer({ dict, locale }) {
                                         {dict.footer.cookie}
                                     </Link>
                                 </li>
+                                <li>
+                                    <CookiePreferencesButton label={cookiePrefLabels[locale] || cookiePrefLabels.it} />
+                                </li>
                             </ul>
                         </nav>
                     </div>
 
-                    {/* Info Legali - D.Lgs. 70/2003 Art. 7 */}
+                    {/* Info Legali - Art. 2250 C.C. + D.Lgs. 70/2003 Art. 7 */}
                     <div>
                         <h3 className="text-sm font-semibold text-text-primary uppercase tracking-wider mb-4">
                             Informazioni Legali
@@ -90,13 +117,21 @@ export default function Footer({ dict, locale }) {
                                 In fase di apertura
                             </p>
                             <p>
+                                <span className="text-text-muted">REA:</span><br />
+                                [Da inserire]
+                            </p>
+                            <p>
                                 <span className="text-text-muted">Email:</span><br />
                                 <a
-                                    href="mailto:info@rtd.it"
+                                    href="mailto:rtd.devlab@gmail.com"
                                     className="hover:text-primary-light transition-colors"
                                 >
-                                    info@rtd.it
+                                    rtd.devlab@gmail.com
                                 </a>
+                            </p>
+                            <p>
+                                <span className="text-text-muted">PEC:</span><br />
+                                [Da inserire]
                             </p>
                         </address>
                     </div>
@@ -108,7 +143,7 @@ export default function Footer({ dict, locale }) {
                         &copy; {currentYear} RTD — Tommaso Roat. {dict.footer.rights}
                     </p>
                     <p className="text-text-muted text-xs">
-                        Conforme al D.Lgs. 70/2003 Art. 7 e al GDPR (Reg. UE 2016/679)
+                        Conforme al D.Lgs. 70/2003 Art. 7, Art. 2250 C.C. e al GDPR (Reg. UE 2016/679)
                     </p>
                 </div>
             </div>
