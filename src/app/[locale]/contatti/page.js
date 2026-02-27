@@ -16,7 +16,7 @@ export default async function ContattiPage({ params }) {
     const dict = await getDictionary(locale);
 
     // Read vacation mode directly from shared state (no HTTP self-fetch)
-    const isVacation = getVacationState();
+    const isVacation = await getVacationState();
 
     const vacationTexts = {
         it: 'Siamo in vacanza, torneremo presto a realizzare il vostro sito dei sogni',

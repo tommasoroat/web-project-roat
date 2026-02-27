@@ -78,7 +78,7 @@ function validateContactData(data) {
 // Create reusable transporter
 function createTransporter() {
     const host = process.env.SMTP_HOST;
-    const port = parseInt(process.env.SMTP_PORT || '587');
+    const port = parseInt(process.env.SMTP_PORT || '465');
     const user = process.env.SMTP_USER;
     const pass = process.env.SMTP_PASS;
 
@@ -89,8 +89,11 @@ function createTransporter() {
     return nodemailer.createTransport({
         host,
         port,
-        secure: port === 465,
+        secure: true, // Use SSL (port 465) — more reliable on serverless
         auth: { user, pass },
+        connectionTimeout: 8000,
+        greetingTimeout: 8000,
+        socketTimeout: 10000,
     });
 }
 
@@ -207,8 +210,11 @@ export async function POST(request) {
         try {
             await sendEmail(sanitizedData);
         } catch (emailError) {
-            console.error('[Contact Email Error]', emailError);
-            // Don't fail the request if email fails — still log the data
+            console.error('[Contact Email Error]', emailError.message || emailError);
+            return Response.json(
+                { error: 'Il messaggio è stato registrato ma non è stato possibile inviare la notifica email. Riprova più tardi o contattaci direttamente a rtd.devlab@gmail.com.' },
+                { status: 502 }
+            );
         }
 
         return Response.json(

@@ -10,7 +10,8 @@ function isAuthenticated(request) {
 
 // GET — public: returns vacation status
 export async function GET() {
-    return Response.json({ vacationMode: getVacationState() });
+    const vacationMode = await getVacationState();
+    return Response.json({ vacationMode });
 }
 
 // POST — authenticated: toggle vacation mode
@@ -22,7 +23,7 @@ export async function POST(request) {
     try {
         const body = await request.json();
         const newMode = !!body.vacationMode;
-        setVacationState(newMode);
+        await setVacationState(newMode);
         return Response.json({ vacationMode: newMode, message: 'Stato aggiornato.' });
     } catch {
         return Response.json({ error: 'Errore nell\'aggiornamento.' }, { status: 500 });
