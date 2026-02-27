@@ -7,9 +7,9 @@
   },
   "hero": {
     "badge": "Consulenza gratuita",
-    "title1": "Siti Web",
-    "title2": "Professionali",
-    "title3": "che fanno la differenza.",
+    "title1": "Sogni da tempo un",
+    "title2": "sito web",
+    "title3": "tutto tuo o per la tua attività?",
     "subtitle": "Dal progetto al lancio, con trasparenza totale su costi e servizi. Siti veloci, sicuri e conformi alle normative vigenti.",
     "ctaPrimary": "Richiedi Preventivo Gratuito",
     "ctaSecondary": "Scopri i Servizi"
@@ -46,37 +46,27 @@
     "item1": {
       "title": "Consulenza Iniziale",
       "price": "Gratis",
-      "desc": "Analisi delle necessità e fattibilità progetto."
+      "desc": "Analisi delle necessità e fattibilità progetto. Di persona o online, senza impegno."
     },
     "item2": {
-      "title": "Sito Vetrina",
-      "price": "€400",
-      "desc": "Soluzione standard con struttura predefinita. Il prezzo è indicativo e si riferisce a un sito vetrina essenziale, senza personalizzazioni tecniche avanzate."
+      "title": "Manutenzione Light",
+      "price": "€40",
+      "desc": "Per piccoli ritocchi e aggiornamenti. Hosting incluso nel canone mensile."
     },
     "item3": {
-      "title": "Manutenzione",
-      "price": "€40",
-      "desc": "Per mantenere il sito sempre aggiornato, sicuro e funzionante nel tempo. Include piccoli interventi tecnici, aggiornamenti e hosting."
+      "title": "Manutenzione Pro",
+      "price": "€55",
+      "desc": "Include tutti i servizi della Manutenzione Light, più un report mensile dettagliato sull'andamento del sito e le visite."
     },
     "item4": {
-      "title": "E-commerce Completo",
-      "price": "Preventivo",
-      "desc": "Consulenza + preventivo calcolato ad hoc in base alle richieste specifiche."
+      "title": "Preventivo",
+      "price": "Su richiesta",
+      "desc": "In seguito a consulenza per capire le esigenze del cliente e realizzare il sito su misura. Il costo viene definito ad hoc."
     },
     "item5": {
-      "title": "Sito web personalizzato",
-      "price": "Preventivo",
-      "desc": "Progetto su misura, realizzato dalla A alla Z in base alle tue esigenze. Il costo viene definito tramite consulenza e preventivo personalizzato."
-    },
-    "item6": {
       "title": "Dominio & Email",
       "price": "€10–€20",
-      "desc": "Nome dell'esercizio commerciale o del brand, costo vivo di registrazione."
-    },
-    "item7": {
-      "title": "Manutenzione Premium",
-      "price": "€60",
-      "desc": "Tutto incluso nel piano standard, più un report dettagliato bimestrale sull'andamento del sito, le visite e l'indice di frequenza di rimbalzo."
+      "desc": "Nome dell'esercizio commerciale o del brand, costo vivo di registrazione (es. .it, .com)."
     }
   },
   "cta": {
@@ -324,28 +314,22 @@
         "priceClass": "text-success"
       },
       {
-        "service": "Sito Vetrina (Standardizzato)",
-        "price": "da €400",
-        "note": "Soluzione standard con struttura predefinita.",
-        "priceClass": "gradient-text"
-      },
-      {
-        "service": "Manutenzione",
+        "service": "Manutenzione Light",
         "price": "da €40/mese",
-        "note": "Per mantenere il sito sempre aggiornato, sicuro e funzionante nel tempo. Hosting incluso.",
+        "note": "Per piccoli ritocchi e aggiornamenti. Hosting incluso.",
         "priceClass": "gradient-text"
       },
       {
-        "service": "Manutenzione Premium ⭐",
-        "price": "da €60/mese",
-        "note": "Tutto incluso nel piano standard, più report bimestrale sull'andamento del sito, visite e frequenza di rimbalzo.",
+        "service": "Manutenzione Pro ⭐",
+        "price": "da €55/mese",
+        "note": "Include tutti i servizi Light, più report mensile su andamento e visite del sito.",
         "priceClass": "gradient-text",
         "highlight": true
       },
       {
-        "service": "Sito web personalizzato",
-        "price": "Preventivo",
-        "note": "Progetto su misura, realizzato dalla A alla Z in base alle tue esigenze.",
+        "service": "Preventivo",
+        "price": "Su richiesta",
+        "note": "In seguito a consulenza per capire le esigenze e realizzare il sito su misura.",
         "priceClass": "text-text-primary"
       },
       {

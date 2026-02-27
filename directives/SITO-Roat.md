@@ -11,11 +11,9 @@ Le tariffe sono pensate per offrire flessibilità sia a chi cerca un investiment
 | Servizio | Tariffa Base | Note |
 | :--- | :--- | :--- |
 | **Consulenza Iniziale(di persona o online)** | **Gratis** | Analisi delle necessità e fattibilità progetto. |
-| **Sito Vetrina (Standardizzato)** | **da €400** | Realizzazione completa "chiavi in mano". |
-| **Abbonamento Light** | **da €40/mese** | Per piccoli ritocchi e aggiornamenti, inoltre l'hosting è incluso nel canone mensile. |
-| **Abbonamento Pro** | **da €60/mese** | Include tutti i servizi dell'abbonamento light. In + offre un report trimestrale dettagliato sull’andamento e sulle visite del proprio sito. |
-|**Modifiche importanti (su sito già online)**| **Consulenza + Preventivo** | Per modifiche importanti su siti già online. |
-| **Progetti Complessi** | **Preventivo** | Per siti 100%custom e con molte personalizzazioni. |
+| **Manutenzione Light** | **da €40/mese** | Per piccoli ritocchi e aggiornamenti, inoltre l'hosting è incluso nel canone mensile. |
+| **Manutenzione Pro** | **da €55/mese** | Include tutti i servizi della manutenzione light. In + offre un report mensile sull’andamento e sulle visite del proprio sito. |
+| **Preventivo** | In seguito a consulenza per capire le ricieste del cliente e realizzare il suo sito  |
 | **Dominio Privato** | **€10 - €20/anno** | Nome dell'esercizio commerciale o del brand, costo vivo di registrazione (es. .it, .com). |
 
 > **Nota per l'Agente:** Per i "lavori laboriosi", specifica sempre che il preventivo viene calcolato *ad hoc* in base alle richieste specifiche del cliente per garantire la massima equità.
