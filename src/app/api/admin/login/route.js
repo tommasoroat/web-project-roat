@@ -1,7 +1,5 @@
 import crypto from 'crypto';
-
-// Simple in-memory token storage (per-process)
-const validTokens = new Set();
+import { createToken } from '@/lib/auth';
 
 export async function POST(request) {
     try {
@@ -35,12 +33,8 @@ export async function POST(request) {
             );
         }
 
-        // Generate a random token
-        const token = crypto.randomUUID();
-        validTokens.add(token);
-
-        // Auto-expire after 2 hours
-        setTimeout(() => validTokens.delete(token), 2 * 60 * 60 * 1000);
+        // Generate a signed token (stateless, works across serverless functions)
+        const token = createToken();
 
         return Response.json({ token, message: 'Login effettuato con successo.' });
     } catch {
@@ -50,6 +44,3 @@ export async function POST(request) {
         );
     }
 }
-
-// Export token validation for use by other routes
-export { validTokens };

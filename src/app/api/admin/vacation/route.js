@@ -1,38 +1,11 @@
-import fs from 'fs';
-import path from 'path';
-import os from 'os';
-import { validTokens } from '../login/route';
-
-const VACATION_FILE = path.join(os.tmpdir(), 'rtd-vacation-state.json');
-
-function getVacationState() {
-    try {
-        if (fs.existsSync(VACATION_FILE)) {
-            const data = JSON.parse(fs.readFileSync(VACATION_FILE, 'utf-8'));
-            return !!data.vacationMode;
-        }
-    } catch {
-        // fallback
-    }
-    return false;
-}
-
-function setVacationState(mode) {
-    try {
-        fs.writeFileSync(VACATION_FILE, JSON.stringify({
-            vacationMode: mode,
-            updatedAt: new Date().toISOString(),
-        }));
-    } catch (e) {
-        console.error('[Vacation] Failed to write state:', e);
-    }
-}
+import { getVacationState, setVacationState } from '@/lib/vacationState';
+import { verifyToken } from '@/lib/auth';
 
 function isAuthenticated(request) {
     const auth = request.headers.get('Authorization');
     if (!auth || !auth.startsWith('Bearer ')) return false;
     const token = auth.replace('Bearer ', '');
-    return validTokens.has(token);
+    return verifyToken(token);
 }
 
 // GET — public: returns vacation status

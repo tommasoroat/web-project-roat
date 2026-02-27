@@ -1,6 +1,9 @@
 import ContactForm from '@/components/ContactForm';
 import VacationBox from '@/components/VacationBox';
 import { getDictionary } from '@/lib/i18n';
+import { getVacationState } from '@/lib/vacationState';
+
+export const dynamic = 'force-dynamic';
 
 export const metadata = {
     title: 'Contatti',
@@ -12,20 +15,8 @@ export default async function ContattiPage({ params }) {
     const { locale } = await params;
     const dict = await getDictionary(locale);
 
-    // Fetch vacation mode status from API
-    let isVacation = false;
-    try {
-        const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
-        const res = await fetch(`${baseUrl}/api/admin/vacation`, {
-            cache: 'no-store',
-        });
-        if (res.ok) {
-            const data = await res.json();
-            isVacation = !!data.vacationMode;
-        }
-    } catch {
-        // If fetch fails, default to non-vacation
-    }
+    // Read vacation mode directly from shared state (no HTTP self-fetch)
+    const isVacation = getVacationState();
 
     const vacationTexts = {
         it: 'Siamo in vacanza, torneremo presto a realizzare il vostro sito dei sogni',
