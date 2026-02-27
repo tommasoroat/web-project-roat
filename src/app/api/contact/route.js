@@ -1,5 +1,5 @@
 import { checkRateLimit } from '@/lib/rateLimit';
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
 
 /**
  * Contact Form API Route
@@ -9,7 +9,7 @@ import nodemailer from 'nodemailer';
  * - Input validation and sanitization
  * - XSS prevention
  * - GDPR privacy consent check
- * - Email notification via nodemailer
+ * - Email notification via Resend (HTTP API — serverless-safe)
  */
 
 // Simple HTML/XSS sanitizer
@@ -75,36 +75,16 @@ function validateContactData(data) {
     return errors;
 }
 
-// Create reusable transporter
-function createTransporter() {
-    const host = process.env.SMTP_HOST;
-    const port = parseInt(process.env.SMTP_PORT || '465');
-    const user = process.env.SMTP_USER;
-    const pass = process.env.SMTP_PASS;
-
-    if (!host || !user || !pass) {
-        return null;
-    }
-
-    return nodemailer.createTransport({
-        host,
-        port,
-        secure: true, // Use SSL (port 465) — more reliable on serverless
-        auth: { user, pass },
-        connectionTimeout: 8000,
-        greetingTimeout: 8000,
-        socketTimeout: 10000,
-    });
-}
-
 async function sendEmail(sanitizedData) {
-    const transporter = createTransporter();
+    const apiKey = process.env.RESEND_API_KEY;
     const contactEmail = process.env.CONTACT_EMAIL || 'rtd.devlab@gmail.com';
 
-    if (!transporter) {
-        console.warn('[Contact] SMTP not configured — skipping email.');
-        return;
+    if (!apiKey) {
+        console.error('[Contact] RESEND_API_KEY non configurata.');
+        throw new Error('Configurazione email mancante.');
     }
+
+    const resend = new Resend(apiKey);
 
     const htmlBody = `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
@@ -140,14 +120,20 @@ async function sendEmail(sanitizedData) {
         </div>
     `;
 
-    await transporter.sendMail({
-        from: `"RTD Website" <${process.env.SMTP_USER}>`,
-        to: contactEmail,
+    const { data, error } = await resend.emails.send({
+        from: 'RTD Website <onboarding@resend.dev>',
+        to: [contactEmail],
         replyTo: sanitizedData.email,
         subject: `[RTD] Nuova richiesta da ${sanitizedData.nome} — ${sanitizedData.servizio}`,
         html: htmlBody,
-        text: `Nuova richiesta di contatto:\n\nNome: ${sanitizedData.nome}\nEmail: ${sanitizedData.email}\nTelefono: ${sanitizedData.telefono || '—'}\nServizio: ${sanitizedData.servizio}\nMessaggio: ${sanitizedData.messaggio}\n\nRicevuto: ${sanitizedData.timestamp}`,
     });
+
+    if (error) {
+        console.error('[Contact] Resend error:', error);
+        throw new Error(error.message || 'Errore invio email');
+    }
+
+    console.log('[Contact] Email inviata con successo, id:', data?.id);
 }
 
 export async function POST(request) {
@@ -206,7 +192,7 @@ export async function POST(request) {
 
         console.log('[Contact Form Submission]', sanitizedData);
 
-        // Send email notification
+        // Send email notification via Resend (HTTP — works on serverless)
         try {
             await sendEmail(sanitizedData);
         } catch (emailError) {
