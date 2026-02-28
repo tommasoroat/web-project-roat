@@ -114,11 +114,7 @@ export default function Footer({ dict, locale }) {
                             </p>
                             <p>
                                 <span className="text-text-muted">P.IVA:</span><br />
-                                ...
-                            </p>
-                            <p>
-                                <span className="text-text-muted">REA:</span><br />
-                                ...
+                                Soon
                             </p>
                             <p>
                                 <span className="text-text-muted">Email:</span><br />
@@ -129,10 +125,7 @@ export default function Footer({ dict, locale }) {
                                     rtd.devlab@gmail.com
                                 </a>
                             </p>
-                            <p>
-                                <span className="text-text-muted">PEC:</span><br />
-                                ...
-                            </p>
+
                         </address>
                     </div>
                 </div>
