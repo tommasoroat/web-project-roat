@@ -22,14 +22,7 @@ const icons = {
             <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
         </svg>
     ),
-    premiumMaintenance: (
-        <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <path d="M12 20V10" />
-            <path d="M18 20V4" />
-            <path d="M6 20v-4" />
-        </svg>
-    ),
-    webapp: (
+    quote: (
         <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <polyline points="16 18 22 12 16 6" />
             <polyline points="8 6 2 12 8 18" />
@@ -48,7 +41,6 @@ export default function PricingTable({ dict, locale }) {
     const badgeLabels = {
         popular: { it: 'Più richiesto', en: 'Most Popular', de: 'Beliebteste' },
         recommended: { it: 'Consigliato', en: 'Recommended', de: 'Empfohlen' },
-        premium: { it: 'Premium', en: 'Premium', de: 'Premium' },
     };
 
     const services = [
@@ -65,7 +57,7 @@ export default function PricingTable({ dict, locale }) {
         {
             name: dict.pricingTable.item2.title,
             price: `${dict.pricingTable.priceFrom} ${dict.pricingTable.item2.price}`,
-            priceNote: null,
+            priceNote: dict.pricingTable.month,
             description: dict.pricingTable.item2.desc,
             icon: icons.website,
             highlight: 'popular',
@@ -83,30 +75,22 @@ export default function PricingTable({ dict, locale }) {
             row: 'top',
         },
         {
-            name: dict.pricingTable.item7.title,
-            price: `${dict.pricingTable.priceFrom} ${dict.pricingTable.item7.price}`,
-            priceNote: dict.pricingTable.month,
-            description: dict.pricingTable.item7.desc,
-            icon: icons.premiumMaintenance,
-            highlight: 'premium',
-            ctaStyle: 'ghost',
-            row: 'mid',
-        },
-        {
-            name: dict.pricingTable.item5.title,
-            price: dict.pricingTable.item5.price,
+            // ✅ Era item7 (non esisteva) → corretto in item4
+            name: dict.pricingTable.item4.title,
+            price: dict.pricingTable.item4.price,
             priceNote: null,
-            description: dict.pricingTable.item5.desc,
-            icon: icons.webapp,
+            description: dict.pricingTable.item4.desc,
+            icon: icons.quote,
             highlight: false,
             ctaStyle: 'ghost',
             row: 'bottom',
         },
         {
-            name: dict.pricingTable.item6.title,
-            price: dict.pricingTable.item6.price,
+            // ✅ Era item5 con icon webapp → ora con icon domain (corretto)
+            name: dict.pricingTable.item5.title,
+            price: `${dict.pricingTable.item5.price}`,
             priceNote: dict.pricingTable.year,
-            description: dict.pricingTable.item6.desc,
+            description: dict.pricingTable.item5.desc,
             icon: icons.domain,
             highlight: false,
             ctaStyle: 'ghost',
@@ -115,7 +99,6 @@ export default function PricingTable({ dict, locale }) {
     ];
 
     const topRow = services.filter(s => s.row === 'top');
-    const midRow = services.filter(s => s.row === 'mid');
     const bottomRow = services.filter(s => s.row === 'bottom');
 
     const containerVariants = {
@@ -138,7 +121,6 @@ export default function PricingTable({ dict, locale }) {
     const renderCard = (service) => {
         const isPopular = service.highlight === 'popular';
         const isRecommended = service.highlight === 'recommended';
-        const isPremium = service.highlight === 'premium';
         const isPrimary = service.ctaStyle === 'primary';
         const isFree = ['Gratis', 'Free', 'Kostenlos'].includes(service.price);
 
@@ -153,10 +135,9 @@ export default function PricingTable({ dict, locale }) {
                     glass-card p-7 flex flex-col relative cursor-pointer
                     ${isPopular ? 'ring-2 ring-primary/50 shadow-[0_8px_40px_rgba(2,132,199,0.25)]' : ''}
                     ${isRecommended ? 'ring-1 ring-primary/20' : ''}
-                    ${isPremium ? 'ring-2 ring-amber-400/50 shadow-[0_8px_40px_rgba(245,158,11,0.2)]' : ''}
                 `}
             >
-                {/* Badges — minimalist pastel style */}
+                {/* Badges */}
                 {isPopular && (
                     <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-400 text-amber-950 text-[11px] font-bold tracking-wide uppercase px-3 py-1 rounded-full shadow-md flex items-center gap-1">
                         <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
@@ -167,12 +148,6 @@ export default function PricingTable({ dict, locale }) {
                     <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-red-500 text-white text-[11px] font-bold tracking-wide uppercase px-3 py-1 rounded-full shadow-md flex items-center gap-1">
                         <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>
                         {badgeLabels.recommended[locale] || badgeLabels.recommended.it}
-                    </span>
-                )}
-                {isPremium && (
-                    <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-400 to-orange-500 text-white text-[11px] font-bold tracking-wide uppercase px-3 py-1 rounded-full shadow-md flex items-center gap-1">
-                        <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" /></svg>
-                        {badgeLabels.premium[locale] || badgeLabels.premium.it}
                     </span>
                 )}
 
@@ -192,10 +167,10 @@ export default function PricingTable({ dict, locale }) {
                     )}
                 </div>
 
-                {/* Description — improved contrast */}
+                {/* Description */}
                 <p className="text-slate-600 text-sm flex-1 leading-relaxed">{service.description}</p>
 
-                {/* CTA — forced to bottom */}
+                {/* CTA */}
                 <a
                     href={`/${locale}/contatti`}
                     className={`text-sm mt-6 justify-center w-full text-center ${isPrimary
@@ -224,11 +199,6 @@ export default function PricingTable({ dict, locale }) {
             {/* Top row — 3 cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {topRow.map(renderCard)}
-            </div>
-
-            {/* Mid row — Premium Maintenance centered */}
-            <div className="grid grid-cols-1 gap-6 max-w-md mx-auto">
-                {midRow.map(renderCard)}
             </div>
 
             {/* Bottom row — 2 cards centered */}
