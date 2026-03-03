@@ -5,7 +5,7 @@ import { getDictionary } from '@/lib/i18n';
 export const metadata = {
     title: 'Servizi & Tariffe',
     description:
-        'Listino completo dei servizi web di RTD: sito vetrina da €400, abbonamento da €40/mese, consulenza gratuita. Trasparenza totale sui prezzi.',
+        'Listino completo dei servizi web di RTD: manutenzione da €40/mese, piano Pro consigliato da €55/mese, consulenza gratuita. Trasparenza totale sui prezzi.',
 };
 
 export default async function ServiziPage({ params }) {

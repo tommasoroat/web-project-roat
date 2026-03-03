@@ -43,6 +43,7 @@
     "priceFrom": "ab",
     "month": "/Monat",
     "year": "/Jahr",
+    "recommendedBadge": "⭐ Empfohlener Plan",
     "item1": {
       "title": "Erstberatung",
       "price": "Kostenlos",
@@ -79,7 +80,13 @@
     "legalTitle": "Rechtliches",
     "privacy": "Datenschutzrichtlinie",
     "cookie": "Cookie-Richtlinie",
-    "rights": "Alle Rechte vorbehalten."
+    "rights": "Alle Rechte vorbehalten.",
+    "legalInfoTitle": "Rechtliche Informationen",
+    "businessName": "Firmenname:",
+    "registeredOffice": "Geschäftssitz:",
+    "vatNumber": "USt-IdNr.:",
+    "emailLabel": "E-Mail:",
+    "followUs": "Folgen Sie uns"
   },
   "contactForm": {
     "title": "Kostenloses Angebot anfordern",

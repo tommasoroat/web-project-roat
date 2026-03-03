@@ -43,6 +43,7 @@
     "priceFrom": "from",
     "month": "/month",
     "year": "/year",
+    "recommendedBadge": "⭐ Recommended Plan",
     "item1": {
       "title": "Initial Consultation",
       "price": "Free",
@@ -79,7 +80,13 @@
     "legalTitle": "Legal",
     "privacy": "Privacy Policy",
     "cookie": "Cookie Policy",
-    "rights": "All rights reserved."
+    "rights": "All rights reserved.",
+    "legalInfoTitle": "Legal Information",
+    "businessName": "Business Name:",
+    "registeredOffice": "Registered Office:",
+    "vatNumber": "VAT:",
+    "emailLabel": "Email:",
+    "followUs": "Follow Us"
   },
   "contactForm": {
     "title": "Request a free quote",

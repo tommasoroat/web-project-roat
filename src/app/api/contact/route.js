@@ -49,11 +49,20 @@ function validateContactData(data) {
         }
     }
 
-    // Servizio
+    // Servizio — accept all supported locale names
     const validServices = [
+        // Italian
         'Informazioni',
         'Consulenza',
         'Preventivo',
+        // English
+        'Information',
+        'Consultation',
+        'Quote',
+        // German
+        'Informationen',
+        'Beratung',
+        'Angebot',
     ];
     if (!data.servizio || !validServices.includes(data.servizio)) {
         errors.push('Seleziona un servizio valido.');

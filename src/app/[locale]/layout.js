@@ -12,15 +12,16 @@ export const metadata = {
     template: '%s | RTD',
   },
   description:
-    'Realizzo siti web professionali, veloci e conformi alle normative. Sito vetrina da €400, abbonamento da €40/mese. Consulenza iniziale gratuita.',
+    'Realizzo siti web professionali, veloci e conformi alle normative. Manutenzione da €40/mese, piano Pro consigliato da €55/mese. Consulenza iniziale gratuita.',
   keywords: [
     'siti web',
     'web developer',
     'realizzazione siti',
-    'sito vetrina',
     'web design',
     'Tommaso Roat',
     'RTD',
+    'manutenzione siti web',
+    'siti web Merano',
   ],
   authors: [{ name: 'Tommaso Roat' }],
   openGraph: {
@@ -29,11 +30,24 @@ export const metadata = {
     siteName: 'RTD',
     title: 'RTD — Siti Web Professionali',
     description:
-      'Realizzo siti web professionali, veloci e conformi. Consulenza iniziale gratuita.',
+      'Realizzo siti web professionali, veloci e conformi. Consulenza iniziale gratuita. Manutenzione Pro da €55/mese.',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'RTD — Siti Web Professionali | Tommaso Roat',
+    description:
+      'Siti web professionali, veloci e conformi. Consulenza gratuita.',
   },
   robots: {
     index: true,
     follow: true,
+  },
+  alternates: {
+    languages: {
+      'it': '/it',
+      'en': '/en',
+      'de': '/de',
+    },
   },
 };
 
@@ -80,7 +94,7 @@ export default async function RootLayout({ children, params }) {
       <body className="flex flex-col min-h-screen antialiased">
         {/* Accessibility: Skip to content */}
         <a href="#main-content" className="skip-link">
-          Vai al contenuto principale
+          {locale === 'en' ? 'Skip to main content' : locale === 'de' ? 'Zum Hauptinhalt springen' : 'Vai al contenuto principale'}
         </a>
 
         <Navbar dict={dict} locale={locale} />

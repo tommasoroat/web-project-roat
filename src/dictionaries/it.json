@@ -43,6 +43,7 @@
     "priceFrom": "da",
     "month": "/mese",
     "year": "/anno",
+    "recommendedBadge": "⭐ Piano Consigliato",
     "item1": {
       "title": "Consulenza Iniziale",
       "price": "Gratis",
@@ -79,7 +80,13 @@
     "legalTitle": "Legale",
     "privacy": "Privacy Policy",
     "cookie": "Cookie Policy",
-    "rights": "Tutti i diritti riservati."
+    "rights": "Tutti i diritti riservati.",
+    "legalInfoTitle": "Informazioni Legali",
+    "businessName": "Ragione Sociale:",
+    "registeredOffice": "Sede Legale:",
+    "vatNumber": "P.IVA:",
+    "emailLabel": "Email:",
+    "followUs": "Seguici"
   },
   "contactForm": {
     "title": "Richiedi un preventivo gratuito",

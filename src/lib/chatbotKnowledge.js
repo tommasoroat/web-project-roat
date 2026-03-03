@@ -3,29 +3,36 @@
  * Supports: IT, EN, DE
  * 
  * Provides keyword-based Q&A matching for the chatbot.
+ * 
+ * Prices aligned with SITO-Roat.md (March 2026):
+ * - Consulenza Iniziale: Gratis
+ * - Manutenzione Light: da €40/mese
+ * - Manutenzione Pro: da €55/mese (⭐ Piano Consigliato)
+ * - Preventivo: ad hoc
+ * - Dominio Privato: €10–€20/anno
  */
 
 const knowledgeBases = {
     it: [
         {
             keywords: ['prezzo', 'prezzi', 'costo', 'costi', 'tariff', 'quanto', 'listino', 'pagare', 'spendere', 'budget'],
-            response: `Ecco il nostro listino servizi:\n\n• **Consulenza Iniziale** — **Gratuita** (di persona o online)\n• **Sito Vetrina** — da **€400** (chiavi in mano)\n• **Manutenzione** — da **€40/mese** (aggiornamenti + hosting incluso)\n• **Manutenzione Premium** — da **€60/mese** (tutto incluso + report bimestrale)\n• **Progetti Complessi** — Preventivo personalizzato\n• **Dominio Privato** — €10–€20/anno\n\nVuoi maggiori dettagli su un servizio specifico?`,
+            response: `Ecco il nostro listino servizi:\n\n• **Consulenza Iniziale** — **Gratuita** (di persona o online)\n• **Manutenzione Light** — da **€40/mese** (hosting incluso)\n• ⭐ **Manutenzione Pro** — da **€55/mese** (Piano Consigliato! Tutto incluso + report mensile)\n• **Preventivo** — Personalizzato su richiesta\n• **Dominio Privato** — €10–€20/anno\n\nIl piano **Manutenzione Pro** è il più scelto: include tutto il piano Light, più un report mensile dettagliato sull'andamento del tuo sito!\n\nVuoi maggiori dettagli su un servizio specifico?`,
         },
         {
             keywords: ['consulenza', 'gratuita', 'gratis', 'analisi', 'incontro', 'parlare', 'appuntamento'],
             response: `La **consulenza iniziale è completamente gratuita**! Può essere fatta **di persona o online**.\n\nDurante la consulenza analizziamo le tue necessità e la fattibilità del progetto. Nessun impegno!\n\nVuoi prenotare una consulenza?`,
         },
         {
-            keywords: ['vetrina', 'sito web', 'sito', 'realizzazione', 'creare sito', 'nuovo sito', 'fare un sito'],
-            response: `Il **Sito Vetrina** parte da **€400** ed è una soluzione standard con struttura predefinita.\n\nIl prezzo è indicativo e si riferisce a un sito vetrina essenziale. Per personalizzazioni avanzate, il preventivo viene calcolato ad hoc.\n\nInclude design professionale, responsive per mobile, ottimizzazione SEO e conformità legale.`,
+            keywords: ['sito', 'sito web', 'realizzazione', 'creare sito', 'nuovo sito', 'fare un sito', 'preventivo', 'personalizzato'],
+            response: `Per la **realizzazione del tuo sito web**, procediamo con una **consulenza gratuita** per capire le tue esigenze, seguita da un **preventivo personalizzato**.\n\nOgni progetto viene valutato singolarmente per offrirti la soluzione migliore al prezzo più giusto.\n\nInclude design professionale, responsive per mobile, ottimizzazione SEO e conformità legale.\n\nContattatami per una consulenza gratuita!`,
         },
         {
-            keywords: ['abbonamento', 'mensile', 'manutenzione', 'aggiornament', 'hosting', 'gestione'],
-            response: `La **Manutenzione** parte da **€40/mese** e include:\n\n• Piccoli interventi tecnici e aggiornamenti\n• **Hosting incluso** nel canone mensile\n• Assistenza tecnica\n\nC'è anche la **Manutenzione Premium** da **€60/mese** che include tutto il piano standard, più un **report dettagliato bimestrale** sull'andamento del sito, le visite e l'indice di frequenza di rimbalzo.\n\nQuale piano ti interessa?`,
+            keywords: ['abbonamento', 'mensile', 'manutenzione', 'aggiornament', 'hosting', 'gestione', 'light'],
+            response: `La **Manutenzione Light** parte da **€40/mese** e include:\n\n• Piccoli interventi tecnici e aggiornamenti\n• **Hosting incluso** nel canone mensile\n• Assistenza tecnica\n\nC'è anche il ⭐ **Piano Consigliato: Manutenzione Pro** da **€55/mese** che include tutto il piano Light, più un **report mensile dettagliato** sull'andamento del sito e le visite.\n\nQuale piano ti interessa?`,
         },
         {
-            keywords: ['premium', 'report', 'bimestrale', 'visite', 'statistiche', 'analytics', 'frequenza'],
-            response: `La **Manutenzione Premium** costa da **€60/mese** e include:\n\n• Tutto il piano Manutenzione standard\n• **Report dettagliato bimestrale** sull'andamento del sito\n• Analisi delle **visite** e del traffico\n• Monitoraggio dell'**indice di frequenza di rimbalzo**\n\nÈ la soluzione ideale per chi vuole monitorare attivamente le performance del proprio sito!`,
+            keywords: ['pro', 'consigliato', 'report', 'visite', 'statistiche', 'analytics', 'frequenza', 'premium'],
+            response: `⭐ La **Manutenzione Pro** è il nostro **Piano Consigliato** e costa da **€55/mese**. Include:\n\n• Tutto il piano Manutenzione Light\n• **Report mensile dettagliato** sull'andamento del sito\n• Analisi delle **visite** e del traffico\n• Monitoraggio dell'**indice di frequenza di rimbalzo**\n• **Hosting incluso**\n\nÈ la soluzione ideale per chi vuole monitorare attivamente le performance del proprio sito!`,
         },
         {
             keywords: ['dominio', '.it', '.com', 'nome sito', 'url', 'indirizzo web'],
@@ -45,7 +52,7 @@ const knowledgeBases = {
         },
         {
             keywords: ['contatt', 'email', 'telefon', 'scrivere', 'raggiungere', 'dove siete'],
-            response: `Puoi contattarmi in diversi modi:\n\n• **Email:** rtd.devlab@gmail.com\n• **Form di contatto:** nella sezione Contatti del sito\n• **Consulenza gratuita:** prenotala per un incontro di persona o online\n\nSarò felice di aiutarti!`,
+            response: `Puoi contattarmi in diversi modi:\n\n• **Email:** rtd.devlab@gmail.com\n• **Form di contatto:** nella sezione Contatti del sito\n• **Instagram:** @rtd.solutions\n• **Consulenza gratuita:** prenotala per un incontro di persona o online\n\nSarò felice di aiutarti!`,
         },
         {
             keywords: ['chi sei', 'chi siete', 'about', 'informazione', 'racconta', 'presentati'],
@@ -63,27 +70,31 @@ const knowledgeBases = {
             keywords: ['vacanza', 'chiuso', 'ferie', 'disponibil'],
             response: `Se al momento non sono disponibile, troverai un avviso nella sezione Contatti.\n\nPuoi comunque scrivermi via email a **rtd.devlab@gmail.com** e ti risponderò appena possibile!\n\nGrazie per la pazienza 🏖️`,
         },
+        {
+            keywords: ['instagram', 'social', 'seguire', 'segui'],
+            response: `Puoi seguirmi su **Instagram**: @rtd.solutions\n\n👉 https://instagram.com/rtd.solutions\n\nTroverai aggiornamenti sui miei progetti e novità dal mondo web!`,
+        },
     ],
     en: [
         {
             keywords: ['price', 'prices', 'cost', 'costs', 'rate', 'rates', 'how much', 'budget', 'pay', 'spend', 'fee'],
-            response: `Here are our service rates:\n\n• **Initial Consultation** — **Free** (in person or online)\n• **Showcase Website** — from **€400** (turnkey)\n• **Maintenance** — from **€40/month** (updates + hosting included)\n• **Premium Maintenance** — from **€60/month** (everything + bimonthly report)\n• **Complex Projects** — Personalized Quote\n• **Private Domain** — €10–€20/year\n\nWould you like more details about a specific service?`,
+            response: `Here are our service rates:\n\n• **Initial Consultation** — **Free** (in person or online)\n• **Light Maintenance** — from **€40/month** (hosting included)\n• ⭐ **Pro Maintenance** — from **€55/month** (Recommended Plan! Everything + monthly report)\n• **Custom Quote** — Personalized on request\n• **Private Domain** — €10–€20/year\n\nThe **Pro Maintenance** plan is our most popular: includes everything in the Light plan, plus a detailed monthly report on your site's performance!\n\nWould you like more details about a specific service?`,
         },
         {
             keywords: ['consultation', 'free', 'meeting', 'appointment', 'talk', 'discuss', 'analysis'],
             response: `The **initial consultation is completely free**! It can be done **in person or online**.\n\nDuring the consultation we analyze your needs and the feasibility of the project. No commitment!\n\nWould you like to book a consultation?`,
         },
         {
-            keywords: ['website', 'site', 'build', 'create', 'new site', 'web design', 'showcase'],
-            response: `The **Showcase Website** starts from **€400** and is a standard solution with predefined structure.\n\nThe price refers to an essential showcase website. For advanced customizations, the quote is calculated based on your specific requirements.\n\nIncludes professional design, mobile responsive layout, SEO optimization, and legal compliance.`,
+            keywords: ['website', 'site', 'build', 'create', 'new site', 'web design', 'showcase', 'quote', 'custom'],
+            response: `For your **website project**, we start with a **free consultation** to understand your needs, followed by a **personalized quote**.\n\nEach project is evaluated individually to offer you the best solution at the fairest price.\n\nIncludes professional design, mobile responsive layout, SEO optimization, and legal compliance.\n\nContact me for a free consultation!`,
         },
         {
-            keywords: ['subscription', 'monthly', 'maintenance', 'updates', 'hosting', 'management'],
-            response: `**Maintenance** starts from **€40/month** and includes:\n\n• Minor technical interventions and updates\n• **Hosting included** in the monthly fee\n• Technical support\n\nThere's also **Premium Maintenance** from **€60/month** which includes everything in the standard plan, plus a **detailed bimonthly report** on site performance, visits and bounce rate.\n\nWhich plan interests you?`,
+            keywords: ['subscription', 'monthly', 'maintenance', 'updates', 'hosting', 'management', 'light'],
+            response: `**Light Maintenance** starts from **€40/month** and includes:\n\n• Minor technical interventions and updates\n• **Hosting included** in the monthly fee\n• Technical support\n\nThere's also the ⭐ **Recommended Plan: Pro Maintenance** from **€55/month** which includes everything in the Light plan, plus a **detailed monthly report** on site performance and visits.\n\nWhich plan interests you?`,
         },
         {
-            keywords: ['premium', 'report', 'bimonthly', 'visits', 'statistics', 'analytics', 'bounce'],
-            response: `**Premium Maintenance** costs from **€60/month** and includes:\n\n• Everything in the standard Maintenance plan\n• **Detailed bimonthly report** on site performance\n• **Visits** and traffic analysis\n• **Bounce rate** monitoring\n\nIt's the ideal solution for those who want to actively monitor their website's performance!`,
+            keywords: ['pro', 'recommended', 'report', 'monthly', 'visits', 'statistics', 'analytics', 'bounce', 'premium'],
+            response: `⭐ **Pro Maintenance** is our **Recommended Plan** at **€55/month**. It includes:\n\n• Everything in the Light Maintenance plan\n• **Detailed monthly report** on site performance\n• **Visits** and traffic analysis\n• **Bounce rate** monitoring\n• **Hosting included**\n\nIt's the ideal solution for those who want to actively monitor their website's performance!`,
         },
         {
             keywords: ['domain', '.it', '.com', 'site name', 'url', 'web address'],
@@ -94,7 +105,7 @@ const knowledgeBases = {
             response: `For **major changes on existing websites**, we proceed with a consultation followed by a **customized quote**.\n\nThe quote is calculated based on your specific requests to ensure maximum fairness.\n\nContact me for a free evaluation!`,
         },
         {
-            keywords: ['complex', 'custom', 'personalized', 'ecommerce', 'e-commerce', 'application', 'webapp'],
+            keywords: ['complex', 'personalized', 'ecommerce', 'e-commerce', 'application', 'webapp'],
             response: `For **complex projects** and 100% custom websites with extensive customizations, we prepare a **dedicated quote**.\n\nEach project is evaluated individually to offer you the best solution at the fairest price.\n\nLet's discuss it during a free consultation!`,
         },
         {
@@ -103,7 +114,7 @@ const knowledgeBases = {
         },
         {
             keywords: ['contact', 'email', 'phone', 'write', 'reach', 'where'],
-            response: `You can contact me in several ways:\n\n• **Email:** rtd.devlab@gmail.com\n• **Contact form:** in the Contact section of the website\n• **Free consultation:** book an in-person or online meeting\n\nI'll be happy to help!`,
+            response: `You can contact me in several ways:\n\n• **Email:** rtd.devlab@gmail.com\n• **Contact form:** in the Contact section of the website\n• **Instagram:** @rtd.solutions\n• **Free consultation:** book an in-person or online meeting\n\nI'll be happy to help!`,
         },
         {
             keywords: ['who are you', 'about', 'info', 'tell me', 'introduce'],
@@ -121,27 +132,31 @@ const knowledgeBases = {
             keywords: ['vacation', 'holiday', 'closed', 'available'],
             response: `If I'm currently unavailable, you'll find a notice in the Contact section.\n\nYou can still email me at **rtd.devlab@gmail.com** and I'll get back to you as soon as possible!\n\nThank you for your patience 🏖️`,
         },
+        {
+            keywords: ['instagram', 'social', 'follow'],
+            response: `You can follow me on **Instagram**: @rtd.solutions\n\n👉 https://instagram.com/rtd.solutions\n\nYou'll find updates on my projects and news from the web world!`,
+        },
     ],
     de: [
         {
             keywords: ['preis', 'preise', 'kosten', 'tarif', 'tarife', 'wieviel', 'budget', 'zahlen', 'ausgeben', 'gebühr'],
-            response: `Hier sind unsere Servicetarife:\n\n• **Erstberatung** — **Kostenlos** (persönlich oder online)\n• **Showcase-Website** — ab **€400** (schlüsselfertig)\n• **Wartung** — ab **€40/Monat** (Updates + Hosting inklusive)\n• **Premium-Wartung** — ab **€60/Monat** (alles inklusive + Zweimonatsbericht)\n• **Komplexe Projekte** — Personalisiertes Angebot\n• **Private Domain** — €10–€20/Jahr\n\nMöchten Sie mehr Details zu einem bestimmten Service?`,
+            response: `Hier sind unsere Servicetarife:\n\n• **Erstberatung** — **Kostenlos** (persönlich oder online)\n• **Wartung Light** — ab **€40/Monat** (Hosting inklusive)\n• ⭐ **Wartung Pro** — ab **€55/Monat** (Empfohlener Plan! Alles inklusive + monatlicher Bericht)\n• **Individuelles Angebot** — Auf Anfrage\n• **Private Domain** — €10–€20/Jahr\n\nDer **Wartung Pro**-Plan ist unser beliebtester: beinhaltet alles aus dem Light-Plan, plus einen detaillierten monatlichen Bericht über Ihre Website-Performance!\n\nMöchten Sie mehr Details zu einem bestimmten Service?`,
         },
         {
             keywords: ['beratung', 'kostenlos', 'gratis', 'analyse', 'treffen', 'gespräch', 'termin'],
             response: `Die **Erstberatung ist komplett kostenlos**! Sie kann **persönlich oder online** durchgeführt werden.\n\nWährend der Beratung analysieren wir Ihre Bedürfnisse und die Machbarkeit des Projekts. Keine Verpflichtung!\n\nMöchten Sie eine Beratung buchen?`,
         },
         {
-            keywords: ['webseite', 'website', 'seite', 'erstellen', 'neue seite', 'webdesign', 'schaufenster'],
-            response: `Die **Showcase-Website** beginnt ab **€400** und ist eine Standardlösung mit vordefinierter Struktur.\n\nDer Preis bezieht sich auf eine grundlegende Showcase-Website. Für erweiterte Anpassungen wird das Angebot individuell berechnet.\n\nBeinhaltet professionelles Design, mobile-responsive Layout, SEO-Optimierung und rechtliche Konformität.`,
+            keywords: ['webseite', 'website', 'seite', 'erstellen', 'neue seite', 'webdesign', 'schaufenster', 'angebot', 'individuell'],
+            response: `Für Ihr **Website-Projekt** beginnen wir mit einer **kostenlosen Beratung** zur Klärung Ihrer Anforderungen, gefolgt von einem **personalisierten Angebot**.\n\nJedes Projekt wird einzeln bewertet, um die beste Lösung zum fairsten Preis zu bieten.\n\nBeinhaltet professionelles Design, mobile-responsive Layout, SEO-Optimierung und rechtliche Konformität.\n\nKontaktieren Sie mich für eine kostenlose Beratung!`,
         },
         {
-            keywords: ['abonnement', 'monatlich', 'wartung', 'aktualisierung', 'hosting', 'verwaltung'],
-            response: `Die **Wartung** beginnt ab **€40/Monat** und beinhaltet:\n\n• Kleinere technische Eingriffe und Updates\n• **Hosting inklusive** in der Monatsgebühr\n• Technischer Support\n\nEs gibt auch die **Premium-Wartung** ab **€60/Monat** mit allem im Standardplan, plus einem **detaillierten Zweimonatsbericht** über Website-Leistung, Besuche und Absprungrate.\n\nWelcher Plan interessiert Sie?`,
+            keywords: ['abonnement', 'monatlich', 'wartung', 'aktualisierung', 'hosting', 'verwaltung', 'light'],
+            response: `Die **Wartung Light** beginnt ab **€40/Monat** und beinhaltet:\n\n• Kleinere technische Eingriffe und Updates\n• **Hosting inklusive** in der Monatsgebühr\n• Technischer Support\n\nEs gibt auch den ⭐ **Empfohlenen Plan: Wartung Pro** ab **€55/Monat** mit allem im Light-Plan, plus einem **detaillierten monatlichen Bericht** über Website-Leistung und Besuche.\n\nWelcher Plan interessiert Sie?`,
         },
         {
-            keywords: ['premium', 'bericht', 'zweimonat', 'besuche', 'statistik', 'analytics', 'absprung'],
-            response: `Die **Premium-Wartung** kostet ab **€60/Monat** und beinhaltet:\n\n• Alles im Standard-Wartungsplan\n• **Detaillierter Zweimonatsbericht** über Website-Leistung\n• Analyse der **Besuche** und des Traffics\n• Überwachung der **Absprungrate**\n\nEs ist die ideale Lösung für alle, die die Performance ihrer Website aktiv überwachen möchten!`,
+            keywords: ['pro', 'empfohlen', 'bericht', 'monatlich', 'besuche', 'statistik', 'analytics', 'absprung', 'premium'],
+            response: `⭐ Die **Wartung Pro** ist unser **Empfohlener Plan** ab **€55/Monat** und beinhaltet:\n\n• Alles im Light-Wartungsplan\n• **Detaillierter monatlicher Bericht** über Website-Leistung\n• Analyse der **Besuche** und des Traffics\n• Überwachung der **Absprungrate**\n• **Hosting inklusive**\n\nEs ist die ideale Lösung für alle, die die Performance ihrer Website aktiv überwachen möchten!`,
         },
         {
             keywords: ['domain', '.it', '.com', 'name', 'url', 'webadresse'],
@@ -152,7 +167,7 @@ const knowledgeBases = {
             response: `Für **größere Änderungen an bestehenden Websites** gehen wir mit einer Beratung und einem **individuellen Angebot** vor.\n\nDas Angebot wird basierend auf Ihren spezifischen Anforderungen berechnet, um maximale Fairness zu gewährleisten.\n\nKontaktieren Sie mich für eine kostenlose Bewertung!`,
         },
         {
-            keywords: ['komplex', 'custom', 'individuell', 'ecommerce', 'e-commerce', 'anwendung', 'webapp'],
+            keywords: ['komplex', 'custom', 'ecommerce', 'e-commerce', 'anwendung', 'webapp'],
             response: `Für **komplexe Projekte** und 100% individuelle Websites mit umfangreichen Anpassungen erstellen wir ein **spezielles Angebot**.\n\nJedes Projekt wird einzeln bewertet, um Ihnen die beste Lösung zum fairsten Preis zu bieten.\n\nLassen Sie uns darüber in einer kostenlosen Beratung sprechen!`,
         },
         {
@@ -161,7 +176,7 @@ const knowledgeBases = {
         },
         {
             keywords: ['kontakt', 'email', 'telefon', 'schreiben', 'erreichen', 'wo'],
-            response: `Sie können mich auf verschiedene Weisen kontaktieren:\n\n• **E-Mail:** rtd.devlab@gmail.com\n• **Kontaktformular:** im Kontaktbereich der Website\n• **Kostenlose Beratung:** buchen Sie ein persönliches oder Online-Treffen\n\nIch helfe Ihnen gerne!`,
+            response: `Sie können mich auf verschiedene Weisen kontaktieren:\n\n• **E-Mail:** rtd.devlab@gmail.com\n• **Kontaktformular:** im Kontaktbereich der Website\n• **Instagram:** @rtd.solutions\n• **Kostenlose Beratung:** buchen Sie ein persönliches oder Online-Treffen\n\nIch helfe Ihnen gerne!`,
         },
         {
             keywords: ['wer bist du', 'über', 'info', 'erzähl', 'vorstellen'],
@@ -178,6 +193,10 @@ const knowledgeBases = {
         {
             keywords: ['urlaub', 'ferien', 'geschlossen', 'verfügbar'],
             response: `Wenn ich gerade nicht verfügbar bin, finden Sie einen Hinweis im Kontaktbereich.\n\nSie können mir trotzdem an **rtd.devlab@gmail.com** schreiben und ich werde mich so bald wie möglich bei Ihnen melden!\n\nVielen Dank für Ihre Geduld 🏖️`,
+        },
+        {
+            keywords: ['instagram', 'social', 'folgen'],
+            response: `Sie können mir auf **Instagram** folgen: @rtd.solutions\n\n👉 https://instagram.com/rtd.solutions\n\nDort finden Sie Updates zu meinen Projekten und Neuigkeiten aus der Webwelt!`,
         },
     ],
 };
