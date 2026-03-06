@@ -53,16 +53,6 @@ export default function PricingTable({ dict, locale }) {
             row: 'top',
         },
         {
-            name: pt.item2.title,
-            price: `${pt.priceFrom} ${pt.item2.price}`,
-            priceNote: pt.month,
-            description: pt.item2.desc,
-            icon: icons.maintenance,
-            highlight: false,
-            ctaStyle: 'ghost',
-            row: 'top',
-        },
-        {
             name: pt.item3.title,
             price: `${pt.priceFrom} ${pt.item3.price}`,
             priceNote: pt.month,
@@ -70,6 +60,16 @@ export default function PricingTable({ dict, locale }) {
             icon: icons.pro,
             highlight: 'recommended',
             ctaStyle: 'primary',
+            row: 'top',
+        },
+        {
+            name: pt.item2.title,
+            price: `${pt.priceFrom} ${pt.item2.price}`,
+            priceNote: pt.month,
+            description: pt.item2.desc,
+            icon: icons.maintenance,
+            highlight: false,
+            ctaStyle: 'ghost',
             row: 'top',
         },
         {
