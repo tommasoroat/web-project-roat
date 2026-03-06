@@ -5,6 +5,44 @@ import BackgroundAnimation from '@/components/BackgroundAnimation';
 import ReviewsMarquee from '@/components/ReviewsMarquee';
 import { getDictionary } from '@/lib/i18n';
 
+const BASE_URL = 'https://www.rtd-solutions.eu';
+
+const metaByLocale = {
+  it: {
+    title: 'RTD - Siti Web Professionali',
+    description:
+      'Siti web professionali e ultra-veloci a Merano. Sviluppo su misura, conformit\u00e0 GDPR e piani di manutenzione da 40\u20ac/mese. Richiedi un preventivo!',
+  },
+  de: {
+    title: 'RTD - Professionelle Webseiten',
+    description:
+      'Professionelle und ultraschnelle Webseiten in Meran. Ma\u00dfgeschneidertes Design, DSGVO-konform und Wartungspl\u00e4ne ab 40\u20ac/Monat. Jetzt Angebot anfordern!',
+  },
+  en: {
+    title: 'RTD - Professional Web Development',
+    description:
+      'Professional and ultra-fast websites in Merano. Custom development, GDPR compliance and maintenance plans from \u20ac40/month. Request a free quote!',
+  },
+};
+
+export async function generateMetadata({ params }) {
+  const { locale } = await params;
+  const meta = metaByLocale[locale] ?? metaByLocale.it;
+
+  return {
+    title: meta.title,
+    description: meta.description,
+    alternates: {
+      canonical: `${BASE_URL}/${locale}`,
+      languages: {
+        it: `${BASE_URL}/it`,
+        de: `${BASE_URL}/de`,
+        en: `${BASE_URL}/en`,
+      },
+    },
+  };
+}
+
 export default async function HomePage({ params }) {
   const { locale } = await params;
   const dict = await getDictionary(locale);

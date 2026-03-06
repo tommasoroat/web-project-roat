@@ -7,6 +7,7 @@ import Chatbot from '@/components/Chatbot';
 import { getDictionary } from '@/lib/i18n';
 
 export const metadata = {
+  metadataBase: new URL('https://www.rtd-solutions.eu'),
   title: {
     default: 'RTD — Siti Web Professionali | Tommaso Roat',
     template: '%s | RTD',
@@ -24,6 +25,15 @@ export const metadata = {
     'siti web Merano',
   ],
   authors: [{ name: 'Tommaso Roat' }],
+  icons: {
+    icon: [
+      { url: '/icon.png', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/icon.png', type: 'image/png' },
+    ],
+    shortcut: '/icon.png',
+  },
   openGraph: {
     type: 'website',
     locale: 'it_IT',
@@ -41,13 +51,6 @@ export const metadata = {
   robots: {
     index: true,
     follow: true,
-  },
-  alternates: {
-    languages: {
-      'it': '/it',
-      'en': '/en',
-      'de': '/de',
-    },
   },
 };
 
