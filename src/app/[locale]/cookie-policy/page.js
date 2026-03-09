@@ -109,7 +109,7 @@ export default async function CookiePolicyPage({ params }) {
                         <h2 className="text-xl font-bold text-text-primary mb-3">{cp.s7Title}</h2>
                         <p>
                             {cp.s7Text}{' '}
-                            <a href="mailto:rtd.devlab@gmail.com" className="text-primary-light hover:underline">rtd.devlab@gmail.com</a>
+                            <a href="mailto:info@rtd-solutions.eu" className="text-primary-light hover:underline">info@rtd-solutions.eu</a>
                         </p>
                     </div>
                 </div>

@@ -28,7 +28,7 @@ export default async function PrivacyPolicyPage({ params }) {
                         <p dangerouslySetInnerHTML={{ __html: pp.s1Text || '' }} />
                         <p className="mt-2">
                             {pp.s1Email}{' '}
-                            <a href="mailto:rtd.devlab@gmail.com" className="text-primary-light hover:underline">rtd.devlab@gmail.com</a>
+                            <a href="mailto:info@rtd-solutions.eu" className="text-primary-light hover:underline">info@rtd-solutions.eu</a>
                         </p>
                     </div>
 
@@ -83,7 +83,7 @@ export default async function PrivacyPolicyPage({ params }) {
                         </ul>
                         <p className="mt-3">
                             {pp.s6Contact}{' '}
-                            <a href="mailto:rtd.devlab@gmail.com" className="text-primary-light hover:underline">rtd.devlab@gmail.com</a>
+                            <a href="mailto:info@rtd-solutions.eu" className="text-primary-light hover:underline">info@rtd-solutions.eu</a>
                         </p>
                     </div>
 

@@ -119,10 +119,10 @@ export default async function ContattiPage({ params }) {
                                     <span aria-hidden="true" className="w-5 h-5 flex justify-center items-center">@</span> {s.email}
                                 </h3>
                                 <a
-                                    href="mailto:rtd.devlab@gmail.com"
+                                    href="mailto:info@rtd-solutions.eu"
                                     className="text-primary-light hover:underline font-medium"
                                 >
-                                    rtd.devlab@gmail.com
+                                    info@rtd-solutions.eu
                                 </a>
                                 <p className="text-text-muted text-xs mt-2">
                                     {s.emailReply}

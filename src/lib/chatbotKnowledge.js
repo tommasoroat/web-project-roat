@@ -52,7 +52,7 @@ const knowledgeBases = {
         },
         {
             keywords: ['contatt', 'email', 'telefon', 'scrivere', 'raggiungere', 'dove siete'],
-            response: `Puoi contattarmi in diversi modi:\n\n• **Email:** rtd.devlab@gmail.com\n• **Form di contatto:** nella sezione Contatti del sito\n• **Instagram:** @rtd.solutions\n• **Consulenza gratuita:** prenotala per un incontro di persona o online\n\nSarò felice di aiutarti!`,
+            response: `Puoi contattarmi in diversi modi:\n\n• **Email:** info@rtd-solutions.eu\n• **Form di contatto:** nella sezione Contatti del sito\n• **Instagram:** @rtd.solutions\n• **Consulenza gratuita:** prenotala per un incontro di persona o online\n\nSarò felice di aiutarti!`,
         },
         {
             keywords: ['chi sei', 'chi siete', 'about', 'informazione', 'racconta', 'presentati'],
@@ -68,7 +68,7 @@ const knowledgeBases = {
         },
         {
             keywords: ['vacanza', 'chiuso', 'ferie', 'disponibil'],
-            response: `Se al momento non sono disponibile, troverai un avviso nella sezione Contatti.\n\nPuoi comunque scrivermi via email a **rtd.devlab@gmail.com** e ti risponderò appena possibile!\n\nGrazie per la pazienza 🏖️`,
+            response: `Se al momento non sono disponibile, troverai un avviso nella sezione Contatti.\n\nPuoi comunque scrivermi via email a **info@rtd-solutions.eu** e ti risponderò appena possibile!\n\nGrazie per la pazienza 🏖️`,
         },
         {
             keywords: ['instagram', 'social', 'seguire', 'segui'],
@@ -114,7 +114,7 @@ const knowledgeBases = {
         },
         {
             keywords: ['contact', 'email', 'phone', 'write', 'reach', 'where'],
-            response: `You can contact me in several ways:\n\n• **Email:** rtd.devlab@gmail.com\n• **Contact form:** in the Contact section of the website\n• **Instagram:** @rtd.solutions\n• **Free consultation:** book an in-person or online meeting\n\nI'll be happy to help!`,
+            response: `You can contact me in several ways:\n\n• **Email:** info@rtd-solutions.eu\n• **Contact form:** in the Contact section of the website\n• **Instagram:** @rtd.solutions\n• **Free consultation:** book an in-person or online meeting\n\nI'll be happy to help!`,
         },
         {
             keywords: ['who are you', 'about', 'info', 'tell me', 'introduce'],
@@ -130,7 +130,7 @@ const knowledgeBases = {
         },
         {
             keywords: ['vacation', 'holiday', 'closed', 'available'],
-            response: `If I'm currently unavailable, you'll find a notice in the Contact section.\n\nYou can still email me at **rtd.devlab@gmail.com** and I'll get back to you as soon as possible!\n\nThank you for your patience 🏖️`,
+            response: `If I'm currently unavailable, you'll find a notice in the Contact section.\n\nYou can still email me at **info@rtd-solutions.eu** and I'll get back to you as soon as possible!\n\nThank you for your patience 🏖️`,
         },
         {
             keywords: ['instagram', 'social', 'follow'],
@@ -176,7 +176,7 @@ const knowledgeBases = {
         },
         {
             keywords: ['kontakt', 'email', 'telefon', 'schreiben', 'erreichen', 'wo'],
-            response: `Sie können mich auf verschiedene Weisen kontaktieren:\n\n• **E-Mail:** rtd.devlab@gmail.com\n• **Kontaktformular:** im Kontaktbereich der Website\n• **Instagram:** @rtd.solutions\n• **Kostenlose Beratung:** buchen Sie ein persönliches oder Online-Treffen\n\nIch helfe Ihnen gerne!`,
+            response: `Sie können mich auf verschiedene Weisen kontaktieren:\n\n• **E-Mail:** info@rtd-solutions.eu\n• **Kontaktformular:** im Kontaktbereich der Website\n• **Instagram:** @rtd.solutions\n• **Kostenlose Beratung:** buchen Sie ein persönliches oder Online-Treffen\n\nIch helfe Ihnen gerne!`,
         },
         {
             keywords: ['wer bist du', 'über', 'info', 'erzähl', 'vorstellen'],
@@ -192,7 +192,7 @@ const knowledgeBases = {
         },
         {
             keywords: ['urlaub', 'ferien', 'geschlossen', 'verfügbar'],
-            response: `Wenn ich gerade nicht verfügbar bin, finden Sie einen Hinweis im Kontaktbereich.\n\nSie können mir trotzdem an **rtd.devlab@gmail.com** schreiben und ich werde mich so bald wie möglich bei Ihnen melden!\n\nVielen Dank für Ihre Geduld 🏖️`,
+            response: `Wenn ich gerade nicht verfügbar bin, finden Sie einen Hinweis im Kontaktbereich.\n\nSie können mir trotzdem an **info@rtd-solutions.eu** schreiben und ich werde mich so bald wie möglich bei Ihnen melden!\n\nVielen Dank für Ihre Geduld 🏖️`,
         },
         {
             keywords: ['instagram', 'social', 'folgen'],
@@ -214,7 +214,7 @@ export const chatbotStrings = {
         closeLabel: "Chiudi chat assistente",
         typingLabel: "L'assistente sta scrivendo",
         moreInfo: "Maggiori informazioni",
-        fallback: "Mi dispiace, non ho informazioni specifiche su questo al momento. Per darti un'assistenza precisa, ti invito a contattarmi direttamente a rtd.devlab@gmail.com: sarò felice di aiutarti!",
+        fallback: "Mi dispiace, non ho informazioni specifiche su questo al momento. Per darti un'assistenza precisa, ti invito a contattarmi direttamente a info@rtd-solutions.eu: sarò felice di aiutarti!",
     },
     en: {
         welcome: "Hi! I'm RTD's virtual assistant. How can I help you?",
@@ -227,7 +227,7 @@ export const chatbotStrings = {
         closeLabel: "Close chat assistant",
         typingLabel: "The assistant is typing",
         moreInfo: "More information",
-        fallback: "I'm sorry, I don't have specific information about this right now. For precise assistance, please email me at rtd.devlab@gmail.com — I'll be happy to help!",
+        fallback: "I'm sorry, I don't have specific information about this right now. For precise assistance, please email me at info@rtd-solutions.eu — I'll be happy to help!",
     },
     de: {
         welcome: "Hallo! Ich bin der virtuelle Assistent von RTD. Wie kann ich Ihnen helfen?",
@@ -240,7 +240,7 @@ export const chatbotStrings = {
         closeLabel: "Chat-Assistent schließen",
         typingLabel: "Der Assistent schreibt",
         moreInfo: "Mehr Informationen",
-        fallback: "Leider habe ich momentan keine spezifischen Informationen dazu. Für eine genaue Unterstützung schreiben Sie mir an rtd.devlab@gmail.com — ich helfe Ihnen gerne!",
+        fallback: "Leider habe ich momentan keine spezifischen Informationen dazu. Für eine genaue Unterstützung schreiben Sie mir an info@rtd-solutions.eu — ich helfe Ihnen gerne!",
     },
 };
 

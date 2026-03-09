@@ -157,10 +157,10 @@ export default function Footer({ dict, locale }) {
                             <p>
                                 <span className="text-text-muted">{footer.emailLabel || 'Email:'}</span><br />
                                 <a
-                                    href="mailto:rtd.devlab@gmail.com"
+                                    href="mailto:info@rtd-solutions.eu"
                                     className="hover:text-primary-light transition-colors"
                                 >
-                                    rtd.devlab@gmail.com
+                                    info@rtd-solutions.eu
                                 </a>
                             </p>
 
