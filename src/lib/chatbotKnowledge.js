@@ -8,6 +8,7 @@
  * - Consulenza Iniziale: Gratis
  * - Manutenzione Light: da €40/mese
  * - Manutenzione Pro: da €55/mese (⭐ Piano Consigliato)
+ * - Solo Hosting (senza manutenzione): €25/mese
  * - Preventivo: ad hoc
  * - Dominio Privato: €10–€20/anno
  */
@@ -16,7 +17,7 @@ const knowledgeBases = {
     it: [
         {
             keywords: ['prezzo', 'prezzi', 'costo', 'costi', 'tariff', 'quanto', 'listino', 'pagare', 'spendere', 'budget'],
-            response: `Ecco il nostro listino servizi:\n\n• **Consulenza Iniziale** — **Gratuita** (di persona o online)\n• **Manutenzione Light** — da **€40/mese** (hosting incluso)\n• ⭐ **Manutenzione Pro** — da **€55/mese** (Piano Consigliato! Tutto incluso + report mensile)\n• **Preventivo** — Personalizzato su richiesta\n• **Dominio Privato** — €10–€20/anno\n\nIl piano **Manutenzione Pro** è il più scelto: include tutto il piano Light, più un report mensile dettagliato sull'andamento del tuo sito!\n\nVuoi maggiori dettagli su un servizio specifico?`,
+            response: `Ecco il nostro listino servizi:\n\n• **Consulenza Iniziale** — **Gratuita** (di persona o online)\n• **Manutenzione Light** — da **€40/mese** (hosting incluso)\n• ⭐ **Manutenzione Pro** — da **€55/mese** (Piano Consigliato! Tutto incluso + report mensile)\n• **Solo Hosting** (senza manutenzione) — **€25/mese**\n• **Preventivo** — Personalizzato su richiesta\n• **Dominio Privato** — €10–€20/anno\n\nIl piano **Manutenzione Pro** è il più scelto: include tutto il piano Light, più un report mensile dettagliato sull'andamento del tuo sito!\n\nSe non hai bisogno della manutenzione, l'hosting per mettere online il tuo sito costa **€25/mese**.\n\nVuoi maggiori dettagli su un servizio specifico?`,
         },
         {
             keywords: ['consulenza', 'gratuita', 'gratis', 'analisi', 'incontro', 'parlare', 'appuntamento'],
@@ -28,7 +29,7 @@ const knowledgeBases = {
         },
         {
             keywords: ['abbonamento', 'mensile', 'manutenzione', 'aggiornament', 'hosting', 'gestione', 'light'],
-            response: `La **Manutenzione Light** parte da **€40/mese** e include:\n\n• Piccoli interventi tecnici e aggiornamenti\n• **Hosting incluso** nel canone mensile\n• Assistenza tecnica\n\nC'è anche il ⭐ **Piano Consigliato: Manutenzione Pro** da **€55/mese** che include tutto il piano Light, più un **report mensile dettagliato** sull'andamento del sito e le visite.\n\nQuale piano ti interessa?`,
+            response: `La **Manutenzione Light** parte da **€40/mese** e include:\n\n• Piccoli interventi tecnici e aggiornamenti\n• **Hosting incluso** nel canone mensile\n• Assistenza tecnica\n\nC'è anche il ⭐ **Piano Consigliato: Manutenzione Pro** da **€55/mese** che include tutto il piano Light, più un **report mensile dettagliato** sull'andamento del sito e le visite.\n\nSe non hai bisogno della manutenzione, l'hosting per mettere online il tuo sito costa **€25/mese**.\n\nQuale piano ti interessa?`,
         },
         {
             keywords: ['pro', 'consigliato', 'report', 'visite', 'statistiche', 'analytics', 'frequenza', 'premium'],
@@ -78,7 +79,7 @@ const knowledgeBases = {
     en: [
         {
             keywords: ['price', 'prices', 'cost', 'costs', 'rate', 'rates', 'how much', 'budget', 'pay', 'spend', 'fee'],
-            response: `Here are our service rates:\n\n• **Initial Consultation** — **Free** (in person or online)\n• **Light Maintenance** — from **€40/month** (hosting included)\n• ⭐ **Pro Maintenance** — from **€55/month** (Recommended Plan! Everything + monthly report)\n• **Custom Quote** — Personalized on request\n• **Private Domain** — €10–€20/year\n\nThe **Pro Maintenance** plan is our most popular: includes everything in the Light plan, plus a detailed monthly report on your site's performance!\n\nWould you like more details about a specific service?`,
+            response: `Here are our service rates:\n\n• **Initial Consultation** — **Free** (in person or online)\n• **Light Maintenance** — from **€40/month** (hosting included)\n• ⭐ **Pro Maintenance** — from **€55/month** (Recommended Plan! Everything + monthly report)\n• **Hosting Only** (no maintenance) — **€25/month**\n• **Custom Quote** — Personalized on request\n• **Private Domain** — €10–€20/year\n\nThe **Pro Maintenance** plan is our most popular: includes everything in the Light plan, plus a detailed monthly report on your site's performance!\n\nIf you don't need maintenance, hosting to put your site online costs **€25/month**.\n\nWould you like more details about a specific service?`,
         },
         {
             keywords: ['consultation', 'free', 'meeting', 'appointment', 'talk', 'discuss', 'analysis'],
@@ -90,7 +91,7 @@ const knowledgeBases = {
         },
         {
             keywords: ['subscription', 'monthly', 'maintenance', 'updates', 'hosting', 'management', 'light'],
-            response: `**Light Maintenance** starts from **€40/month** and includes:\n\n• Minor technical interventions and updates\n• **Hosting included** in the monthly fee\n• Technical support\n\nThere's also the ⭐ **Recommended Plan: Pro Maintenance** from **€55/month** which includes everything in the Light plan, plus a **detailed monthly report** on site performance and visits.\n\nWhich plan interests you?`,
+            response: `**Light Maintenance** starts from **€40/month** and includes:\n\n• Minor technical interventions and updates\n• **Hosting included** in the monthly fee\n• Technical support\n\nThere's also the ⭐ **Recommended Plan: Pro Maintenance** from **€55/month** which includes everything in the Light plan, plus a **detailed monthly report** on site performance and visits.\n\nIf you don't need maintenance, hosting to put your site online costs **€25/month**.\n\nWhich plan interests you?`,
         },
         {
             keywords: ['pro', 'recommended', 'report', 'monthly', 'visits', 'statistics', 'analytics', 'bounce', 'premium'],
@@ -140,7 +141,7 @@ const knowledgeBases = {
     de: [
         {
             keywords: ['preis', 'preise', 'kosten', 'tarif', 'tarife', 'wieviel', 'budget', 'zahlen', 'ausgeben', 'gebühr'],
-            response: `Hier sind unsere Servicetarife:\n\n• **Erstberatung** — **Kostenlos** (persönlich oder online)\n• **Wartung Light** — ab **€40/Monat** (Hosting inklusive)\n• ⭐ **Wartung Pro** — ab **€55/Monat** (Empfohlener Plan! Alles inklusive + monatlicher Bericht)\n• **Individuelles Angebot** — Auf Anfrage\n• **Private Domain** — €10–€20/Jahr\n\nDer **Wartung Pro**-Plan ist unser beliebtester: beinhaltet alles aus dem Light-Plan, plus einen detaillierten monatlichen Bericht über Ihre Website-Performance!\n\nMöchten Sie mehr Details zu einem bestimmten Service?`,
+            response: `Hier sind unsere Servicetarife:\n\n• **Erstberatung** — **Kostenlos** (persönlich oder online)\n• **Wartung Light** — ab **€40/Monat** (Hosting inklusive)\n• ⭐ **Wartung Pro** — ab **€55/Monat** (Empfohlener Plan! Alles inklusive + monatlicher Bericht)\n• **Nur Hosting** (ohne Wartung) — **€25/Monat**\n• **Individuelles Angebot** — Auf Anfrage\n• **Private Domain** — €10–€20/Jahr\n\nDer **Wartung Pro**-Plan ist unser beliebtester: beinhaltet alles aus dem Light-Plan, plus einen detaillierten monatlichen Bericht über Ihre Website-Performance!\n\nWenn Sie keine Wartung benötigen, kostet das Hosting für Ihre Website **€25/Monat**.\n\nMöchten Sie mehr Details zu einem bestimmten Service?`,
         },
         {
             keywords: ['beratung', 'kostenlos', 'gratis', 'analyse', 'treffen', 'gespräch', 'termin'],
@@ -152,7 +153,7 @@ const knowledgeBases = {
         },
         {
             keywords: ['abonnement', 'monatlich', 'wartung', 'aktualisierung', 'hosting', 'verwaltung', 'light'],
-            response: `Die **Wartung Light** beginnt ab **€40/Monat** und beinhaltet:\n\n• Kleinere technische Eingriffe und Updates\n• **Hosting inklusive** in der Monatsgebühr\n• Technischer Support\n\nEs gibt auch den ⭐ **Empfohlenen Plan: Wartung Pro** ab **€55/Monat** mit allem im Light-Plan, plus einem **detaillierten monatlichen Bericht** über Website-Leistung und Besuche.\n\nWelcher Plan interessiert Sie?`,
+            response: `Die **Wartung Light** beginnt ab **€40/Monat** und beinhaltet:\n\n• Kleinere technische Eingriffe und Updates\n• **Hosting inklusive** in der Monatsgebühr\n• Technischer Support\n\nEs gibt auch den ⭐ **Empfohlenen Plan: Wartung Pro** ab **€55/Monat** mit allem im Light-Plan, plus einem **detaillierten monatlichen Bericht** über Website-Leistung und Besuche.\n\nWenn Sie keine Wartung benötigen, kostet das Hosting für Ihre Website **€25/Monat**.\n\nWelcher Plan interessiert Sie?`,
         },
         {
             keywords: ['pro', 'empfohlen', 'bericht', 'monatlich', 'besuche', 'statistik', 'analytics', 'absprung', 'premium'],

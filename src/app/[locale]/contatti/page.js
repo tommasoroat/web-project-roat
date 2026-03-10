@@ -48,6 +48,7 @@ export default async function ContattiPage({ params }) {
             consultTime: 'Consulenza: su appuntamento',
             didYouKnow: 'Lo sapevi?',
             priceInfo: 'Il sito vetrina parte da <strong class="text-text-primary">€400</strong> e la manutenzione da <strong class="text-text-primary">€40/mese</strong> (hosting incluso).',
+            hostingOnly: 'Se non hai bisogno della manutenzione, l\'hosting per mettere online il tuo sito costa <strong class="text-text-primary">€25/mese</strong>.',
         },
         en: {
             email: 'Email',
@@ -60,6 +61,7 @@ export default async function ContattiPage({ params }) {
             consultTime: 'Consultation: by appointment',
             didYouKnow: 'Did you know?',
             priceInfo: 'Showcase website starts from <strong class="text-text-primary">€400</strong> and maintenance from <strong class="text-text-primary">€40/month</strong> (hosting included).',
+            hostingOnly: 'If you don\'t need maintenance, hosting to put your site online costs <strong class="text-text-primary">€25/month</strong>.',
         },
         de: {
             email: 'E-Mail',
@@ -72,6 +74,7 @@ export default async function ContattiPage({ params }) {
             consultTime: 'Beratung: nach Vereinbarung',
             didYouKnow: 'Wussten Sie?',
             priceInfo: 'Showcase-Website ab <strong class="text-text-primary">€400</strong> und Wartung ab <strong class="text-text-primary">€40/Monat</strong> (Hosting inklusive).',
+            hostingOnly: 'Wenn Sie keine Wartung benötigen, kostet das Hosting für Ihre Website <strong class="text-text-primary">€25/Monat</strong>.',
         },
     };
 
@@ -161,6 +164,7 @@ export default async function ContattiPage({ params }) {
                                     <span aria-hidden="true" className="w-5 h-5 flex justify-center items-center">!</span> {s.didYouKnow}
                                 </h3>
                                 <p className="text-text-secondary text-sm" dangerouslySetInnerHTML={{ __html: s.priceInfo }} />
+                                <p className="text-text-secondary text-sm mt-2" dangerouslySetInnerHTML={{ __html: s.hostingOnly }} />
                             </div>
                         </aside>
                     </div>
