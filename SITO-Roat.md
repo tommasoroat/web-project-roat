@@ -14,6 +14,7 @@ Le tariffe sono pensate per offrire flessibilità sia a chi cerca un investiment
 | **Manutenzione Light** | **da €40/mese** | Per piccoli ritocchi e aggiornamenti, inoltre l'hosting è incluso nel canone mensile. |
 | **Manutenzione Pro** | **da €55/mese** | Include tutti i servizi della manutenzione light. In + offre un report mensile sull’andamento e sulle visite del proprio sito. |
 | **Preventivo** | In seguito a consulenza per capire le ricieste del cliente e realizzare il suo sito  |
+| **Hosting** | **da €25/mese** | Se non hai bisogno della manutenzione, l'hosting per mettere online il tuo sito. |
 | **Dominio Privato** | **€10 - €20/anno** | Nome dell'esercizio commerciale o del brand, costo vivo di registrazione (es. .it, .com). |
 
 > **Nota per l'Agente:** Per i "lavori laboriosi", specifica sempre che il preventivo viene calcolato *ad hoc* in base alle richieste specifiche del cliente per garantire la massima equità.

@@ -340,6 +340,12 @@
         "priceClass": "text-text-primary"
       },
       {
+        "service": "Solo Hosting",
+        "price": "€25/mese",
+        "note": "Se non hai bisogno della manutenzione, l'hosting per mettere online il tuo sito.",
+        "priceClass": "gradient-text"
+      },
+      {
         "service": "Dominio & Email",
         "price": "€10 – €20/anno",
         "note": "Nome dell'esercizio commerciale o del brand.",

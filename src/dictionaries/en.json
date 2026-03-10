@@ -340,6 +340,12 @@
         "priceClass": "text-text-primary"
       },
       {
+        "service": "Hosting Only",
+        "price": "€25/month",
+        "note": "If you don't need maintenance, hosting to put your site online.",
+        "priceClass": "gradient-text"
+      },
+      {
         "service": "Domain & Email",
         "price": "€10 – €20/year",
         "note": "Name of your business or brand.",

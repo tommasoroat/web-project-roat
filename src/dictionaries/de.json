@@ -340,6 +340,12 @@
         "priceClass": "text-text-primary"
       },
       {
+        "service": "Nur Hosting",
+        "price": "€25/Monat",
+        "note": "Wenn Sie keine Wartung benötigen, das Hosting für Ihre Website.",
+        "priceClass": "gradient-text"
+      },
+      {
         "service": "Domain & E-Mail",
         "price": "€10 – €20/Jahr",
         "note": "Name des Unternehmens oder der Marke.",
