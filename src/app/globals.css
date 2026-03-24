@@ -282,6 +282,164 @@
     will-change: transform, opacity;
     animation: shoot-star var(--duration, 1.2s) linear forwards;
   }
+
+  /* ── Circular Testimonials ─────────────────────────────── */
+  .ct-section {
+    padding: 5rem 0;
+    overflow: hidden;
+  }
+
+  .ct-section-header {
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+    padding: 0 1.5rem;
+    text-align: center;
+  }
+
+  .ct-section-subtitle {
+    color: var(--color-text-secondary);
+    max-width: 42rem;
+    margin: 0 auto;
+    font-size: 1.125rem;
+  }
+
+  .ct-container {
+    width: 100%;
+    max-width: 56rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .ct-grid {
+    display: grid;
+    gap: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .ct-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+  }
+
+  .ct-image-container {
+    position: relative;
+    width: 100%;
+    height: 20rem;
+    perspective: 1000px;
+  }
+
+  @media (min-width: 768px) {
+    .ct-image-container {
+      height: 22rem;
+    }
+  }
+
+  .ct-image-card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 1.5rem;
+    box-shadow:
+      0 10px 30px rgba(0, 0, 0, 0.12),
+      0 4px 12px rgba(186, 230, 253, 0.3);
+    overflow: hidden;
+  }
+
+  .ct-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 18rem;
+  }
+
+  .ct-name {
+    font-weight: 800;
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .ct-designation {
+    font-size: 0.925rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .ct-quote {
+    line-height: 1.75;
+    font-size: 1.05rem;
+  }
+
+  /* Navigation bar: dots + arrows */
+  .ct-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 2rem;
+    gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .ct-nav {
+      padding-top: 0;
+    }
+  }
+
+  .ct-dots {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .ct-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid var(--color-primary);
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.3s ease;
+  }
+
+  .ct-dot--active {
+    background: var(--color-primary);
+    transform: scale(1.2);
+  }
+
+  .ct-dot:hover {
+    background: var(--color-primary-light);
+  }
+
+  .ct-arrows {
+    display: flex;
+    gap: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  .ct-arrow {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 12px rgba(186, 230, 253, 0.3);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  .ct-arrow:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(2, 132, 199, 0.35);
+  }
+
+  .ct-arrow:active {
+    transform: scale(0.95);
+  }
 }
 
 @layer utilities {

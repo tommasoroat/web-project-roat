@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import PricingTable from '@/components/PricingTable';
 import BackgroundAnimation from '@/components/BackgroundAnimation';
-import ReviewsMarquee from '@/components/ReviewsMarquee';
+import CircularTestimonials from '@/components/CircularTestimonials';
 import { getDictionary } from '@/lib/i18n';
 
 const BASE_URL = 'https://www.rtd-solutions.eu';
@@ -138,7 +138,7 @@ export default async function HomePage({ params }) {
       </section>
 
       {/* Reviews */}
-      <ReviewsMarquee />
+      <CircularTestimonials />
 
       {/* CTA Section */}
       <section
