@@ -1,9 +1,13 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useParams } from 'next/navigation';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function AdminPage() {
+    const params = useParams();
+    const locale = params?.locale || 'it';
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -223,6 +227,12 @@ export default function AdminPage() {
                         Esci
                     </button>
                 </div>
+
+                {/* Fattura Link */}
+                <Link href={`/${locale}/admin/fattura`} className="admin-card-link">
+                    <h2>📄 Genera Fattura</h2>
+                    <p>Compila e scarica fatture in formato PDF</p>
+                </Link>
 
                 {/* Maintenance Mode Toggle */}
                 <div className="glass-card p-6 bg-gradient-to-br from-primary/5 to-accent/5 mb-6">
