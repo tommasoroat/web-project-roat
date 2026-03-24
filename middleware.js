@@ -183,7 +183,7 @@ function getMaintenanceHtml(locale) {
     .admin-backdoor {
       position: fixed;
       top: 1.25rem;
-      right: 1.25rem;
+      left: 1.25rem;
       opacity: 0.2;
       transition: opacity 0.3s ease;
       display: block;
@@ -206,7 +206,7 @@ function getMaintenanceHtml(locale) {
     aria-hidden="true"
     tabindex="-1"
   >
-    <img src="/images/logo.png" alt="" />
+    <img src="/logo.png" alt="" />
   </a>
   <div class="container">
     <div class="card">
