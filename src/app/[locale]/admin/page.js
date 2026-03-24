@@ -10,8 +10,11 @@ export default function AdminPage() {
     const [loginError, setLoginError] = useState('');
     const [token, setToken] = useState('');
     const [vacationMode, setVacationMode] = useState(false);
+    const [maintenanceMode, setMaintenanceMode] = useState(false);
     const [loading, setLoading] = useState(false);
-    const [toggling, setToggling] = useState(false);
+    const [togglingVacation, setTogglingVacation] = useState(false);
+    const [togglingMaintenance, setTogglingMaintenance] = useState(false);
+    const [maintenanceNotice, setMaintenanceNotice] = useState('');
 
     // Check for existing session
     useEffect(() => {
@@ -20,6 +23,7 @@ export default function AdminPage() {
             setToken(savedToken);
             setIsLoggedIn(true);
             fetchVacationStatus(savedToken);
+            fetchMaintenanceStatus(savedToken);
         }
     }, []);
 
@@ -31,6 +35,20 @@ export default function AdminPage() {
             if (res.ok) {
                 const data = await res.json();
                 setVacationMode(data.vacationMode);
+            }
+        } catch {
+            // Ignore errors
+        }
+    };
+
+    const fetchMaintenanceStatus = async (authToken) => {
+        try {
+            const res = await fetch('/api/admin/maintenance', {
+                headers: { 'Authorization': `Bearer ${authToken}` },
+            });
+            if (res.ok) {
+                const data = await res.json();
+                setMaintenanceMode(data.maintenanceMode);
             }
         } catch {
             // Ignore errors
@@ -62,6 +80,7 @@ export default function AdminPage() {
             setIsLoggedIn(true);
             setLoading(false);
             fetchVacationStatus(data.token);
+            fetchMaintenanceStatus(data.token);
         } catch {
             setLoginError('Errore di connessione');
             setLoading(false);
@@ -69,7 +88,7 @@ export default function AdminPage() {
     };
 
     const handleToggleVacation = async () => {
-        setToggling(true);
+        setTogglingVacation(true);
         try {
             const res = await fetch('/api/admin/vacation', {
                 method: 'POST',
@@ -87,11 +106,46 @@ export default function AdminPage() {
         } catch {
             // Ignore
         }
-        setToggling(false);
+        setTogglingVacation(false);
+    };
+
+    const handleToggleMaintenance = async () => {
+        setTogglingMaintenance(true);
+        setMaintenanceNotice('');
+        try {
+            const res = await fetch('/api/admin/maintenance', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                },
+                body: JSON.stringify({ maintenanceMode: !maintenanceMode }),
+            });
+
+            if (res.ok) {
+                const data = await res.json();
+                setMaintenanceMode(data.maintenanceMode);
+                setMaintenanceNotice(
+                    data.maintenanceMode
+                        ? '✅ Manutenzione attivata — i visitatori vedranno la pagina 503'
+                        : '✅ Manutenzione disattivata — sito accessibile a tutti'
+                );
+                setTimeout(() => setMaintenanceNotice(''), 4000);
+            } else {
+                setMaintenanceNotice('❌ Errore durante l\'aggiornamento');
+                setTimeout(() => setMaintenanceNotice(''), 4000);
+            }
+        } catch {
+            setMaintenanceNotice('❌ Errore di connessione');
+            setTimeout(() => setMaintenanceNotice(''), 4000);
+        }
+        setTogglingMaintenance(false);
     };
 
     const handleLogout = () => {
         sessionStorage.removeItem('rtd_admin_token');
+        // Clear the session cookie
+        document.cookie = 'rtd_admin_session=; Path=/; Max-Age=0; SameSite=Lax';
         setIsLoggedIn(false);
         setToken('');
         setUsername('');
@@ -170,6 +224,59 @@ export default function AdminPage() {
                     </button>
                 </div>
 
+                {/* Maintenance Mode Toggle */}
+                <div className="glass-card p-6 bg-gradient-to-br from-primary/5 to-accent/5 mb-6">
+                    <div className="flex items-center justify-between">
+                        <div>
+                            <h2 className="text-lg font-bold text-text-primary mb-1">
+                                🔧 Modalità Manutenzione
+                            </h2>
+                            <p className="text-text-secondary text-sm">
+                                {maintenanceMode
+                                    ? 'Attiva — Sito bloccato per i visitatori (503). Solo admin può navigare.'
+                                    : 'Disattiva — Sito accessibile a tutti normalmente.'
+                                }
+                            </p>
+                        </div>
+
+                        {/* iOS-style toggle */}
+                        <button
+                            onClick={handleToggleMaintenance}
+                            disabled={togglingMaintenance}
+                            className={`relative inline-flex h-8 w-14 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-300 ease-in-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${maintenanceMode ? 'bg-warning' : 'bg-surface-500'
+                                } ${togglingMaintenance ? 'opacity-50' : ''}`}
+                            role="switch"
+                            aria-checked={maintenanceMode}
+                            aria-label="Attiva o disattiva modalità manutenzione"
+                        >
+                            <span
+                                className={`pointer-events-none inline-block h-7 w-7 transform rounded-full bg-white shadow-lg ring-0 transition-transform duration-300 ease-in-out ${maintenanceMode ? 'translate-x-6' : 'translate-x-0'
+                                    }`}
+                            />
+                        </button>
+                    </div>
+
+                    {/* Status notice */}
+                    {maintenanceNotice && (
+                        <div className="mt-4 p-3 bg-surface-700 rounded-xl text-center">
+                            <p className="text-text-primary text-sm font-medium">{maintenanceNotice}</p>
+                        </div>
+                    )}
+
+                    {/* Preview if maintenance is on */}
+                    {maintenanceMode && (
+                        <div className="mt-4 p-4 bg-surface-700 rounded-xl text-center">
+                            <div className="text-3xl mb-2">🔧</div>
+                            <p className="text-text-primary font-semibold">
+                                I visitatori vedono: &ldquo;Sito in manutenzione&rdquo;
+                            </p>
+                            <p className="text-text-secondary text-xs mt-1">
+                                HTTP 503 + Retry-After: 3600s
+                            </p>
+                        </div>
+                    )}
+                </div>
+
                 {/* Vacation Mode Toggle */}
                 <div className="glass-card p-6 bg-gradient-to-br from-primary/5 to-accent/5">
                     <div className="flex items-center justify-between">
@@ -188,9 +295,9 @@ export default function AdminPage() {
                         {/* iOS-style toggle */}
                         <button
                             onClick={handleToggleVacation}
-                            disabled={toggling}
+                            disabled={togglingVacation}
                             className={`relative inline-flex h-8 w-14 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-300 ease-in-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${vacationMode ? 'bg-success' : 'bg-surface-500'
-                                } ${toggling ? 'opacity-50' : ''}`}
+                                } ${togglingVacation ? 'opacity-50' : ''}`}
                             role="switch"
                             aria-checked={vacationMode}
                             aria-label="Attiva o disattiva modalità vacanza"

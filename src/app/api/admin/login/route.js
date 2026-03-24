@@ -36,7 +36,13 @@ export async function POST(request) {
         // Generate a signed token (stateless, works across serverless functions)
         const token = createToken();
 
-        return Response.json({ token, message: 'Login effettuato con successo.' });
+        // Return token in body + set HttpOnly cookie for middleware session check
+        const response = Response.json({ token, message: 'Login effettuato con successo.' });
+        response.headers.append(
+            'Set-Cookie',
+            `rtd_admin_session=${token}; Path=/; HttpOnly; SameSite=Lax; Max-Age=7200`
+        );
+        return response;
     } catch {
         return Response.json(
             { error: 'Errore durante il login.' },
