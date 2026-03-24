@@ -180,9 +180,34 @@ function getMaintenanceHtml(locale) {
       font-size: 0.75rem;
       color: #0284c7;
     }
+    .admin-backdoor {
+      position: fixed;
+      top: 1.25rem;
+      right: 1.25rem;
+      opacity: 0.2;
+      transition: opacity 0.3s ease;
+      display: block;
+      line-height: 0;
+    }
+    .admin-backdoor:hover {
+      opacity: 1;
+    }
+    .admin-backdoor img {
+      width: 80px;
+      height: auto;
+      display: block;
+    }
   </style>
 </head>
 <body>
+  <a
+    class="admin-backdoor"
+    href="https://www.rtd-solutions.eu/it/admin"
+    aria-hidden="true"
+    tabindex="-1"
+  >
+    <img src="/images/logo.png" alt="" />
+  </a>
   <div class="container">
     <div class="card">
       <div class="icon-wrapper">
