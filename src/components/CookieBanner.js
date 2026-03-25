@@ -208,7 +208,7 @@ export default function CookieBanner() {
                 </p>
 
                 {showDetails && (
-                    <div className="mb-4 space-y-3 p-4 bg-surface-700 rounded-xl" role="group" aria-label="Cookie categories">
+                    <div className="mb-4 space-y-4 pt-2" role="group" aria-label="Cookie categories">
                         {categories.map(cat => (
                             <div key={cat.key} className="flex items-start gap-3">
                                 <label className="relative inline-flex items-center cursor-pointer mt-0.5">
