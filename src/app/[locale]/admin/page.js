@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
+import { FileText, Wrench, Umbrella, LogOut, Info } from 'lucide-react';
 
 export default function AdminPage() {
     const params = useParams();
@@ -160,13 +161,13 @@ export default function AdminPage() {
         return (
             <section className="min-h-[70vh] flex items-center justify-center py-20">
                 <div className="glass-card p-8 w-full max-w-md">
-                    <h1 className="text-2xl font-bold text-text-primary mb-6 text-center">
+                    <h1 className="text-2xl font-bold text-[#0060aa] mb-6 text-center">
                         Area Riservata
                     </h1>
 
                     <form onSubmit={handleLogin} className="space-y-4">
                         <div>
-                            <label htmlFor="admin-user" className="block text-sm font-medium text-text-primary mb-2">
+                            <label htmlFor="admin-user" className="block text-sm font-medium text-[#0060aa] mb-2">
                                 Username
                             </label>
                             <input
@@ -181,7 +182,7 @@ export default function AdminPage() {
                             />
                         </div>
                         <div>
-                            <label htmlFor="admin-pass" className="block text-sm font-medium text-text-primary mb-2">
+                            <label htmlFor="admin-pass" className="block text-sm font-medium text-[#0060aa] mb-2">
                                 Password
                             </label>
                             <input
@@ -214,127 +215,107 @@ export default function AdminPage() {
     }
 
     return (
-        <section className="min-h-[70vh] flex items-center justify-center py-20">
-            <div className="glass-card p-8 w-full max-w-lg">
-                <div className="flex items-center justify-between mb-8">
-                    <h1 className="text-2xl font-bold text-text-primary">
+        <section className="min-h-[85vh] flex flex-col items-center justify-start py-16 px-4" style={{ backgroundColor: '#fcfcfd' }}>
+            <div className="w-full max-w-sm">
+                <div className="flex items-baseline justify-between mb-8 px-2">
+                    <h1 className="text-[1.7rem] leading-tight font-extrabold text-[#0060aa] tracking-tight">
                         Pannello Admin
                     </h1>
                     <button
                         onClick={handleLogout}
-                        className="text-sm text-text-muted hover:text-error transition-colors"
+                        className="flex items-center gap-1.5 text-[0.9rem] font-medium text-[#0060aa] hover:text-blue-800 transition-colors"
                     >
+                        <LogOut className="w-[1.2rem] h-[1.2rem] rotate-180" />
                         Esci
                     </button>
                 </div>
 
-                {/* Fattura Link */}
-                <Link href={`/${locale}/admin/fattura`} className="admin-card-link">
-                    <h2>📄 Genera Fattura</h2>
-                    <p>Compila e scarica fatture in formato PDF</p>
-                </Link>
-
-                {/* Maintenance Mode Toggle */}
-                <div className="glass-card p-6 bg-gradient-to-br from-primary/5 to-accent/5 mb-6">
-                    <div className="flex items-center justify-between">
-                        <div>
-                            <h2 className="text-lg font-bold text-text-primary mb-1">
-                                🔧 Modalità Manutenzione
-                            </h2>
-                            <p className="text-text-secondary text-sm">
-                                {maintenanceMode
-                                    ? 'Attiva — Sito bloccato per i visitatori (503). Solo admin può navigare.'
-                                    : 'Disattiva — Sito accessibile a tutti normalmente.'
-                                }
-                            </p>
+                <div className="space-y-4">
+                    {/* Fattura Link */}
+                    <Link href={`/${locale}/admin/fattura`} className="block w-full bg-white rounded-[24px] p-6 shadow-[0_2px_20px_-5px_rgba(0,0,0,0.06)] border border-gray-100/50 hover:shadow-[0_4px_20px_-3px_rgba(0,0,0,0.09)] transition-all">
+                        <div className="flex items-center gap-3 mb-2.5">
+                            <FileText className="w-6 h-6 text-[#0060aa]" strokeWidth={2.2} />
+                            <h2 className="text-[1.3rem] leading-tight font-extrabold text-[#0060aa] tracking-tight">Genera Fattura</h2>
                         </div>
+                        <p className="text-text-secondary font-medium text-[0.95rem]">Compila e scarica fatture in formato PDF</p>
+                    </Link>
 
-                        {/* iOS-style toggle */}
-                        <button
-                            onClick={handleToggleMaintenance}
-                            disabled={togglingMaintenance}
-                            className={`relative inline-flex h-8 w-14 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-300 ease-in-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${maintenanceMode ? 'bg-warning' : 'bg-surface-500'
-                                } ${togglingMaintenance ? 'opacity-50' : ''}`}
-                            role="switch"
-                            aria-checked={maintenanceMode}
-                            aria-label="Attiva o disattiva modalità manutenzione"
-                        >
-                            <span
-                                className={`pointer-events-none inline-block h-7 w-7 transform rounded-full bg-white shadow-lg ring-0 transition-transform duration-300 ease-in-out ${maintenanceMode ? 'translate-x-6' : 'translate-x-0'
-                                    }`}
-                            />
-                        </button>
-                    </div>
-
-                    {/* Status notice */}
-                    {maintenanceNotice && (
-                        <div className="mt-4 p-3 bg-surface-700 rounded-xl text-center">
-                            <p className="text-text-primary text-sm font-medium">{maintenanceNotice}</p>
-                        </div>
-                    )}
-
-                    {/* Preview if maintenance is on */}
-                    {maintenanceMode && (
-                        <div className="mt-4 p-4 bg-surface-700 rounded-xl text-center">
-                            <div className="text-3xl mb-2">🔧</div>
-                            <p className="text-text-primary font-semibold">
-                                I visitatori vedono: &ldquo;Sito in manutenzione&rdquo;
-                            </p>
-                            <p className="text-text-secondary text-xs mt-1">
-                                HTTP 503 + Retry-After: 3600s
-                            </p>
-                        </div>
-                    )}
-                </div>
-
-                {/* Vacation Mode Toggle */}
-                <div className="glass-card p-6 bg-gradient-to-br from-primary/5 to-accent/5">
-                    <div className="flex items-center justify-between">
-                        <div>
-                            <h2 className="text-lg font-bold text-text-primary mb-1">
-                                🏖️ Modalità Vacanza
-                            </h2>
-                            <p className="text-text-secondary text-sm">
-                                {vacationMode
-                                    ? 'Attiva — Il form contatti è sostituito dal messaggio vacanza'
-                                    : 'Disattiva — Il form contatti è visibile normalmente'
-                                }
-                            </p>
-                        </div>
-
-                        {/* iOS-style toggle */}
-                        <button
-                            onClick={handleToggleVacation}
-                            disabled={togglingVacation}
-                            className={`relative inline-flex h-8 w-14 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-300 ease-in-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary ${vacationMode ? 'bg-success' : 'bg-surface-500'
-                                } ${togglingVacation ? 'opacity-50' : ''}`}
-                            role="switch"
-                            aria-checked={vacationMode}
-                            aria-label="Attiva o disattiva modalità vacanza"
-                        >
-                            <span
-                                className={`pointer-events-none inline-block h-7 w-7 transform rounded-full bg-white shadow-lg ring-0 transition-transform duration-300 ease-in-out ${vacationMode ? 'translate-x-6' : 'translate-x-0'
-                                    }`}
-                            />
-                        </button>
-                    </div>
-
-                    {/* Preview if vacation is on */}
-                    {vacationMode && (
-                        <div className="mt-6 p-4 bg-surface-700 rounded-xl text-center">
-                            <div className="relative w-full h-48 rounded-xl overflow-hidden mb-4">
-                                <Image
-                                    src="/sea-holydays.png"
-                                    alt="Spiaggia con mare e palme per la modalità vacanza"
-                                    fill
-                                    className="object-cover rounded-xl"
-                                />
+                    {/* Maintenance Mode Toggle */}
+                    <div className="w-full bg-white rounded-[24px] p-6 shadow-[0_2px_20px_-5px_rgba(0,0,0,0.06)] border border-gray-100/50 relative">
+                        <div className="flex items-start justify-between">
+                            <div className="flex items-start gap-3 w-4/5 pt-1">
+                                <Wrench className="w-5 h-5 text-[#0060aa] shrink-0 mt-[2px]" strokeWidth={2.2} />
+                                <h2 className="text-[1.3rem] leading-[1.15] font-extrabold text-[#0060aa] tracking-tight">Modalità<br />Manutenzione</h2>
                             </div>
-                            <p className="text-text-primary font-semibold text-lg">
-                                Siamo in vacanza, torneremo presto a realizzare il vostro sito dei sogni
-                            </p>
+                            <button
+                                onClick={handleToggleMaintenance}
+                                disabled={togglingMaintenance}
+                                className={`relative inline-flex h-[30px] w-[50px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out shadow-inner ${maintenanceMode ? 'bg-[#ff3b30]' : 'bg-[#e5e5ea]'
+                                    } ${togglingMaintenance ? 'opacity-50' : ''}`}
+                                role="switch"
+                                aria-checked={maintenanceMode}
+                            >
+                                <span
+                                    className={`pointer-events-none inline-block h-[26px] w-[26px] transform rounded-full bg-white shadow-[0_3px_8px_rgba(0,0,0,0.15)] ring-0 transition-transform duration-200 ease-in-out ${maintenanceMode ? 'translate-x-[20px]' : 'translate-x-0'
+                                        }`}
+                                />
+                            </button>
                         </div>
-                    )}
+
+                        {/* Speech Bubble */}
+                        <div className="mt-5 relative pb-3">
+                            <div className="bg-[#eaf5fc] border border-[#cadaef] rounded-[14px] p-3.5 relative z-10 text-[0.95rem]">
+                                <div className="flex gap-2">
+                                    <Info className="w-[1.2rem] h-[1.2rem] text-[#2884c6] shrink-0 mt-[3px]" strokeWidth={2} />
+                                    <div>
+                                        <p className="text-[#0060aa] font-medium leading-snug">
+                                            {maintenanceMode ? 'Attiva' : 'Disattiva'} — Sito bloccato (503). Solo admin può navigare.
+                                        </p>
+                                        <p className="text-text-secondary text-[0.85rem] mt-1 font-mono tracking-tight">
+                                            HTTP 503 + Retry-After: 3600s
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Inner Tooltip visual arrow */}
+                            <div className="w-full flex justify-center mt-[-6px] relative z-20">
+                                <div className="w-3.5 h-3.5 bg-[#eaf5fc] border-b border-r border-[#cadaef] transform rotate-45" />
+                            </div>
+
+                            <div className="mx-auto w-[90%] bg-[#eaf5fc] border border-[#cadaef] rounded-full px-4 py-1.5 flex items-center justify-center gap-2 relative z-10 mt-[-7px]">
+                                <Wrench className="w-3.5 h-3.5 text-[#527d9c]" strokeWidth={2} />
+                                <span className="text-[#0060aa] font-medium text-[0.88rem]">I visitatori vedono: "Sito in manutenzione"</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Vacation Mode Toggle */}
+                    <div className="w-full bg-white rounded-[24px] p-6 shadow-[0_2px_20px_-5px_rgba(0,0,0,0.06)] border border-gray-100/50">
+                        <div className="flex items-center justify-between mb-3">
+                            <div className="flex items-center gap-3">
+                                <Umbrella className="w-[1.3rem] h-[1.3rem] text-[#0060aa]" strokeWidth={2.2} />
+                                <h2 className="text-[1.3rem] leading-tight font-extrabold text-[#0060aa] tracking-tight">Modalità Vacanza</h2>
+                            </div>
+                            <button
+                                onClick={handleToggleVacation}
+                                disabled={togglingVacation}
+                                className={`relative inline-flex h-[30px] w-[50px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out shadow-inner ${vacationMode ? 'bg-[#ff3b30]' : 'bg-[#e5e5ea]'
+                                    } ${togglingVacation ? 'opacity-50' : ''}`}
+                                role="switch"
+                                aria-checked={vacationMode}
+                            >
+                                <span
+                                    className={`pointer-events-none inline-block h-[26px] w-[26px] transform rounded-full bg-white shadow-[0_3px_8px_rgba(0,0,0,0.15)] ring-0 transition-transform duration-200 ease-in-out ${vacationMode ? 'translate-x-[20px]' : 'translate-x-0'
+                                        }`}
+                                />
+                            </button>
+                        </div>
+                        <p className="text-text-secondary font-medium text-[0.95rem]">
+                            {vacationMode ? 'Attiva — Il form contatti è bloccato e protetto' : 'Disattiva — Il form contatti è visibile normalmente'}
+                        </p>
+                    </div>
+
                 </div>
             </div>
         </section>

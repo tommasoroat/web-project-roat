@@ -8,7 +8,7 @@
   "hero": {
     "badge": "Consulenza gratuita",
     "title1": "Sogni di avere da tempo un",
-    "title2": "sito web",
+    "title2": "<span class=\"text-primary font-bold\">sito web</span>",
     "title3": "tutto tuo o per la tua attività?",
     "subtitle": "Dal progetto al lancio, con trasparenza totale su costi e servizi. Siti veloci, sicuri e conformi alle normative vigenti.",
     "ctaPrimary": "Richiedi Preventivo Gratuito",
@@ -50,14 +50,14 @@
       "desc": "Analisi delle necessità e fattibilità progetto. Di persona o online, senza impegno."
     },
     "item2": {
-      "title": "Manutenzione Light",
-      "price": "€40",
-      "desc": "Per piccoli ritocchi e aggiornamenti. Hosting incluso nel canone mensile."
+      "title": "Manutenzione Mensile",
+      "price": "€69",
+      "desc": "2 interventi mensili (testi/immagini/CSS). Hosting incluso (valore 25€). Dominio escluso."
     },
     "item3": {
-      "title": "Manutenzione Pro",
-      "price": "€55",
-      "desc": "Include tutti i servizi della Manutenzione Light, più un report mensile dettagliato sull'andamento del sito e le visite."
+      "title": "Manutenzione Annuale",
+      "price": "€750",
+      "desc": "Tutti i vantaggi con fatturazione unica (risparmio 78€). Hosting incluso (valore 25€). Dominio escluso."
     },
     "item4": {
       "title": "Preventivo",
@@ -305,6 +305,11 @@
         "step": "03",
         "title": "Realizzazione & Lancio",
         "desc": "Sviluppo il tuo sito \"chiavi in mano\": design, codice, ottimizzazione e messa online."
+      },
+      {
+        "step": "04",
+        "title": "Manutenzione & Supporto",
+        "desc": "Consigliamo vivamente il piano di manutenzione annuale o mensile per avere il sito costantemente online, sicuro, aggiornato e senza pensieri."
       }
     ],
     "pricingSummary": "Riepilogo Tariffe",
@@ -321,15 +326,15 @@
         "priceClass": "text-success"
       },
       {
-        "service": "Manutenzione Light",
-        "price": "da €40/mese",
-        "note": "Per piccoli ritocchi e aggiornamenti. Hosting incluso.",
+        "service": "Manutenzione Mensile",
+        "price": "€69/mese",
+        "note": "2 interventi/mese. Hosting incluso (val. 25€). Dominio escluso.",
         "priceClass": "gradient-text"
       },
       {
-        "service": "Manutenzione Pro ⭐",
-        "price": "da €55/mese",
-        "note": "Include tutti i servizi Light, più report mensile su andamento e visite del sito.",
+        "service": "Manutenzione Annuale ⭐",
+        "price": "€750/anno",
+        "note": "Risparmio di 78€ sul mensile. Hosting incluso (val. 25€). Dominio escluso.",
         "priceClass": "gradient-text",
         "highlight": true
       },

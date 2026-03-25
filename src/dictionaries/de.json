@@ -8,7 +8,7 @@
   "hero": {
     "badge": "Kostenlose Beratung",
     "title1": "Träumen Sie schon lange von einer",
-    "title2": "Website",
+    "title2": "<span class=\"text-primary font-bold\">Website</span>",
     "title3": "für sich oder Ihr Unternehmen?",
     "subtitle": "Vom Entwurf bis zum Start, mit voller Transparenz bei Kosten und Leistungen. Schnelle, sichere und rechtskonforme Websites.",
     "ctaPrimary": "Kostenloses Angebot anfordern",
@@ -50,14 +50,14 @@
       "desc": "Analyse der Bedürfnisse und Projektmachbarkeit. Persönlich oder online, unverbindlich."
     },
     "item2": {
-      "title": "Wartung Light",
-      "price": "€40",
-      "desc": "Für kleine Anpassungen und Updates. Hosting im Monatspreis enthalten."
+      "title": "Monatliche Wartung",
+      "price": "€69",
+      "desc": "2 Eingriffe/Monat (Texte/Bilder/CSS). Hosting inklusive (Wert 25€). Domain exklusive."
     },
     "item3": {
-      "title": "Wartung Pro",
-      "price": "€55",
-      "desc": "Beinhaltet alle Leistungen der Wartung Light, plus einen detaillierten monatlichen Bericht über die Website-Leistung und Besuche."
+      "title": "Jährliche Wartung",
+      "price": "€750",
+      "desc": "Alle Vorteile mit jährlicher Abrechnung (78€ Ersparnis). Hosting inklusive (Wert 25€). Domain exklusive."
     },
     "item4": {
       "title": "Angebot",
@@ -305,6 +305,11 @@
         "step": "03",
         "title": "Entwicklung & Launch",
         "desc": "Ich entwickle Ihre Website schlüsselfertig: Design, Code, Optimierung und Bereitstellung."
+      },
+      {
+        "step": "04",
+        "title": "Wartung & Support",
+        "desc": "Wir empfehlen dringend den jährlichen oder monatlichen Wartungsplan, um Ihre Website stets online, sicher, aktuell und sorgenfrei zu halten."
       }
     ],
     "pricingSummary": "Preisübersicht",
@@ -321,15 +326,15 @@
         "priceClass": "text-success"
       },
       {
-        "service": "Wartung Light",
-        "price": "ab €40/Monat",
-        "note": "Für kleine Anpassungen und Updates. Hosting inklusive.",
+        "service": "Monatliche Wartung",
+        "price": "€69/Monat",
+        "note": "2 Eingriffe/Monat. Hosting inklusive (Wert 25€). Domain exklusive.",
         "priceClass": "gradient-text"
       },
       {
-        "service": "Wartung Pro ⭐",
-        "price": "ab €55/Monat",
-        "note": "Beinhaltet alle Light-Leistungen, plus monatlichen Bericht über Website-Leistung und Besuche.",
+        "service": "Jährliche Wartung ⭐",
+        "price": "€750/Jahr",
+        "note": "78€ Ersparnis ggü. monatlich. Hosting inklusive (Wert 25€). Domain exklusive.",
         "priceClass": "gradient-text",
         "highlight": true
       },

@@ -6,9 +6,9 @@
  * 
  * Prices aligned with SITO-Roat.md (March 2026):
  * - Consulenza Iniziale: Gratis
- * - Manutenzione Light: da €40/mese
- * - Manutenzione Pro: da €55/mese (⭐ Piano Consigliato)
- * - Solo Hosting (senza manutenzione): €25/mese
+ * - Manutenzione Mensile: da €69/mese (Hosting incluso + 2h interventi)
+ * - Manutenzione Annuale: da €750/anno (Hosting + SEO Report + 24h/anno)
+ * - Solo Hosting: €25/mese
  * - Preventivo: ad hoc
  * - Dominio Privato: €10–€20/anno
  */
@@ -17,7 +17,7 @@ const knowledgeBases = {
     it: [
         {
             keywords: ['prezzo', 'prezzi', 'costo', 'costi', 'tariff', 'quanto', 'listino', 'pagare', 'spendere', 'budget'],
-            response: `Ecco il nostro listino servizi:\n\n• **Consulenza Iniziale** — **Gratuita** (di persona o online)\n• **Manutenzione Light** — da **€40/mese** (hosting incluso)\n• ⭐ **Manutenzione Pro** — da **€55/mese** (Piano Consigliato! Tutto incluso + report mensile)\n• **Solo Hosting** (senza manutenzione) — **€25/mese**\n• **Preventivo** — Personalizzato su richiesta\n• **Dominio Privato** — €10–€20/anno\n\nIl piano **Manutenzione Pro** è il più scelto: include tutto il piano Light, più un report mensile dettagliato sull'andamento del tuo sito!\n\nSe non hai bisogno della manutenzione, l'hosting per mettere online il tuo sito costa **€25/mese**.\n\nVuoi maggiori dettagli su un servizio specifico?`,
+            response: `Ecco il nostro listino servizi:\n\n• **Consulenza Iniziale** — **Gratuita** (di persona o online)\n• **Piano Mensile** — **€69/mese** (Hosting incluso + monitoraggio uptime e backup + fino a **2h/mese** di interventi)\n• ⭐ **Piano Annuale** — **€750/anno** (Hosting incluso + report dettagliato + fino a **24h/anno** di assistenza prioritaria)\n• **Solo Hosting** (senza manutenzione) — **€25/mese**\n• **Preventivo Sviluppo** — Personalizzato su richiesta\n• **Dominio Privato** — €10–€20/anno\n\nIl piano **Annuale** è molto vantaggioso, risparmi due mesi e hai un Report SEO trimestrale e Analisi Competence della concorrenza 🚀\n\nVuoi maggiori dettagli su un servizio specifico?`,
         },
         {
             keywords: ['consulenza', 'gratuita', 'gratis', 'analisi', 'incontro', 'parlare', 'appuntamento'],
@@ -25,15 +25,15 @@ const knowledgeBases = {
         },
         {
             keywords: ['sito', 'sito web', 'realizzazione', 'creare sito', 'nuovo sito', 'fare un sito', 'preventivo', 'personalizzato'],
-            response: `Per la **realizzazione del tuo sito web**, procediamo con una **consulenza gratuita** per capire le tue esigenze, seguita da un **preventivo personalizzato**.\n\nOgni progetto viene valutato singolarmente per offrirti la soluzione migliore al prezzo più giusto.\n\nInclude design professionale, responsive per mobile, ottimizzazione SEO e conformità legale.\n\nContattatami per una consulenza gratuita!`,
+            response: `Per la **realizzazione del tuo sito web (Sito Vetrina a partire da €650)**, procediamo con una **consulenza gratuita** per capire le tue esigenze, seguita da un **preventivo personalizzato**.\n\nOgni progetto viene valutato singolarmente per offrirti la soluzione migliore al prezzo più giusto.\n\nInclude design professionale, responsive per mobile, ottimizzazione SEO e conformità legale.\n\nContattatami per una consulenza gratuita!`,
         },
         {
             keywords: ['abbonamento', 'mensile', 'manutenzione', 'aggiornament', 'hosting', 'gestione', 'light'],
-            response: `La **Manutenzione Light** parte da **€40/mese** e include:\n\n• Piccoli interventi tecnici e aggiornamenti\n• **Hosting incluso** nel canone mensile\n• Assistenza tecnica\n\nC'è anche il ⭐ **Piano Consigliato: Manutenzione Pro** da **€55/mese** che include tutto il piano Light, più un **report mensile dettagliato** sull'andamento del sito e le visite.\n\nSe non hai bisogno della manutenzione, l'hosting per mettere online il tuo sito costa **€25/mese**.\n\nQuale piano ti interessa?`,
+            response: `La **Manutenzione Mensile** costa **€69/mese** e garantisce sonni tranquilli:\n\n• Fino a **2h al mese** garantite per tue modifiche\n• Backup e Manutenzioni\n• **Hosting di massima prestazione** (SSD incluso)\n\nC'è anche il ⭐ **Piano Consigliato Annuale** da **€750/anno** (più conveniente) che aggiunge Report trimestrali su traffico e visite.\n\nE ricorda, se hai idee o spunti per i tuoi clienti, puoi usare l'apposita scheda di "**Lascia un Feedback**" a fondo pagina sul nostro sito!`,
         },
         {
-            keywords: ['pro', 'consigliato', 'report', 'visite', 'statistiche', 'analytics', 'frequenza', 'premium'],
-            response: `⭐ La **Manutenzione Pro** è il nostro **Piano Consigliato** e costa da **€55/mese**. Include:\n\n• Tutto il piano Manutenzione Light\n• **Report mensile dettagliato** sull'andamento del sito\n• Analisi delle **visite** e del traffico\n• Monitoraggio dell'**indice di frequenza di rimbalzo**\n• **Hosting incluso**\n\nÈ la soluzione ideale per chi vuole monitorare attivamente le performance del proprio sito!`,
+            keywords: ['pro', 'consigliato', 'report', 'visite', 'statistiche', 'analytics', 'frequenza', 'premium', 'annuale'],
+            response: `⭐ Il Piano **Manutenzione Annuale** è la nostra soluzione ammiraglia a **€750/anno**. Oltre a un risparmio netto include:\n\n• Fino a **24 ore annue** sfruttabili senza freni temporali (in un mese ne puoi spendere anche 10).\n• **Report SEO ogni 3 Mesi** con traffico, posizioni su Google e analisi di mercato\n• Update strutturali tempestivi.\n\nUna pacchetto ideale per un sito in vetta! Ti interessa saperne di più?`,
         },
         {
             keywords: ['dominio', '.it', '.com', 'nome sito', 'url', 'indirizzo web'],
@@ -53,7 +53,7 @@ const knowledgeBases = {
         },
         {
             keywords: ['contatt', 'email', 'telefon', 'scrivere', 'raggiungere', 'dove siete'],
-            response: `Puoi contattarmi in diversi modi:\n\n• **Email:** info@rtd-solutions.eu\n• **Form di contatto:** nella sezione Contatti del sito\n• **Instagram:** @rtd.solutions\n• **Consulenza gratuita:** prenotala per un incontro di persona o online\n\nSarò felice di aiutarti!`,
+            response: `Puoi contattarmi in diversi modi:\n\n• **Email:** info@rtd-solutions.eu\n• **Form di contatto:** nella sezione Contatti del sito\n• **Lascia un Feedback:** Usa comodamente il cassetto in fondo alla pagina (Footer) per inviarmi la tua opinione.\n• **Instagram:** @rtd.solutions\n\nSarò felice di aiutarti!`,
         },
         {
             keywords: ['chi sei', 'chi siete', 'about', 'informazione', 'racconta', 'presentati'],
@@ -79,7 +79,7 @@ const knowledgeBases = {
     en: [
         {
             keywords: ['price', 'prices', 'cost', 'costs', 'rate', 'rates', 'how much', 'budget', 'pay', 'spend', 'fee'],
-            response: `Here are our service rates:\n\n• **Initial Consultation** — **Free** (in person or online)\n• **Light Maintenance** — from **€40/month** (hosting included)\n• ⭐ **Pro Maintenance** — from **€55/month** (Recommended Plan! Everything + monthly report)\n• **Hosting Only** (no maintenance) — **€25/month**\n• **Custom Quote** — Personalized on request\n• **Private Domain** — €10–€20/year\n\nThe **Pro Maintenance** plan is our most popular: includes everything in the Light plan, plus a detailed monthly report on your site's performance!\n\nIf you don't need maintenance, hosting to put your site online costs **€25/month**.\n\nWould you like more details about a specific service?`,
+            response: `Here are our service rates:\n\n• **Initial Consultation** — **Free** (in person or online)\n• **Monthly Plan** — **€69/month** (Hosting included + 2h requests)\n• ⭐ **Annual Plan** — **€750/year** (Recommended Plan! Huge savings + SEO quarterly reports + 24h pool)\n• **Hosting Only** (no maintenance) — **€25/month**\n• **Custom Quote** — Personalized on request\n• **Private Domain** — €10–€20/year\n\nOur ⭐ **Annual Plan** is our smartest option. It gathers up hours without limits per month!\n\nWould you like more details about a specific service?`,
         },
         {
             keywords: ['consultation', 'free', 'meeting', 'appointment', 'talk', 'discuss', 'analysis'],
@@ -87,15 +87,15 @@ const knowledgeBases = {
         },
         {
             keywords: ['website', 'site', 'build', 'create', 'new site', 'web design', 'showcase', 'quote', 'custom'],
-            response: `For your **website project**, we start with a **free consultation** to understand your needs, followed by a **personalized quote**.\n\nEach project is evaluated individually to offer you the best solution at the fairest price.\n\nIncludes professional design, mobile responsive layout, SEO optimization, and legal compliance.\n\nContact me for a free consultation!`,
+            response: `For your **website project (Showcase site starting from €650)**, we start with a **free consultation** to understand your needs, followed by a **personalized quote**.\n\nEach project is evaluated individually to offer you the best solution at the fairest price.\n\nIncludes professional design, mobile responsive layout, SEO optimization, and legal compliance.\n\nContact me for a free consultation!`,
         },
         {
             keywords: ['subscription', 'monthly', 'maintenance', 'updates', 'hosting', 'management', 'light'],
-            response: `**Light Maintenance** starts from **€40/month** and includes:\n\n• Minor technical interventions and updates\n• **Hosting included** in the monthly fee\n• Technical support\n\nThere's also the ⭐ **Recommended Plan: Pro Maintenance** from **€55/month** which includes everything in the Light plan, plus a **detailed monthly report** on site performance and visits.\n\nIf you don't need maintenance, hosting to put your site online costs **€25/month**.\n\nWhich plan interests you?`,
+            response: `**Monthly Maintenance** is **€69/month** and includes:\n\n• Up to **2 hours/month** of technical support/edits\n• **Premium Solid State Hosting included** \n• Routine secure backups\n\nThere's also the ⭐ **Annual Plan** at **€750/year** which saves you money and includes a quarterly detailed report on your web presence, plus a grand total of 24h of assistance!\n\nAlso, if you'd like to reach me to drop a quick review of your experience, check out the **Feedback Button** at the bottom of our web pages!`,
         },
         {
-            keywords: ['pro', 'recommended', 'report', 'monthly', 'visits', 'statistics', 'analytics', 'bounce', 'premium'],
-            response: `⭐ **Pro Maintenance** is our **Recommended Plan** at **€55/month**. It includes:\n\n• Everything in the Light Maintenance plan\n• **Detailed monthly report** on site performance\n• **Visits** and traffic analysis\n• **Bounce rate** monitoring\n• **Hosting included**\n\nIt's the ideal solution for those who want to actively monitor their website's performance!`,
+            keywords: ['pro', 'recommended', 'report', 'monthly', 'visits', 'statistics', 'analytics', 'bounce', 'premium', 'annual', 'yearly'],
+            response: `⭐ Our **Annual Maintenance Plan** is our standout **Recommended Plan** at **€750/year**. It includes:\n\n• A pool of 24 hours to spend freely across the year\n• **Detailed Quarterly SEO reports** on site performance and audience\n• **Premium Hosting included**\n\nIt's the ultimate hassle-free solution. Shall we chat?`,
         },
         {
             keywords: ['domain', '.it', '.com', 'site name', 'url', 'web address'],
@@ -141,7 +141,7 @@ const knowledgeBases = {
     de: [
         {
             keywords: ['preis', 'preise', 'kosten', 'tarif', 'tarife', 'wieviel', 'budget', 'zahlen', 'ausgeben', 'gebühr'],
-            response: `Hier sind unsere Servicetarife:\n\n• **Erstberatung** — **Kostenlos** (persönlich oder online)\n• **Wartung Light** — ab **€40/Monat** (Hosting inklusive)\n• ⭐ **Wartung Pro** — ab **€55/Monat** (Empfohlener Plan! Alles inklusive + monatlicher Bericht)\n• **Nur Hosting** (ohne Wartung) — **€25/Monat**\n• **Individuelles Angebot** — Auf Anfrage\n• **Private Domain** — €10–€20/Jahr\n\nDer **Wartung Pro**-Plan ist unser beliebtester: beinhaltet alles aus dem Light-Plan, plus einen detaillierten monatlichen Bericht über Ihre Website-Performance!\n\nWenn Sie keine Wartung benötigen, kostet das Hosting für Ihre Website **€25/Monat**.\n\nMöchten Sie mehr Details zu einem bestimmten Service?`,
+            response: `Hier sind unsere Servicetarife:\n\n• **Erstberatung** — **Kostenlos** (persönlich oder online)\n• **Monatlicher Plan** — **€69/Monat** (Hosting + 2 Std. Support)\n• ⭐ **Jahresplan** — **€750/Jahr** (Empfohlener Plan! Sparen Sie Geld + 24 Std. flexibles Guthaben)\n• **Nur Hosting** (ohne Wartung) — **€25/Monat**\n• **Individuelles Angebot** — Auf Anfrage\n• **Private Domain** — €10–€20/Jahr\n\nMöchten Sie mehr Details zu einem bestimmten Service?`,
         },
         {
             keywords: ['beratung', 'kostenlos', 'gratis', 'analyse', 'treffen', 'gespräch', 'termin'],
@@ -149,15 +149,15 @@ const knowledgeBases = {
         },
         {
             keywords: ['webseite', 'website', 'seite', 'erstellen', 'neue seite', 'webdesign', 'schaufenster', 'angebot', 'individuell'],
-            response: `Für Ihr **Website-Projekt** beginnen wir mit einer **kostenlosen Beratung** zur Klärung Ihrer Anforderungen, gefolgt von einem **personalisierten Angebot**.\n\nJedes Projekt wird einzeln bewertet, um die beste Lösung zum fairsten Preis zu bieten.\n\nBeinhaltet professionelles Design, mobile-responsive Layout, SEO-Optimierung und rechtliche Konformität.\n\nKontaktieren Sie mich für eine kostenlose Beratung!`,
+            response: `Für Ihr **Website-Projekt (Showcase-Website ab €650)** beginnen wir mit einer **kostenlosen Beratung** zur Klärung Ihrer Anforderungen, gefolgt von einem **personalisierten Angebot**.\n\nJedes Projekt wird einzeln bewertet, um die beste Lösung zum fairsten Preis zu bieten.\n\nBeinhaltet professionelles Design, mobile-responsive Layout, SEO-Optimierung und rechtliche Konformität.\n\nKontaktieren Sie mich für eine kostenlose Beratung!`,
         },
         {
             keywords: ['abonnement', 'monatlich', 'wartung', 'aktualisierung', 'hosting', 'verwaltung', 'light'],
-            response: `Die **Wartung Light** beginnt ab **€40/Monat** und beinhaltet:\n\n• Kleinere technische Eingriffe und Updates\n• **Hosting inklusive** in der Monatsgebühr\n• Technischer Support\n\nEs gibt auch den ⭐ **Empfohlenen Plan: Wartung Pro** ab **€55/Monat** mit allem im Light-Plan, plus einem **detaillierten monatlichen Bericht** über Website-Leistung und Besuche.\n\nWenn Sie keine Wartung benötigen, kostet das Hosting für Ihre Website **€25/Monat**.\n\nWelcher Plan interessiert Sie?`,
+            response: `**Monatliche Wartung** kostet **€69/Monat** und beinhaltet:\n\n• Bis zu **2 Stunden/Monat** für Updates\n• **Premium Hosting inklusive**\n• Technischer Support und Backups\n\nEs gibt auch den empfehlenswerten ⭐ **Jahresplan** für **€750/Jahr**, der flexibler ist und alle 3 Monate Reports bietet.\n\nÜbrigens: Hinterlassen Sie mir gerne Feedback über den Button im Footer der Seite!`,
         },
         {
-            keywords: ['pro', 'empfohlen', 'bericht', 'monatlich', 'besuche', 'statistik', 'analytics', 'absprung', 'premium'],
-            response: `⭐ Die **Wartung Pro** ist unser **Empfohlener Plan** ab **€55/Monat** und beinhaltet:\n\n• Alles im Light-Wartungsplan\n• **Detaillierter monatlicher Bericht** über Website-Leistung\n• Analyse der **Besuche** und des Traffics\n• Überwachung der **Absprungrate**\n• **Hosting inklusive**\n\nEs ist die ideale Lösung für alle, die die Performance ihrer Website aktiv überwachen möchten!`,
+            keywords: ['pro', 'empfohlen', 'bericht', 'monatlich', 'besuche', 'statistik', 'analytics', 'absprung', 'premium', 'jahr'],
+            response: `⭐ Der **Jahresplan** für **€750/Jahr** ist unsere beste Lösung. Er enthält:\n\n• Einen Pool von 24 Stunden, der dynamisch genutzt werden kann\n• **Alle 3 Monate** ein detaillierter SEO- und Leistungsbericht\n• Premium-Hosting inklusive\n\nEs ist die ideale Lösung für alle, die eine schnelle und verlässliche Site wollen!`,
         },
         {
             keywords: ['domain', '.it', '.com', 'name', 'url', 'webadresse'],

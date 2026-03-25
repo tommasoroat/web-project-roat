@@ -193,7 +193,7 @@ function getMaintenanceHtml(locale) {
       opacity: 1;
     }
     .admin-backdoor img {
-      width: 80px;
+      width: 24px;
       height: auto;
       display: block;
     }

@@ -1,55 +1,58 @@
-# 👤 Progetto: Sito Personale & Listino Tariffe Professionali
+# 👤 Progetto: Sito Personale & Specifiche Tecniche
 
-Questo documento definisce le linee guida operative, i requisiti legali e il listino prezzi ufficiale per il mio sito web personale.
-
----
-
-## 💰 Listino Servizi & Tariffe (Trasparenza Totale)
-
-Le tariffe sono pensate per offrire flessibilità sia a chi cerca un investimento unico, sia a chi preferisce un canone mensile gestito.
-
-| Servizio | Tariffa Base | Note |
-| :--- | :--- | :--- |
-| **Consulenza Iniziale(di persona o online)** | **Gratis** | Analisi delle necessità e fattibilità progetto. |
-| **Manutenzione Light** | **da €40/mese** | Per piccoli ritocchi e aggiornamenti, inoltre l'hosting è incluso nel canone mensile. |
-| **Manutenzione Pro** | **da €55/mese** | Include tutti i servizi della manutenzione light. In + offre un report mensile sull’andamento e sulle visite del proprio sito. |
-| **Preventivo** | In seguito a consulenza per capire le ricieste del cliente e realizzare il suo sito  |
-| **Hosting** | **da €25/mese** | Se non hai bisogno della manutenzione, l'hosting per mettere online il tuo sito. |
-| **Dominio Privato** | **€10 - €20/anno** | Nome dell'esercizio commerciale o del brand, costo vivo di registrazione (es. .it, .com). |
-
-> **Nota per l'Agente:** Per i "lavori laboriosi", specifica sempre che il preventivo viene calcolato *ad hoc* in base alle richieste specifiche del cliente per garantire la massima equità.
+Questo documento definisce le linee guida operative, le specifiche tecniche e le condizioni commerciali per lo sviluppo e la manutenzione dei siti web.
 
 ---
 
-## 🛡️ Sicurezza e Protezione Dati
+## 1. Infrastruttura e Sicurezza
 
-Il sito deve riflettere la mia professionalità anche tecnicamente:
-- **HTTPS:** Certificato SSL attivo (essenziale per la fiducia del cliente).
-- **Rate Limiting:** Protezione sul form contatti per evitare spam e bot.
-- **Validazione:** Controllo rigoroso dei dati inseriti nei moduli di richiesta preventivo.
+L'architettura del servizio garantisce alte prestazioni e sicurezza del dato, distinguendo chiaramente i servizi inclusi da quelli a carico del cliente:
 
----
-
-## ⚖️ Conformità Legale & Accessibilità
-
-Essendo un sito professionale con listino prezzi, deve rispettare le normative vigenti:
-
-### 1. D.Lgs. 70/2003 (Trasparenza)
-Il footer deve contenere: Ragione Sociale (Nome Cognome), Sede Legale/Indirizzo, **Partita IVA**, e contatti diretti (Email/PEC).
-
-### 2. GDPR & Cookie (Privacy)
-- **Cookie Banner:** Deve bloccare i cookie non necessari fino al consenso.
-- **Privacy Policy:** Chiara spiegazione di come tratto i dati dei contatti.
-
-### 3. Accessibilità (WCAG 2.1 AA)
-- **Leggibilità:** Contrasto elevato per rendere il listino prezzi leggibile a tutti.
-- **Responsive:** Navigazione fluida da smartphone (fondamentale per i clienti in mobilità).
-- **Semantica:** Uso di titoli `<h1>`, `<h2>` e `<h3>` per una gerarchia chiara.
+- **Hosting Web (Incluso):** Compreso nel canone di manutenzione (valore fisso della quota hosting interno pari a 25€).
+- **Dominio (Escluso):** Il costo di registrazione e rinnovo del dominio è esplicitamente ESCLUSO dal canone (circa 10/20€ all'anno) e fatturato a parte. Non vi è alcun accorpamento di "Hosting e Dominio".
+- **Certificato SSL:** Attivazione e rinnovo automatico garantito per la cifratura delle comunicazioni.
+- **Backup Ridondati:** Sistemi di salvataggio dati automatici e distribuiti per la massima affidabilità.
+- **Patching di Sistema:** Aggiornamenti continui di sicurezza per server e librerie core.
 
 ---
 
-## 🏗️ Architettura Operativa
+## 2. Livelli di Servizio (SLA)
 
-1. **Direttive (`directives/`):** Contengono questo listino e il "tono di voce" del mio brand.
-2. **Esecuzione (`execution/`):** Script per l'ottimizzazione delle immagini del portfolio e la verifica periodica dei link esterni.
-3. **Design:** Utilizzo di **Next.js + Tailwind CSS** per garantire velocità di caricamento fulminea (fondamentale per il ranking su Google).
+I tempi di risposta e risoluzione sono codificati come segue:
+
+| Task | Tempistica Garantita |
+| :--- | :--- |
+| **Presa in carico richieste** | 24h |
+| **Ripristino critico** | 24-48h |
+| **Interventi ordinari** | 3-5gg |
+
+---
+
+## 3. Manutenzione Ordinaria vs Straordinaria
+
+### Manutenzione Ordinaria (Inclusa)
+Il piano comprende **2 interventi mensili** il cui perimetro prevede unicamente:
+- Aggiornamento testi e copy esistenti.
+- Ottimizzazione e sostituzione immagini.
+- Modifiche relative al CSS esistente.
+
+> **Clausola di Decadenza (Non cumulabilità):** I due interventi mensili non usufruiti nel mese fiscale in corso non sono in alcun modo cumulabili per le mensilità successive e decadono automaticamente.
+
+### Manutenzione Straordinaria (Fuori Quota)
+Qualsiasi intervento al di fuori del perimetro ordinario richiederà un'analisi di fattibilità e un preventivo a parte:
+- Sviluppo di nuove feature o nuove funzionalità.
+- Modifiche strutturali o query di aggiornamento al Database (DB).
+- Creazione e messa in produzione di nuove pagine.
+
+---
+
+## 4. Condizioni Commerciali
+
+### Opzioni di Pricing
+- **Sito Vetrina Base:** a partire da 650€ (Una Tantum).
+- **Opzione Mensile:** 69€/mese (Addebito automatico).
+- **Opzione Annuale:** 750€/anno (Risparmio di 78€ rispetto all'opzione mensile).
+
+### Clausole Contrattuali
+- **Sospensione del Servizio:** Il servizio verrà sospeso in automatico dopo 15gg lavorativi di insoluto documentato.
+- **Adeguamento Tariffe:** Qualsiasi rimodulazione del listino prezzi verrà comunicata per iscritto con un preavviso di 30gg.

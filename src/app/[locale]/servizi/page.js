@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import PricingTable from '@/components/PricingTable';
+import PricingSectionAnimated from '@/components/PricingSectionAnimated';
 import { getDictionary } from '@/lib/i18n';
 
 export const metadata = {
@@ -16,22 +16,22 @@ export default async function ServiziPage({ params }) {
     return (
         <>
             {/* Header */}
-            <section className="py-24 relative overflow-hidden" aria-label="Services header">
+            <section className="pt-24 pb-4 relative overflow-hidden" aria-label="Services header">
                 <div className="absolute inset-0 bg-gradient-to-b from-primary/8 to-transparent pointer-events-none" aria-hidden="true" />
                 <div className="section-container relative z-10 text-center">
                     <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">
                         {dict.pricingPreview.title1} <span className="gradient-text">{dict.pricingPreview.title2}</span>
                     </h1>
-                    <p className="text-text-secondary text-lg max-w-2xl mx-auto">
+                    <p className="text-text-secondary text-lg max-w-2xl mx-auto mb-2">
                         {dict.pricingPreview.subtitle}
                     </p>
                 </div>
             </section>
 
             {/* Pricing */}
-            <section className="pb-20" aria-label="Pricing table">
+            <section className="pb-16" aria-label="Pricing table">
                 <div className="section-container">
-                    <PricingTable dict={dict} locale={locale} />
+                    <PricingSectionAnimated dict={dict} locale={locale} />
                 </div>
             </section>
 
@@ -41,7 +41,7 @@ export default async function ServiziPage({ params }) {
                     <div className="flex justify-center mb-12">
                         <h2 className="text-2xl font-bold text-white bg-gradient-to-r from-primary to-primary-dark px-8 py-3 rounded-2xl shadow-lg shadow-primary/20">{sv.howItWorks || 'How it works'}</h2>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                         {(sv.steps || []).map((item) => (
                             <div key={item.step} className="glass-card p-6 text-center">
                                 <span className="text-4xl font-extrabold gradient-text block mb-3" aria-hidden="true">
@@ -55,34 +55,6 @@ export default async function ServiziPage({ params }) {
                 </div>
             </section>
 
-            {/* Table format for accessibility */}
-            <section className="py-20 border-t border-surface-600" aria-label="Pricing summary">
-                <div className="section-container">
-                    <div className="flex justify-center mb-8">
-                        <h2 className="text-2xl font-bold text-white bg-gradient-to-r from-primary to-primary-dark px-8 py-3 rounded-2xl shadow-lg shadow-primary/20">{sv.pricingSummary || 'Pricing Summary'}</h2>
-                    </div>
-                    <div className="overflow-x-auto">
-                        <table className="w-full text-left text-sm" role="table" aria-label="Services and pricing summary">
-                            <thead>
-                                <tr className="border-b border-surface-600">
-                                    {(sv.tableHeaders || ['Service', 'Base Price', 'Notes']).map((h, i) => (
-                                        <th key={i} className="py-4 px-4 text-text-primary font-semibold" scope="col">{h}</th>
-                                    ))}
-                                </tr>
-                            </thead>
-                            <tbody className="text-text-secondary">
-                                {(sv.tableRows || []).map((row, i) => (
-                                    <tr key={i} className={`border-b border-surface-700 hover:bg-surface-700/50 transition-colors ${row.highlight ? 'bg-amber-50/30' : ''}`}>
-                                        <td className="py-4 px-4 font-medium text-text-primary">{row.service}</td>
-                                        <td className={`py-4 px-4 font-bold ${row.priceClass || 'gradient-text'}`}>{row.price}</td>
-                                        <td className="py-4 px-4">{row.note}</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </section>
 
             {/* CTA */}
             <section className="py-20 bg-gradient-to-br from-primary/10 via-transparent to-accent/5" aria-label="Call to action">

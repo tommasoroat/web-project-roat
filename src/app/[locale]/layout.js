@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CookieBanner from '@/components/CookieBanner';
 import Chatbot from '@/components/Chatbot';
+import NeuralBackground from '@/components/ui/neural-background';
 import { getDictionary } from '@/lib/i18n';
 
 export const metadata = {
@@ -109,6 +110,7 @@ export default async function RootLayout({ children, params }) {
         <Footer dict={dict} locale={locale} />
         <CookieBanner />
         <Chatbot />
+        <NeuralBackground className="fixed inset-0 z-[-1] pointer-events-none" />
       </body>
     </html>
   );

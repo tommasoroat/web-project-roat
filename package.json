@@ -9,13 +9,21 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@number-flow/react": "^0.6.0",
+    "@radix-ui/react-label": "^2.1.8",
+    "@radix-ui/react-slot": "^1.2.4",
     "@upstash/redis": "^1.36.3",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "framer-motion": "^12.34.3",
     "html2pdf.js": "^0.14.0",
+    "lucide-react": "^1.6.0",
     "next": "16.1.6",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "resend": "^6.9.2"
+    "resend": "^6.9.2",
+    "tailwind-merge": "^3.5.0",
+    "vaul": "^1.1.2"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

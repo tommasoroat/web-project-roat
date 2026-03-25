@@ -63,6 +63,8 @@ function validateContactData(data) {
         'Informationen',
         'Beratung',
         'Angebot',
+        // System / Internal
+        'Feedback'
     ];
     if (!data.servizio || !validServices.includes(data.servizio)) {
         errors.push('Seleziona un servizio valido.');
@@ -95,39 +97,102 @@ async function sendEmail(sanitizedData) {
 
     const resend = new Resend(apiKey);
 
-    const htmlBody = `
-        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-            <h2 style="color: #0284c7; border-bottom: 2px solid #0284c7; padding-bottom: 10px;">
-                Nuova Richiesta di Contatto — RTD
-            </h2>
-            <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
-                <tr>
-                    <td style="padding: 8px 12px; font-weight: bold; color: #374151; width: 140px;">Nome:</td>
-                    <td style="padding: 8px 12px; color: #1f2937;">${sanitizedData.nome}</td>
-                </tr>
-                <tr style="background: #f3f4f6;">
-                    <td style="padding: 8px 12px; font-weight: bold; color: #374151;">Email:</td>
-                    <td style="padding: 8px 12px;"><a href="mailto:${sanitizedData.email}" style="color: #0284c7;">${sanitizedData.email}</a></td>
-                </tr>
-                <tr>
-                    <td style="padding: 8px 12px; font-weight: bold; color: #374151;">Telefono:</td>
-                    <td style="padding: 8px 12px; color: #1f2937;">${sanitizedData.telefono || '—'}</td>
-                </tr>
-                <tr style="background: #f3f4f6;">
-                    <td style="padding: 8px 12px; font-weight: bold; color: #374151;">Servizio:</td>
-                    <td style="padding: 8px 12px; color: #1f2937;">${sanitizedData.servizio}</td>
-                </tr>
-                <tr>
-                    <td style="padding: 8px 12px; font-weight: bold; color: #374151; vertical-align: top;">Messaggio:</td>
-                    <td style="padding: 8px 12px; color: #1f2937; white-space: pre-wrap;">${sanitizedData.messaggio}</td>
-                </tr>
-            </table>
-            <hr style="margin-top: 30px; border: none; border-top: 1px solid #e5e7eb;" />
-            <p style="color: #9ca3af; font-size: 12px; margin-top: 10px;">
-                Ricevuto il ${sanitizedData.timestamp} | IP: ${sanitizedData.ip} | Consenso privacy: ✅
-            </p>
+    let htmlBody = '';
+
+    if (sanitizedData.servizio === 'Feedback') {
+        const match = sanitizedData.messaggio.match(/\[RATING:\s*(\d)\s*Stelle\]\s*(.*)/is);
+        let rating = 5;
+        let reviewText = sanitizedData.messaggio;
+        
+        if (match) {
+            rating = parseInt(match[1], 10) || 5;
+            reviewText = match[2].trim();
+        }
+
+        const filledStars = '★'.repeat(rating);
+        const emptyStars = '★'.repeat(5 - rating);
+
+        htmlBody = `
+        <div style="background-color: #f8fafc; padding: 40px 20px;">
+            <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 500px; margin: 0 auto; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+                <div style="padding: 24px; text-align: center; border-bottom: 1px solid #f1f5f9;">
+                    <span style="display: block; font-size: 12px; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 1px;">Nuova Recensione Ricevuta</span>
+                    
+                    <div style="font-size: 32px; margin: 16px 0; letter-spacing: 2px;">
+                        <span style="color: #f59e0b;">${filledStars}</span><span style="color: #e2e8f0;">${emptyStars}</span>
+                    </div>
+                    
+                    <span style="display: inline-block; background-color: #fef3c7; color: #b45309; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600;">Voto: ${rating} / 5</span>
+                </div>
+                <div style="padding: 24px;">
+                    <div style="margin-bottom: 16px;">
+                        <span style="display: block; font-size: 11px; color: #94a3b8; text-transform: uppercase; font-weight: bold;">Autore Recensione</span>
+                        <span style="font-size: 15px; color: #1e293b; font-weight: 500;">${sanitizedData.nome}</span>
+                    </div>
+                    <div style="background: #f8fafc; padding: 16px; border-radius: 6px; border-left: 3px solid #f59e0b;">
+                        <span style="display: block; font-size: 11px; color: #94a3b8; text-transform: uppercase; font-weight: bold; margin-bottom: 6px;">Testo della recensione</span>
+                        <span style="font-size: 14px; color: #334155; font-style: italic; line-height: 1.5;">"${reviewText}"</span>
+                    </div>
+                </div>
+            </div>
         </div>
-    `;
+        `;
+    } else {
+        const dateObj = new Date(sanitizedData.timestamp);
+        const formattedDate = dateObj.toLocaleDateString('it-IT') + ' ' + dateObj.toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' });
+        
+        const telHtml = sanitizedData.telefono 
+            ? `<a href="tel:${sanitizedData.telefono}" style="font-size: 15px; color: #0f172a; text-decoration: none;">${sanitizedData.telefono}</a>`
+            : `<span style="font-size: 15px; color: #94a3b8;">Nessun telefono</span>`;
+
+        htmlBody = `
+        <div style="padding: 40px 20px; background-color: #f8fafc;">
+            <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-top: 4px solid #8ebce4; border-radius: 8px; background: #ffffff; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
+                
+                <div style="padding: 24px; border-bottom: 1px solid #f1f5f9; background-color: #f8fafc;">
+                    <h2 style="margin: 0; font-size: 20px; color: #0f172a;">Nuova Richiesta dal Sito Web</h2>
+                    <p style="margin: 6px 0 0 0; font-size: 13px; color: #64748b;">Dati inviati tramite il modulo contatti.</p>
+                </div>
+                
+                <div style="padding: 24px;">
+                    <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px;">
+                        <tr>
+                            <td style="padding: 10px 0; width: 50%; vertical-align: top;">
+                                <span style="display: block; font-size: 11px; text-transform: uppercase; color: #94a3b8; font-weight: 700; margin-bottom: 4px;">Nome e Cognome</span>
+                                <span style="font-size: 15px; color: #0f172a; font-weight: 500;">${sanitizedData.nome}</span>
+                            </td>
+                            <td style="padding: 10px 0; width: 50%; vertical-align: top;">
+                                <span style="display: block; font-size: 11px; text-transform: uppercase; color: #94a3b8; font-weight: 700; margin-bottom: 4px;">Servizio di interesse</span>
+                                <span style="display: inline-block; background: #e0f2fe; color: #0369a1; padding: 4px 10px; border-radius: 4px; font-size: 13px; font-weight: 600;">${sanitizedData.servizio}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px 0; width: 50%; vertical-align: top; border-top: 1px solid #f1f5f9;">
+                                <span style="display: block; font-size: 11px; text-transform: uppercase; color: #94a3b8; font-weight: 700; margin-bottom: 4px;">Email</span>
+                                <a href="mailto:${sanitizedData.email}" style="font-size: 15px; color: #0284c7; text-decoration: none;">${sanitizedData.email}</a>
+                            </td>
+                            <td style="padding: 10px 0; width: 50%; vertical-align: top; border-top: 1px solid #f1f5f9;">
+                                <span style="display: block; font-size: 11px; text-transform: uppercase; color: #94a3b8; font-weight: 700; margin-bottom: 4px;">Telefono</span>
+                                ${telHtml}
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div style="margin-bottom: 24px;">
+                        <span style="display: block; font-size: 11px; text-transform: uppercase; color: #94a3b8; font-weight: 700; margin-bottom: 8px;">Il messaggio</span>
+                        <div style="background-color: #f8fafc; padding: 16px; border-radius: 6px; border: 1px solid #e2e8f0; font-size: 14px; color: #334155; line-height: 1.6; white-space: pre-wrap;">${sanitizedData.messaggio}</div>
+                    </div>
+
+                    <div style="border-top: 1px solid #f1f5f9; padding-top: 16px; font-size: 11px; color: #94a3b8; line-height: 1.5;">
+                        <strong>Consenso Privacy:</strong> <span style="color: #50C878;">✓</span> Accettato<br>
+                        <strong>Log Sistema:</strong> ${formattedDate} | IP: ${sanitizedData.ip}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        `;
+    }
 
     const { data, error } = await resend.emails.send({
         from: 'RTD Website <onboarding@resend.dev>',

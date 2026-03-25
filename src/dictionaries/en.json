@@ -8,7 +8,7 @@
   "hero": {
     "badge": "Free Consultation",
     "title1": "Have you been dreaming of a",
-    "title2": "website",
+    "title2": "<span class=\"text-primary font-bold\">website</span>",
     "title3": "of your own or for your business?",
     "subtitle": "From design to launch, with total transparency on costs and services. Fast, secure, and compliant websites.",
     "ctaPrimary": "Request a Free Quote",
@@ -50,14 +50,14 @@
       "desc": "Analysis of needs and project feasibility. In person or online, no obligation."
     },
     "item2": {
-      "title": "Light Maintenance",
-      "price": "€40",
-      "desc": "For small adjustments and updates. Hosting included in the monthly fee."
+      "title": "Monthly Maintenance",
+      "price": "€69",
+      "desc": "2 interventions/month (texts/images/CSS). Hosting included (€25 value). Domain excluded."
     },
     "item3": {
-      "title": "Pro Maintenance",
-      "price": "€55",
-      "desc": "Includes all Maintenance Light services, plus a detailed monthly report on site performance and visits."
+      "title": "Yearly Maintenance",
+      "price": "€750",
+      "desc": "All monthly benefits with yearly billing (€78 saved). Hosting included (€25 value). Domain excluded."
     },
     "item4": {
       "title": "Quote",
@@ -305,6 +305,11 @@
         "step": "03",
         "title": "Development & Launch",
         "desc": "I develop your website turnkey: design, code, optimization, and deployment."
+      },
+      {
+        "step": "04",
+        "title": "Maintenance & Support",
+        "desc": "We highly recommend the annual or monthly maintenance plan to keep your site constantly online, secure, updated, and worry-free."
       }
     ],
     "pricingSummary": "Pricing Summary",
@@ -321,15 +326,15 @@
         "priceClass": "text-success"
       },
       {
-        "service": "Maintenance Light",
-        "price": "from €40/month",
-        "note": "For small adjustments and updates. Hosting included.",
+        "service": "Monthly Maintenance",
+        "price": "€69/month",
+        "note": "2 interventions/mo. Hosting included (€25 value). Domain excluded.",
         "priceClass": "gradient-text"
       },
       {
-        "service": "Maintenance Pro ⭐",
-        "price": "from €55/month",
-        "note": "Includes all Light services, plus monthly report on site performance and visits.",
+        "service": "Yearly Maintenance ⭐",
+        "price": "€750/year",
+        "note": "Save €78 vs monthly. Hosting included (€25 value). Domain excluded.",
         "priceClass": "gradient-text",
         "highlight": true
       },

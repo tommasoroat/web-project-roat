@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import FeedbackDrawer from '@/components/FeedbackDrawer';
 
 function CookiePreferencesButton({ label }) {
     return (
@@ -23,6 +24,12 @@ const cookiePrefLabels = {
     it: 'Rivedi preferenze cookie',
     en: 'Review cookie preferences',
     de: 'Cookie-Einstellungen überprüfen',
+};
+
+const feedbackLabels = {
+    it: 'Lascia un Feedback',
+    en: 'Leave Feedback',
+    de: 'Feedback geben',
 };
 
 /* Instagram SVG Icon — official outline style */
@@ -131,6 +138,13 @@ export default function Footer({ dict, locale }) {
                                 </li>
                                 <li>
                                     <CookiePreferencesButton label={cookiePrefLabels[locale] || cookiePrefLabels.it} />
+                                </li>
+                                <li>
+                                    <FeedbackDrawer>
+                                        <button className="text-text-secondary hover:text-primary-light transition-colors text-sm cursor-pointer bg-transparent border-none p-0 text-left">
+                                            {feedbackLabels[locale] || feedbackLabels.it}
+                                        </button>
+                                    </FeedbackDrawer>
                                 </li>
                             </ul>
                         </nav>

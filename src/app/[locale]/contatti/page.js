@@ -1,5 +1,7 @@
 import ContactForm from '@/components/ContactForm';
 import VacationBox from '@/components/VacationBox';
+import { ContactCard } from '@/components/ui/contact-card';
+import { Mail as MailIcon, MessageCircle as MessageCircleIcon, Clock as ClockIcon, Info as InfoIcon } from 'lucide-react';
 import { getDictionary } from '@/lib/i18n';
 import { getVacationState } from '@/lib/vacationState';
 
@@ -47,8 +49,8 @@ export default async function ContattiPage({ params }) {
             quoteTime: 'Preventivo: entro 48h lavorative',
             consultTime: 'Consulenza: su appuntamento',
             didYouKnow: 'Lo sapevi?',
-            priceInfo: 'Il sito vetrina parte da <strong class="text-text-primary">€400</strong> e la manutenzione da <strong class="text-text-primary">€40/mese</strong> (hosting incluso).',
-            hostingOnly: 'Se non hai bisogno della manutenzione, l\'hosting per mettere online il tuo sito costa <strong class="text-text-primary">€25/mese</strong>.',
+            priceInfo: 'Il sito vetrina parte da <strong class="text-text-primary">€650</strong> e la manutenzione da <strong class="text-text-primary">€69/mese</strong> (hosting incluso).',
+            hostingOnly: 'Se non hai bisogno della manutenzione, l\'hosting puro costa <strong class="text-text-primary">€25/mese</strong>. Il Dominio (il tuo indirizzo web) si rinnova a circa <strong class="text-text-primary">10/20€</strong> all\'anno.',
         },
         en: {
             email: 'Email',
@@ -60,8 +62,8 @@ export default async function ContattiPage({ params }) {
             quoteTime: 'Quote: within 48 business hours',
             consultTime: 'Consultation: by appointment',
             didYouKnow: 'Did you know?',
-            priceInfo: 'Showcase website starts from <strong class="text-text-primary">€400</strong> and maintenance from <strong class="text-text-primary">€40/month</strong> (hosting included).',
-            hostingOnly: 'If you don\'t need maintenance, hosting to put your site online costs <strong class="text-text-primary">€25/month</strong>.',
+            priceInfo: 'Showcase website starts from <strong class="text-text-primary">€650</strong> and maintenance from <strong class="text-text-primary">€69/month</strong> (hosting included).',
+            hostingOnly: 'If you don\'t need maintenance, pure hosting costs <strong class="text-text-primary">€25/month</strong>. Your Domain name roughly renews at <strong class="text-text-primary">10/20€</strong> per year.',
         },
         de: {
             email: 'E-Mail',
@@ -73,8 +75,8 @@ export default async function ContattiPage({ params }) {
             quoteTime: 'Angebot: innerhalb 48 Geschäftsstunden',
             consultTime: 'Beratung: nach Vereinbarung',
             didYouKnow: 'Wussten Sie?',
-            priceInfo: 'Showcase-Website ab <strong class="text-text-primary">€400</strong> und Wartung ab <strong class="text-text-primary">€40/Monat</strong> (Hosting inklusive).',
-            hostingOnly: 'Wenn Sie keine Wartung benötigen, kostet das Hosting für Ihre Website <strong class="text-text-primary">€25/Monat</strong>.',
+            priceInfo: 'Showcase-Website ab <strong class="text-text-primary">€650</strong> und Wartung ab <strong class="text-text-primary">€69/Monat</strong> (Hosting inklusive).',
+            hostingOnly: 'Wenn Sie keine Wartung benötigen, kostet das reine Hosting <strong class="text-text-primary">€25/Monat</strong>. Die Domain kostet ca. <strong class="text-text-primary">10/20€</strong> pro Jahr.',
         },
     };
 
@@ -100,74 +102,49 @@ export default async function ContattiPage({ params }) {
             {/* Contact section */}
             <section id="modulo-contatti" className="pb-24 scroll-mt-24" aria-label="Modulo di contatto">
                 <div className="section-container">
-                    <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-                        {/* Form or Vacation Box */}
-                        <div className="lg:col-span-3">
-                            {isVacation ? (
-                                <VacationBox message={vacationTexts[locale] || vacationTexts.it} />
-                            ) : (
-                                <div className="glass-card p-8">
-                                    <h2 className="text-xl font-bold text-text-primary mb-6">
-                                        {formTitle[locale] || formTitle.it}
-                                    </h2>
-                                    <ContactForm locale={locale} dict={dict} />
-                                </div>
-                            )}
+                    {isVacation ? (
+                        <div className="max-w-3xl mx-auto">
+                            <VacationBox message={vacationTexts[locale] || vacationTexts.it} />
                         </div>
-
-                        {/* Contact info sidebar */}
-                        <aside className="lg:col-span-2 space-y-6" aria-label="Informazioni di contatto">
-                            <div className="glass-card p-6">
-                                <h3 className="font-bold text-text-primary mb-4 flex items-center gap-2">
-                                    <span aria-hidden="true" className="w-5 h-5 flex justify-center items-center">@</span> {s.email}
-                                </h3>
-                                <a
-                                    href="mailto:info@rtd-solutions.eu"
-                                    className="text-primary-light hover:underline font-medium"
-                                >
-                                    info@rtd-solutions.eu
-                                </a>
-                                <p className="text-text-muted text-xs mt-2">
-                                    {s.emailReply}
-                                </p>
+                    ) : (
+                        <ContactCard 
+                            title={locale === 'it' ? 'Informazioni di Contatto' : locale === 'en' ? 'Contact Information' : 'Kontaktinformationen'}
+                            description={locale === 'it' ? 'Siamo a tua disposizione per qualsiasi domanda, consulenza o per discutere i dettagli del tuo nuovo progetto web.' : locale === 'en' ? 'We are at your disposal for any questions, consultation, or to discuss the details of your new web project.' : 'Wir stehen Ihnen für alle Fragen, Beratungen oder zur Besprechung der Details Ihres neuen Webprojekts zur Verfügung.'}
+                            contactInfo={[
+                                {
+                                    icon: MailIcon,
+                                    label: s.email,
+                                    value: `<a href="mailto:info@rtd-solutions.eu" class="text-primary-light hover:underline font-medium block mb-1">info@rtd-solutions.eu</a><span class="text-text-muted text-xs">${s.emailReply}</span>`
+                                },
+                                {
+                                    icon: MessageCircleIcon,
+                                    label: s.consultation,
+                                    value: `<span class="text-text-secondary">${s.consultationDesc}</span>`
+                                },
+                                {
+                                    icon: ClockIcon,
+                                    label: s.responseTimes,
+                                    value: `<ul class="space-y-1.5 pt-1 text-text-secondary">
+                                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-success rounded-full"></span>${s.emailTime}</li>
+                                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-warning rounded-full"></span>${s.quoteTime}</li>
+                                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-primary-light rounded-full"></span>${s.consultTime}</li>
+                                        </ul>`
+                                },
+                                {
+                                    icon: InfoIcon,
+                                    label: s.didYouKnow,
+                                    value: `<span class="text-text-secondary block mb-1">${s.priceInfo}</span><span class="text-text-secondary block mt-1">${s.hostingOnly}</span>`
+                                }
+                            ]}
+                        >
+                            <div className="w-full">
+                                <h2 className="text-xl md:text-2xl font-bold text-text-primary mb-6">
+                                    {formTitle[locale] || formTitle.it}
+                                </h2>
+                                <ContactForm locale={locale} dict={dict} />
                             </div>
-
-                            <div className="glass-card p-6">
-                                <h3 className="font-bold text-text-primary mb-4 flex items-center gap-2">
-                                    <span aria-hidden="true" className="w-5 h-5 flex justify-center items-center">✉️</span> {s.consultation}
-                                </h3>
-                                <p className="text-text-secondary text-sm" dangerouslySetInnerHTML={{ __html: s.consultationDesc }} />
-                            </div>
-
-                            <div className="glass-card p-6">
-                                <h3 className="font-bold text-text-primary mb-4 flex items-center gap-2">
-                                    <span aria-hidden="true" className="w-5 h-5 flex justify-center items-center">⏱</span> {s.responseTimes}
-                                </h3>
-                                <ul className="text-text-secondary text-sm space-y-2">
-                                    <li className="flex items-center gap-2">
-                                        <span className="w-1.5 h-1.5 bg-success rounded-full" aria-hidden="true" />
-                                        {s.emailTime}
-                                    </li>
-                                    <li className="flex items-center gap-2">
-                                        <span className="w-1.5 h-1.5 bg-warning rounded-full" aria-hidden="true" />
-                                        {s.quoteTime}
-                                    </li>
-                                    <li className="flex items-center gap-2">
-                                        <span className="w-1.5 h-1.5 bg-primary-light rounded-full" aria-hidden="true" />
-                                        {s.consultTime}
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div className="glass-card p-6 bg-gradient-to-br from-primary/10 to-accent/5">
-                                <h3 className="font-bold text-text-primary mb-2 flex items-center gap-2">
-                                    <span aria-hidden="true" className="w-5 h-5 flex justify-center items-center">!</span> {s.didYouKnow}
-                                </h3>
-                                <p className="text-text-secondary text-sm" dangerouslySetInnerHTML={{ __html: s.priceInfo }} />
-                                <p className="text-text-secondary text-sm mt-2" dangerouslySetInnerHTML={{ __html: s.hostingOnly }} />
-                            </div>
-                        </aside>
-                    </div>
+                        </ContactCard>
+                    )}
                 </div>
             </section>
         </>

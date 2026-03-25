@@ -1,93 +1,48 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
-import Link from 'next/link';
-import { useState, useEffect, useRef } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
+import { useTransition } from 'react';
 
 export default function LanguageSwitcher({ currentLocale }) {
     const pathname = usePathname();
-    const [isOpen, setIsOpen] = useState(false);
-    const dropdownRef = useRef(null);
+    const router = useRouter();
+    const [isPending, startTransition] = useTransition();
 
-    const locales = [
-        { code: 'it', label: 'IT' },
-        { code: 'de', label: 'DE' },
-        { code: 'en', label: 'EN' }
-    ];
+    const locales = ['it', 'de', 'en'];
 
-    // Helper to replace the locale in the current path
-    const redirectedPathName = (locale) => {
-        if (!pathname) return '/';
-        const segments = pathname.split('/');
-        segments[1] = locale;
-        return segments.join('/');
+    // Move to next locale cyclically: IT -> DE -> EN -> IT
+    const handleSwitch = () => {
+        const currentIndex = locales.indexOf(currentLocale);
+        const nextIndex = (currentIndex + 1) % locales.length;
+        const nextLocale = locales[nextIndex];
+
+        let targetPath = '/';
+        if (pathname) {
+            const segments = pathname.split('/');
+            segments[1] = nextLocale;
+            targetPath = segments.join('/');
+        } else {
+            targetPath = `/${nextLocale}`;
+        }
+        
+        startTransition(() => {
+            router.replace(targetPath);
+            router.refresh();
+        });
     };
 
-    // Close on click outside
-    useEffect(() => {
-        const handleClickOutside = (e) => {
-            if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-                setIsOpen(false);
-            }
-        };
-        if (isOpen) {
-            document.addEventListener('mousedown', handleClickOutside);
-            return () => document.removeEventListener('mousedown', handleClickOutside);
-        }
-    }, [isOpen]);
-
     return (
-        <div className="relative inline-block text-left" ref={dropdownRef}>
-            <div>
-                <button
-                    onClick={() => setIsOpen(!isOpen)}
-                    className="inline-flex justify-center w-full px-3 py-1.5 text-sm font-medium text-text-primary bg-surface-800 border border-primary/20 rounded-md hover:bg-surface-700 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-colors"
-                    id="language-menu-button"
-                    aria-expanded={isOpen}
-                    aria-haspopup="true"
-                >
-                    {locales.find((l) => l.code === currentLocale)?.label || 'IT'}
-                    <svg
-                        className="-mr-1 ml-1 h-5 w-5 text-text-secondary"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                        aria-hidden="true"
-                    >
-                        <path
-                            fillRule="evenodd"
-                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                            clipRule="evenodd"
-                        />
-                    </svg>
-                </button>
-            </div>
-
-            {isOpen && (
-                <div
-                    className="origin-top-right absolute right-0 top-full mt-0.5 w-24 rounded-md shadow-lg bg-surface-800 border border-primary/20 ring-1 ring-black ring-opacity-5 focus:outline-none z-50 overflow-hidden"
-                    role="menu"
-                    aria-orientation="vertical"
-                    aria-labelledby="language-menu-button"
-                    tabIndex="-1"
-                >
-                    <div className="p-1" role="none">
-                        {locales.map((locale) => (
-                            <Link
-                                href={redirectedPathName(locale.code)}
-                                key={locale.code}
-                                className={`block px-3 py-2 text-sm rounded-sm hover:bg-surface-700 hover:text-primary-light transition-colors ${currentLocale === locale.code ? 'text-primary-light font-bold bg-primary/10' : 'text-text-primary'
-                                    }`}
-                                role="menuitem"
-                                tabIndex={0}
-                                onClick={() => setIsOpen(false)}
-                            >
-                                {locale.label}
-                            </Link>
-                        ))}
-                    </div>
-                </div>
+        <button
+            onClick={handleSwitch}
+            disabled={isPending}
+            className={`inline-flex items-center justify-center px-4 py-1.5 min-w-[56px] text-sm font-bold tracking-wider text-text-primary bg-surface-800 border-2 border-primary/40 rounded-full hover:bg-surface-700 hover:border-primary focus:outline-none focus:ring-4 focus:ring-primary/30 transition-all duration-300 shadow-sm ${isPending ? 'opacity-50 cursor-not-allowed scale-95' : 'hover:scale-105 active:scale-95'}`}
+            aria-label={`Current language: ${currentLocale.toUpperCase()}. Click to switch language.`}
+        >
+            {isPending ? (
+                <span className="w-4 h-4 border-2 border-text-primary border-t-transparent rounded-full animate-spin"></span>
+            ) : (
+                currentLocale.toUpperCase()
             )}
-        </div>
+        </button>
     );
 }

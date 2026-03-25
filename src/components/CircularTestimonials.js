@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState, useMemo, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
+import Image from 'next/image';
 
 // ─── Multilingual testimonial data ───────────────────────────────────────────
 const reviewsData = {
@@ -113,7 +114,7 @@ function AvatarPlaceholder({ name, size = 280 }) {
                     <stop offset="100%" stopColor={c2} />
                 </linearGradient>
             </defs>
-            <rect width="280" height="280" rx="24" fill={`url(#${gradientId})`} />
+            <rect width="100%" height="100%" rx="24" fill={`url(#${gradientId})`} />
             <text
                 x="140"
                 y="150"
@@ -127,8 +128,7 @@ function AvatarPlaceholder({ name, size = 280 }) {
             >
                 {initials}
             </text>
-            {/* Decorative subtle ring */}
-            <circle cx="140" cy="140" r="110" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="2.5" />
+            {/* No decorative ring */}
         </svg>
     );
 }
@@ -297,7 +297,7 @@ export default function CircularTestimonials({ autoplay = true }) {
     };
 
     return (
-        <section className="ct-section" aria-label="Recensioni dei clienti" id="reviews">
+        <section className="ct-section bg-white rounded-[4rem] relative z-10 mx-4 sm:mx-8 lg:mx-auto max-w-7xl" aria-label="Recensioni dei clienti" id="reviews">
             {/* Section header */}
             <div className="ct-section-header">
                 <h2 className="text-3xl sm:text-4xl font-extrabold mb-4">
@@ -314,16 +314,36 @@ export default function CircularTestimonials({ autoplay = true }) {
                 <div className="ct-grid">
                     {/* Image Stack */}
                     <div className="ct-image-container" ref={imageContainerRef}>
-                        {testimonials.map((testimonial, index) => (
-                            <div
-                                key={testimonial.name}
-                                className="ct-image-card"
-                                data-index={index}
-                                style={getImageStyle(index)}
-                            >
-                                <AvatarPlaceholder name={testimonial.name} />
-                            </div>
-                        ))}
+                        {testimonials.map((testimonial, index) => {
+                            const isActive = index === activeIndex;
+                            const isLeft = (activeIndex - 1 + testimonialsLength) % testimonialsLength === index;
+                            const isRight = (activeIndex + 1) % testimonialsLength === index;
+
+                            if (!isActive && !isLeft && !isRight) return null;
+
+                            return (
+                                <div
+                                    key={testimonial.name}
+                                    className="ct-image-card bg-transparent"
+                                    data-index={index}
+                                    style={{ ...getImageStyle(index), background: 'transparent' }}
+                                >
+                                    {testimonial.image ? (
+                                        <div style={{ position: 'relative', width: '100%', height: '100%', borderRadius: '1.5rem', overflow: 'hidden' }}>
+                                            <Image
+                                                src={testimonial.image}
+                                                alt={testimonial.name}
+                                                fill
+                                                style={{ objectFit: 'cover' }}
+                                                sizes="(max-width: 768px) 100vw, 300px"
+                                            />
+                                        </div>
+                                    ) : (
+                                        <AvatarPlaceholder name={testimonial.name} />
+                                    )}
+                                </div>
+                            );
+                        })}
                     </div>
 
                     {/* Content */}

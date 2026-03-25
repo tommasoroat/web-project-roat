@@ -2,6 +2,10 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import { Button } from '@/components/ui/button';
 
 export default function ContactForm({ locale = 'it', dict = {} }) {
     const t = dict.contactForm || {};
@@ -159,17 +163,16 @@ export default function ContactForm({ locale = 'it', dict = {} }) {
             {/* Name + Email row */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div>
-                    <label htmlFor="contact-nome" className="block text-sm font-medium text-text-primary mb-2">
+                    <Label htmlFor="contact-nome" className="mb-2 block">
                         {t.nameLabel || 'Full Name'} <span className="text-error" aria-hidden="true">*</span>
-                    </label>
-                    <input
+                    </Label>
+                    <Input
                         id="contact-nome"
                         type="text"
                         name="nome"
                         value={formData.nome}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        className="form-input"
                         placeholder={t.namePlaceholder || 'Mario Rossi'}
                         required
                         aria-required="true"
@@ -182,17 +185,16 @@ export default function ContactForm({ locale = 'it', dict = {} }) {
                     )}
                 </div>
                 <div>
-                    <label htmlFor="contact-email" className="block text-sm font-medium text-text-primary mb-2">
+                    <Label htmlFor="contact-email" className="mb-2 block">
                         {t.emailLabel || 'Email'} <span className="text-error" aria-hidden="true">*</span>
-                    </label>
-                    <input
+                    </Label>
+                    <Input
                         id="contact-email"
                         type="email"
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        className="form-input"
                         placeholder={t.emailPlaceholder || 'mario@esempio.it'}
                         required
                         aria-required="true"
@@ -208,17 +210,16 @@ export default function ContactForm({ locale = 'it', dict = {} }) {
             {/* Phone + Service row */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div>
-                    <label htmlFor="contact-telefono" className="block text-sm font-medium text-text-primary mb-2">
+                    <Label htmlFor="contact-telefono" className="mb-2 block">
                         {t.phoneLabel || 'Phone'} <span className="text-text-muted text-xs">{t.phoneOptional || '(optional)'}</span>
-                    </label>
-                    <input
+                    </Label>
+                    <Input
                         id="contact-telefono"
                         type="tel"
                         name="telefono"
                         value={formData.telefono}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        className="form-input"
                         placeholder={t.phonePlaceholder || '+39 XXX XXX XXXX'}
                         aria-invalid={!!errors.telefono}
                         aria-describedby={errors.telefono ? 'error-telefono' : undefined}
@@ -228,16 +229,16 @@ export default function ContactForm({ locale = 'it', dict = {} }) {
                     )}
                 </div>
                 <div>
-                    <label htmlFor="contact-servizio" className="block text-sm font-medium text-text-primary mb-2">
+                    <Label htmlFor="contact-servizio" className="mb-2 block">
                         {t.serviceLabel || 'Service of interest'} <span className="text-error" aria-hidden="true">*</span>
-                    </label>
+                    </Label>
                     <select
                         id="contact-servizio"
                         name="servizio"
                         value={formData.servizio}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        className="form-input cursor-pointer"
+                        className="flex h-11 w-full rounded-lg border border-surface-600 bg-white/50 backdrop-blur-sm px-3 py-2 text-sm ring-offset-background cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:border-primary disabled:cursor-not-allowed disabled:opacity-50 transition-all font-sans"
                         required
                         aria-required="true"
                         aria-invalid={!!errors.servizio}
@@ -256,16 +257,15 @@ export default function ContactForm({ locale = 'it', dict = {} }) {
 
             {/* Message */}
             <div>
-                <label htmlFor="contact-messaggio" className="block text-sm font-medium text-text-primary mb-2">
+                <Label htmlFor="contact-messaggio" className="mb-2 block">
                     {t.messageLabel || 'Your message'} <span className="text-error" aria-hidden="true">*</span>
-                </label>
-                <textarea
+                </Label>
+                <Textarea
                     id="contact-messaggio"
                     name="messaggio"
                     value={formData.messaggio}
                     onChange={handleChange}
                     onBlur={handleBlur}
-                    className="form-input min-h-[140px] resize-y"
                     placeholder={t.messagePlaceholder || 'Describe your project or request...'}
                     required
                     aria-required="true"
@@ -310,14 +310,15 @@ export default function ContactForm({ locale = 'it', dict = {} }) {
             )}
 
             {/* Submit */}
-            <button
+            <Button
                 type="submit"
                 disabled={isSubmitDisabled}
-                className="btn-primary w-full justify-center text-base disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                className="w-full text-base"
+                size="lg"
             >
                 {status === 'submitting' ? (
                     <>
-                        <svg className="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                        <svg className="w-5 h-5 animate-spin mr-2" fill="none" viewBox="0 0 24 24" aria-hidden="true">
                             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth={4} />
                             <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                         </svg>
@@ -326,12 +327,12 @@ export default function ContactForm({ locale = 'it', dict = {} }) {
                 ) : (
                     <>
                         {t.submitButton || 'Send Request'}
-                        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                        <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                         </svg>
                     </>
                 )}
-            </button>
+            </Button>
 
             <p className="text-text-muted text-xs text-center mt-2">
                 {t.gdprDisclaimer || 'Your data will be processed in compliance with GDPR (EU Reg. 2016/679).'}

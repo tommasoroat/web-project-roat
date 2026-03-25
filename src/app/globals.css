@@ -267,6 +267,17 @@
     border-color: var(--color-error);
   }
 
+  /* Invoice input solid background override */
+  .invoice-generator .form-input {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+  }
+  .invoice-generator .form-input:focus {
+    background: #ffffff;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+  }
+
   /* Shooting star trail — CSS animation for GPU perf */
   .shooting-star-trail {
     background: linear-gradient(to right,
@@ -285,7 +296,7 @@
 
   /* ── Circular Testimonials ─────────────────────────────── */
   .ct-section {
-    padding: 5rem 0;
+    padding: 3rem 0 5rem 0;
     overflow: hidden;
   }
 
@@ -341,10 +352,10 @@
     width: 100%;
     height: 100%;
     border-radius: 1.5rem;
-    box-shadow:
-      0 10px 30px rgba(0, 0, 0, 0.12),
-      0 4px 12px rgba(186, 230, 253, 0.3);
     overflow: hidden;
+    background: transparent;
+    isolation: isolate;
+    box-shadow: none;
   }
 
   .ct-content {
@@ -506,13 +517,12 @@
   }
 
   .invoice-fieldset {
-    background: rgba(255, 255, 255, 0.35);
+    background: #ffffff;
     border: 1px solid rgba(255, 255, 255, 0.7);
     border-radius: 1.25rem;
     padding: 1.5rem;
     margin-bottom: 1.25rem;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
   }
 
   .invoice-legend {
@@ -554,11 +564,12 @@
 
   /* Voce card */
   .invoice-voce-card {
-    background: rgba(255, 255, 255, 0.25);
-    border: 1px solid rgba(255, 255, 255, 0.6);
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
     border-radius: 1rem;
     padding: 1.25rem;
     margin-bottom: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
     transition: box-shadow 0.2s ease;
   }
 
@@ -664,13 +675,12 @@
 
   /* Real-time summary */
   .invoice-realtime-summary {
-    background: rgba(255, 255, 255, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.7);
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
     border-radius: 1.25rem;
     padding: 1.25rem 1.5rem;
     margin-bottom: 1.25rem;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
   }
 
   .invoice-summary-line {
