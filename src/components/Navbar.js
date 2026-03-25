@@ -100,30 +100,33 @@ export default function Navbar({ dict, locale }) {
                     </li>
                 </ul>
 
-                {/* Mobile hamburger */}
-                <button
-                    className="md:hidden relative w-10 h-10 flex items-center justify-center rounded-lg hover:bg-surface-700 transition-colors"
-                    onClick={() => setIsOpen(!isOpen)}
-                    aria-expanded={isOpen}
-                    aria-controls="mobile-menu"
-                    aria-label={isOpen ? 'Chiudi menu di navigazione' : 'Apri menu di navigazione'}
-                >
-                    <span className="sr-only">{isOpen ? 'Chiudi menu' : 'Apri menu'}</span>
-                    <div className="w-5 flex flex-col gap-1">
-                        <span
-                            className={`block h-0.5 bg-text-primary transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-1.5' : ''
-                                }`}
-                        />
-                        <span
-                            className={`block h-0.5 bg-text-primary transition-all duration-300 ${isOpen ? 'opacity-0' : ''
-                                }`}
-                        />
-                        <span
-                            className={`block h-0.5 bg-text-primary transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-1.5' : ''
-                                }`}
-                        />
-                    </div>
-                </button>
+                {/* Mobile controls: Language + Hamburger */}
+                <div className="flex items-center gap-3 md:hidden">
+                    <LanguageSwitcher currentLocale={locale} />
+                    <button
+                        className="relative w-10 h-10 flex items-center justify-center rounded-lg hover:bg-surface-700 transition-colors"
+                        onClick={() => setIsOpen(!isOpen)}
+                        aria-expanded={isOpen}
+                        aria-controls="mobile-menu"
+                        aria-label={isOpen ? 'Chiudi menu di navigazione' : 'Apri menu di navigazione'}
+                    >
+                        <span className="sr-only">{isOpen ? 'Chiudi menu' : 'Apri menu'}</span>
+                        <div className="w-5 flex flex-col gap-1">
+                            <span
+                                className={`block h-0.5 bg-text-primary transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-1.5' : ''
+                                    }`}
+                            />
+                            <span
+                                className={`block h-0.5 bg-text-primary transition-all duration-300 ${isOpen ? 'opacity-0' : ''
+                                    }`}
+                            />
+                            <span
+                                className={`block h-0.5 bg-text-primary transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-1.5' : ''
+                                    }`}
+                            />
+                        </div>
+                    </button>
+                </div>
 
                 {/* Mobile menu */}
                 <div
@@ -150,9 +153,6 @@ export default function Navbar({ dict, locale }) {
                                 </Link>
                             </li>
                         ))}
-                        <li role="none" className="px-4 py-2 border-b border-primary/10">
-                            <LanguageSwitcher currentLocale={locale} />
-                        </li>
                         <li role="none" className="pt-2">
                             <Link
                                 href={`/${locale}/contatti`}
