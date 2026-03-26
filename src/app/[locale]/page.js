@@ -144,7 +144,7 @@ export default async function HomePage({ params }) {
       </StickyTabs>
 
       {/* Feedback Dedicated Section */}
-      <section className="pt-8 pb-20 bg-white rounded-b-[4rem] relative z-10" aria-label="Lascia un feedback">
+      <section className="pt-8 pb-20 bg-white rounded-b-[4rem] shadow-xl relative z-10" aria-label="Lascia un feedback">
         <div className="section-container text-center">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 text-primary mb-6">
             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
@@ -170,7 +170,7 @@ export default async function HomePage({ params }) {
 
 
       <div className="h-24 bg-transparent pointer-events-none" aria-hidden="true" />
-      
+
       <CircularTestimonials />
 
       {/* CTA Section */}
