@@ -297,7 +297,7 @@ export default function CircularTestimonials({ autoplay = true }) {
     };
 
     return (
-        <section className="ct-section bg-white rounded-[4rem] relative z-10 mx-4 sm:mx-8 lg:mx-auto max-w-7xl" aria-label="Recensioni dei clienti" id="reviews">
+        <section className="ct-section rounded-t-[4rem] relative z-10" style={{ background: 'linear-gradient(to bottom, #ffffff 70%, #e0f2fe 100%)' }} aria-label="Recensioni dei clienti" id="reviews">
             {/* Section header */}
             <div className="ct-section-header">
                 <h2 className="text-3xl sm:text-4xl font-extrabold mb-4">
@@ -335,7 +335,7 @@ export default function CircularTestimonials({ autoplay = true }) {
                                                 alt={testimonial.name}
                                                 fill
                                                 style={{ objectFit: 'cover' }}
-                                                sizes="(max-width: 768px) 100vw, 300px"
+                                                perep sizes="(max-width: 768px) 100vw, 300px"
                                             />
                                         </div>
                                     ) : (
